@@ -1,0 +1,126 @@
+.menu-form{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    transform: translateX(0);
+    transition: transform 0.5s;
+    overflow: hidden;
+}
+
+.menu-form-closed{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    transform: translateX(-100vw);
+    transition: transform 0.5s;
+    overflow: hidden;
+}
+
+.menu-content-side{
+    width: calc(50vw + 32px);
+    height: 100vh;
+    background-color:#111518;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .menu-content-side {
+        width: 100vw;
+    }
+  }
+
+@media (max-width: 540px) {
+    .menu-content-side {
+        display: block;
+}
+}
+
+.menu-transparent-side{
+    width: calc(50vw - 32px);
+    height: 100vh;
+    background-color: rgba(21, 27, 31, 0.81);
+}
+
+@media (max-width: 1024px) {
+    .menu-transparent-side {
+        display: none;
+    }
+  }
+
+.exit-btn{
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 17px;
+    top: 32px;
+}
+
+@media (max-width: 540px) {
+    .exit-btn {
+        top: 28px;
+        left: 28px;
+    }
+  }
+
+.menu-content-form{
+    color: white;
+    margin-left: 128px;
+}
+
+@media (max-width: 540px) {
+    .menu-content-form {
+        margin-left: 28px;
+        margin-top: 80px;
+    }
+  }
+
+.menu-content{
+    cursor: pointer;
+    width: fit-content;
+    font-family: "Roboto-Medium";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: #FFFFFF;
+    transition: color 0.3s;
+}
+
+.menu-content:not(:first-child){
+    margin-top: 10px;
+}
+
+.menu-content:hover{
+    color: #0EC261;
+}
+
+.media-icons{
+    display: flex;
+    margin-left: 128px;
+    margin-top: 34px;
+}
+
+@media (max-width: 540px) {
+    .media-icons {
+        margin-left: 28px;
+    }
+  }
+
+.media-icon{
+    cursor: pointer;
+}
+
+.media-icon:hover svg path{
+    fill:#0EC261;
+    transition: all 0.3s;
+}
+
+.media-icon:not(:first-child){
+    margin-left: 24px;
+}
