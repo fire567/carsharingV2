@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/carsharingV2/static/css/main.28f2d2bb.css",
-    "main.js": "/carsharingV2/static/js/main.6e3b3b15.js",
+    "main.js": "/carsharingV2/static/js/main.beb0bcab.js",
     "static/media/car4.svg": "/carsharingV2/static/media/car4.0d2c9f74cda9c8ac95586496869ba475.svg",
     "static/media/car1.svg": "/carsharingV2/static/media/car1.f576cc988319a8e8686d3c695f3aeb49.svg",
     "static/media/car3.svg": "/carsharingV2/static/media/car3.c0fc7cc7b0d005be70d3a088ffeff3b5.svg",
@@ -17,10 +17,10 @@
     "index.html": "/carsharingV2/index.html",
     "static/media/exit.svg": "/carsharingV2/static/media/exit.0ee221b768c6b22e4877aeeb9f41bdd7.svg",
     "main.28f2d2bb.css.map": "/carsharingV2/static/css/main.28f2d2bb.css.map",
-    "main.6e3b3b15.js.map": "/carsharingV2/static/js/main.6e3b3b15.js.map"
+    "main.beb0bcab.js.map": "/carsharingV2/static/js/main.beb0bcab.js.map"
   },
   "entrypoints": [
     "static/css/main.28f2d2bb.css",
-    "static/js/main.6e3b3b15.js"
+    "static/js/main.beb0bcab.js"
   ]
 }
