@@ -1,13 +1,13 @@
 import React from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import MainPageContent from "../../Components/MainPageContent/MainPageContent";
+import MainPageContent from "./MainPageContent/MainPageContent";
 import Carousel from "../../Components/Carousel/Carousel";
 import "./MainPage.css";
 
-const MainPage = () => {
+const MainPage = ({setIsOpened}) => {
     return(
         <div className="main-page-form">
-            <Sidebar />
+            <Sidebar setIsOpened={setIsOpened}/>
             <MainPageContent />
             <Carousel />
         </div>

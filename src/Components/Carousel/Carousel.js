@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import Slides from "./Slides/Slides";
+import {RIGHT_DIRECTION} from "../../consts"
 import "./Carousel.css";
 
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const changeSlideHandler = (direction) => {
-        direction === "right" ?  setCurrentSlide(
+        direction === RIGHT_DIRECTION ?  setCurrentSlide(
             currentSlide !== -300 ? currentSlide - 100 : 0
         ) : setCurrentSlide(
             currentSlide !== 0 ? currentSlide + 100 : -300) 

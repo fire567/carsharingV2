@@ -1,19 +1,18 @@
 import React from "react";
-import location from "../../assets/location.svg";
+import Header from "../../../Components/Header/Header";
+import { useHistory } from "react-router-dom";
 import "./MainPageContent.css";
 
 const MainPageContent = () => {
+    const history = useHistory()
+
+    const linkHandler = () => {
+        history.push("order-page/location")
+    }
+
     return(
         <div className="main-page-content-form">
-                <header className="main-page-content-header">
-                    <div className="logo">
-                        Need for drive
-                    </div>
-                    <div className="location">
-                        <div className="location-image" style={{backgroundImage: `url(${location})`}}></div>
-                        Ульяновск
-                    </div>
-                </header>
+                <Header />
                 <div className="main-page-content">
                     <div className="carsharing-text">
                         Каршеринг
@@ -24,7 +23,7 @@ const MainPageContent = () => {
                     <div className="purpose">
                         Поминутная аренда авто твоего города
                     </div>
-                    <button className="order-btn-form">
+                    <button className="order-btn-form" onClick={() => linkHandler()}>
                         Забронировать
                     </button>
                 </div>

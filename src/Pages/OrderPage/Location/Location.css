@@ -1,0 +1,21 @@
+.location-page-form{
+    width: calc(100vw - 64px);
+    height: 100vh;
+}
+
+@media (max-width: 540px) {
+    .location-page-form {
+        width: 100vw;
+    }
+  }
+
+
+.page-header{
+    margin: 0 64px 0 64px;
+}
+
+@media (max-width: 540px) {
+    .page-header{
+        margin: 0;
+    }
+  }

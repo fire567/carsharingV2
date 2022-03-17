@@ -27,53 +27,6 @@
     }
   }
 
-.main-page-content-header{
-    margin-top: 32px;
-    display: flex;
-    height: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-@media (max-width: 1278px) {
-    .main-page-content-header {
-        flex-direction: column;
-        align-items: flex-end;
-        margin-top: 24px;
-    }
-  }
-
-  @media (max-width: 540px) {
-    .main-page-content-header {
-        margin-right: 16px;
-    }
-  }
-
-.logo{
-    font-family: "Roboto-Bold";
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 35px;
-    color: #0EC261;
-}
-
-.location{
-    font-family: "Roboto-Regular";
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #999999;
-    display: flex;
-    align-items: center;
-}
-
-@media (max-width: 1278px) {
-    .location {
-        margin-top: 10px;
-    }
-  }
-
 .location-image{
     margin-right: 7.5px;
     width: 17px;
@@ -81,7 +34,8 @@
 }
 
 .carsharing-text{
-    font-family: "Roboto-Bold";
+    font-family: "Roboto";
+    font-weight: 700;
     font-size: 70px;
     line-height: 66px;
     color: #121212;
@@ -96,7 +50,8 @@
   }
 
 .big-logo{
-    font-family: "Roboto-Bold";
+    font-family: "Roboto";
+    font-weight: 700;
     font-size: 70px;
     line-height: 66px;
     color: #0EC261;
@@ -112,7 +67,8 @@
 
 .purpose{
     margin-top: 37px;
-    font-family: "Roboto-Light";
+    font-family: "Roboto";
+    font-weight: 300;
     font-size: 26px;
     line-height: 30px;
     color: #999999;
@@ -143,7 +99,8 @@
     line-height: 21px;
     text-align: center;
     color: #FFFFFF;
-    font-family: "Roboto-Medium";
+    font-family: "Roboto";
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -182,7 +139,7 @@
   }
 
 .cop-mark{
-    font-family: "Roboto-Regular";
+    font-family: "Roboto";
     font-weight: 400;
     font-size: 13px;
     line-height: 15px;
@@ -198,7 +155,7 @@
 
 .support-phone{
     cursor: pointer;
-    font-family: "Roboto-Regular";
+    font-family: "Roboto";
     font-weight: 400;
     font-size: 13px;
     line-height: 15px;

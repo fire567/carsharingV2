@@ -1,22 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MainPage from './Pages/MainPage/MainPage';
 import Menu from './Components/Menu/Menu';
-import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import { HashRouter } from "react-router-dom";
+import OrderPage from './Pages/OrderPage/OrderPage';
 import './App.css';
 
-function App({isMenuOpened}) {
+const App = () => {
+  const [isOpened, setIsOpened] = useState(false)
+
+  console.log(isOpened)
+
   return (
-    <div className="App">
-      <MainPage />
-      <Menu />
-    </div>
+    <HashRouter basename={process.env.PUBLIC_URL}>
+      <div className="App">
+        <Route path="/" exact>
+            <MainPage setIsOpened={setIsOpened}/>
+        </Route>
+        <Route path="/order-page/:name" component={OrderPage} exact/>
+        <Menu setIsOpened={setIsOpened} isOpened={isOpened}/>
+      </div>
+    </HashRouter>
   );
 }
 
-const mapStateToProps = (state) => {
-  return{
-    isMenuOpened: state.isMenuOpened,
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

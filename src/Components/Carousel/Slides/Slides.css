@@ -14,7 +14,7 @@
     height: 48px;
     color: #FFFFFF;
     margin-top: 32px;
-    font-family: 'Roboto-Medium';
+    font-family: 'Roboto';
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
@@ -29,7 +29,7 @@
 }
 
 .carousel-text{
-    font-family: 'Roboto-Light';
+    font-family: 'Roboto';
     margin-top: 8px;
     font-weight: 300;
     font-size: 24px;
@@ -46,7 +46,7 @@
 
 .carousel-header{
     margin-top: 235px;
-    font-family: 'Roboto-Medium';
+    font-family: 'Roboto';
     font-weight: 500;
     font-size: 40px;
     line-height: 47px;

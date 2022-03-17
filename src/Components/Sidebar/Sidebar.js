@@ -1,16 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
-import { setLanguage, switchMenu } from "../../actions";
+import React, {useState} from "react";
 import "./Sidebar.css";
 
-const Sidebar = ({setLanguage, language, switchMenu, isMenuOpened}) => {
+const Sidebar = ({setIsOpened}) => {
+    const [language, setLanguage] = useState(true)
 
     const changeLanguageHandler = () => {
         setLanguage(!language)
     }
 
     const activeMenuHandler = () => {
-        switchMenu(!isMenuOpened)
+        setIsOpened(true)
     }
 
     return(
@@ -36,16 +35,4 @@ const Sidebar = ({setLanguage, language, switchMenu, isMenuOpened}) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return{
-        language: state.language,
-        isMenuOpened: state.isMenuOpened,
-    }
-}
-
-export default connect(mapStateToProps,
-    {
-        setLanguage: setLanguage,
-        switchMenu: switchMenu,
-    }
-)(Sidebar);
+export default Sidebar;

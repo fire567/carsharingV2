@@ -1,32 +1,44 @@
 .menu-form{
+    top: 0;
     position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
-    top: 0;
-    transform: translateX(0);
-    transition: transform 0.5s;
-    overflow: hidden;
 }
 
 .menu-form-closed{
+    top: 0;
     position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
-    top: 0;
     transform: translateX(-100vw);
-    transition: transform 0.5s;
-    overflow: hidden;
 }
 
 .menu-content-side{
+    position: absolute;
+    z-index: 5;
     width: calc(50vw + 32px);
     height: 100vh;
     background-color:#111518;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: all 0.3s;
+    transform: translateX(0vw);
+}
+
+.menu-content-side-closed{
+    position: absolute;
+    z-index: 5;
+    width: calc(50vw + 32px);
+    height: 100vh;
+    background-color:#111518;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s;
+    transform: translateX(-100vw);
 }
 
 @media (max-width: 1024px) {
@@ -42,9 +54,20 @@
 }
 
 .menu-transparent-side{
-    width: calc(50vw - 32px);
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(21, 27, 31, 0.81);
+}
+
+.menu-transparent-side-closed{
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(21, 27, 31, 0.81);
+    display: none;
 }
 
 @media (max-width: 1024px) {
@@ -84,7 +107,7 @@
 .menu-content{
     cursor: pointer;
     width: fit-content;
-    font-family: "Roboto-Medium";
+    font-family: "Roboto";
     font-weight: 500;
     font-size: 32px;
     line-height: 38px;
