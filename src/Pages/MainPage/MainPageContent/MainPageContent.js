@@ -1,37 +1,32 @@
 import React from "react";
 import Header from "../../../Components/Header/Header";
-import { useHistory } from "react-router-dom";
-import "./MainPageContent.css";
+import classes from "./MainPageContent.module.css";
 
 const MainPageContent = () => {
-    const history = useHistory()
-
-    const linkHandler = () => {
-        history.push("order-page/location")
-    }
+    
 
     return(
-        <div className="main-page-content-form">
+        <div className={classes.main_page_content_form}>
                 <Header />
-                <div className="main-page-content">
-                    <div className="carsharing-text">
+                <div className={classes.main_page_content}>
+                    <div className={classes.carsharing_text}>
                         Каршеринг
                     </div>
-                    <div className="big-logo">
+                    <div className={classes.big_logo}>
                         Need for drive
                     </div>
-                    <div className="purpose">
+                    <div className={classes.purpose}>
                         Поминутная аренда авто твоего города
                     </div>
-                    <button className="order-btn-form" onClick={() => linkHandler()}>
+                    <button className={classes.order_btn_form}>
                         Забронировать
                     </button>
                 </div>
-                <footer className="main-page-content-footer">
-                    <div className="cop-mark">
+                <footer className={classes.main_page_content_footer}>
+                    <div className={classes.cop_mark}>
                         © 2016-2019 «Need for drive»
                     </div>
-                    <a className="support-phone">
+                    <a className={classes.support_phone}>
                         8 (495) 234-22-44
                     </a>
                 </footer>

@@ -1,4 +1,4 @@
-.main-page-content-form{
+.main_page_content_form{
     width: calc(50vw - 160px);
     height: 100vh;
     margin: 0 64px 0 64px;
@@ -8,32 +8,26 @@
 }
 
 @media (max-width: 1278px) {
-    .main-page-content-form {
+    .main_page_content_form {
         width: 59vw;
         margin: 0 32px 0 32px;
     }
   }
 
 @media (max-width: 1024px) {
-    .main-page-content-form {
+    .main_page_content_form {
         width: calc(100vw - 86px);
     }
   }
 
   @media (max-width: 540px) {
-    .main-page-content-form {
+    .main_page_content_form {
         margin: 0 32px 0 0;
         width: 100vw;
     }
   }
 
-.location-image{
-    margin-right: 7.5px;
-    width: 17px;
-    height: 20px;
-}
-
-.carsharing-text{
+.carsharing_text{
     font-family: "Roboto";
     font-weight: 700;
     font-size: 70px;
@@ -42,14 +36,14 @@
 }
 
 @media (max-width: 540px) {
-    .carsharing-text{
+    .carsharing_text{
         font-size: 32px;
         line-height: 100%;
         margin-left: 20px;
     }
   }
 
-.big-logo{
+.big_logo{
     font-family: "Roboto";
     font-weight: 700;
     font-size: 70px;
@@ -58,7 +52,7 @@
 }
 
 @media (max-width: 540px) {
-    .big-logo{
+    .big_logo{
         font-size: 32px;
         line-height: 100%;
         margin-left: 20px;
@@ -83,7 +77,7 @@
     }
   }
 
-.order-btn-form{
+.order_btn_form{
     margin-top: 60px;
     width: 250px;
     height: 48px;
@@ -105,7 +99,7 @@
 }
 
 @media (max-width: 540px) {
-    .order-btn-form{
+    .order_btn_form{
         border-radius: 0px;
         width: 100vw;
         margin-top: 32px;
@@ -113,22 +107,22 @@
     }
   }
 
-.order-btn-form:hover{
+.order_btn_form:hover{
     filter: brightness(90%);
 }
 
-.order-btn-form:active{
+.order_btn_form:active{
     filter: brightness(80%);
 }
 
-.main-page-content-footer{
+.main_page_content_footer{
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
 }
 
 @media (max-width: 540px) {
-    .main-page-content-footer {
+    .main_page_content_footer {
         height: 72px;
         background: #151B1F;
         margin-bottom: 0;
@@ -138,7 +132,7 @@
     }
   }
 
-.cop-mark{
+.cop_mark{
     font-family: "Roboto";
     font-weight: 400;
     font-size: 13px;
@@ -147,13 +141,13 @@
 }
 
 @media (max-width: 540px) {
-    .cop-mark {
+    .cop_mark {
         margin-bottom: 14px;
         color: #EEEEEE;
     }
   }
 
-.support-phone{
+.support_phone{
     cursor: pointer;
     font-family: "Roboto";
     font-weight: 400;
@@ -162,12 +156,12 @@
     color: #121212;
 }
 
-.support-phone:hover{
+.support_phone:hover{
     color: #0EC261;
 }
 
 @media (max-width: 540px) {
-    .support-phone {
+    .support_phone {
         margin-top: 14px;
         color: #EEEEEE;
     }

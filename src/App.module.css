@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+  }
+  
+  .app {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url(./Fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url(./Fonts/Roboto-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url(./Fonts/Roboto-Light.ttf);
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url(./Fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+  }

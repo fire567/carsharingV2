@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Slides from "./Slides/Slides";
-import {RIGHT_DIRECTION} from "../../consts"
-import "./Carousel.css";
+import {RIGHT_DIRECTION, LEFT_DIRECTION} from "../../consts"
+import classes from "./Carousel.module.css";
 
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
@@ -21,18 +21,18 @@ const Carousel = () => {
     ]
 
     return(
-        <div className="carousel-form">
+        <div className={classes.carousel_form}>
             <Slides position={currentSlide}/>
-            <div className="carousel-dots">
+            <div className={classes.carousel_dots}>
                 {dots.map((dot) => (
-                    <div className={currentSlide === dot.pos ? "active-dot" : "dot"} key={dot.id} onClick={() => setCurrentSlide(dot.pos)}></div>
+                    <div className={currentSlide === dot.pos ? classes.active_dot : classes.dot} key={dot.id} onClick={() => setCurrentSlide(dot.pos)}></div>
                 ))}
             </div>
-            <div className="left-btn" onClick={() => changeSlideHandler("left")}>
-                <div className="left-arrow"></div>
+            <div className={classes.left_btn} onClick={() => changeSlideHandler(LEFT_DIRECTION)}>
+                <div className={classes.left_arrow}></div>
             </div>
-            <div className="right-btn" onClick={() => changeSlideHandler("right")}>
-                <div className="right-arrow"></div>
+            <div className={classes.right_btn} onClick={() => changeSlideHandler(RIGHT_DIRECTION)}>
+                <div className={classes.right_arrow}></div>
             </div>
         </div>
     )

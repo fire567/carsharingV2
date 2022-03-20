@@ -1,4 +1,4 @@
-.menu-form{
+.menu_form{
     top: 0;
     position: absolute;
     width: 100vw;
@@ -6,16 +6,17 @@
     display: flex;
 }
 
-.menu-form-closed{
+.menu_form_closed{
     top: 0;
     position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
     transform: translateX(-100vw);
+    transition: all 0.3s
 }
 
-.menu-content-side{
+.menu_content_side{
     position: absolute;
     z-index: 5;
     width: calc(50vw + 32px);
@@ -28,7 +29,7 @@
     transform: translateX(0vw);
 }
 
-.menu-content-side-closed{
+.menu_content_side_closed{
     position: absolute;
     z-index: 5;
     width: calc(50vw + 32px);
@@ -42,18 +43,18 @@
 }
 
 @media (max-width: 1024px) {
-    .menu-content-side {
+    .menu_content_side {
         width: 100vw;
     }
   }
 
 @media (max-width: 540px) {
-    .menu-content-side {
+    .menu_content_side {
         display: block;
 }
 }
 
-.menu-transparent-side{
+.menu_transparent_side{
     z-index: 1;
     position: absolute;
     width: 100vw;
@@ -61,7 +62,7 @@
     background-color: rgba(21, 27, 31, 0.81);
 }
 
-.menu-transparent-side-closed{
+.menu_transparent_side_closed{
     z-index: 1;
     position: absolute;
     width: 100vw;
@@ -71,12 +72,12 @@
 }
 
 @media (max-width: 1024px) {
-    .menu-transparent-side {
+    .menu_transparent_side {
         display: none;
     }
   }
 
-.exit-btn{
+.exit_btn{
     cursor: pointer;
     position: absolute;
     width: 30px;
@@ -86,25 +87,25 @@
 }
 
 @media (max-width: 540px) {
-    .exit-btn {
+    .exit_btn {
         top: 28px;
         left: 28px;
     }
   }
 
-.menu-content-form{
+.menu_content_form{
     color: white;
     margin-left: 128px;
 }
 
 @media (max-width: 540px) {
-    .menu-content-form {
+    .menu_content_form {
         margin-left: 28px;
         margin-top: 80px;
     }
   }
 
-.menu-content{
+.menu_content{
     cursor: pointer;
     width: fit-content;
     font-family: "Roboto";
@@ -115,35 +116,35 @@
     transition: color 0.3s;
 }
 
-.menu-content:not(:first-child){
+.menu_content:not(:first-child){
     margin-top: 10px;
 }
 
-.menu-content:hover{
+.menu_content:hover{
     color: #0EC261;
 }
 
-.media-icons{
+.media_icons{
     display: flex;
     margin-left: 128px;
     margin-top: 34px;
 }
 
 @media (max-width: 540px) {
-    .media-icons {
+    .media_icons {
         margin-left: 28px;
     }
   }
 
-.media-icon{
+.media_icon{
     cursor: pointer;
 }
 
-.media-icon:hover svg path{
+.media_icon:hover svg path{
     fill:#0EC261;
     transition: all 0.3s;
 }
 
-.media-icon:not(:first-child){
+.media_icon:not(:first-child){
     margin-left: 24px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import location from "../../assets/location.svg";
-import "./Header.css";
+import classes from "./Header.module.css";
 
 const Header = () => {
     const history = useHistory()
@@ -11,12 +11,12 @@ const Header = () => {
     }
 
     return(
-        <header className="main-page-content-header">
-            <div className="logo" onClick={() => linkHandler()}>
+        <header className={classes.main_page_content_header}>
+            <div className={classes.logo} onClick={() => linkHandler()}>
                 Need for drive
             </div>
-            <div className="location">
-            <div className="location-image" style={{backgroundImage: `url(${location})`}}></div>
+            <div className={classes.location}>
+            <div className={classes.location_image} style={{backgroundImage: `url(${location})`}}></div>
                 Ульяновск
             </div>
         </header>

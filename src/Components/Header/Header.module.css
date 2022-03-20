@@ -1,4 +1,4 @@
-.main-page-content-header{
+.main_page_content_header{
     margin-top: 32px;
     display: flex;
     height: 32px;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 540px) {
-    .main-page-content-header {
+    .main_page_content_header {
         flex-direction: column;
         align-items: flex-end;
         margin-top: 24px;
@@ -16,7 +16,7 @@
   }
 
   @media (max-width: 540px) {
-    .main-page-content-header {
+    .main_page_content_header {
         margin-right: 16px;
     }
   }
@@ -45,3 +45,9 @@
         margin-top: 10px;
     }
   }
+
+.location_image{
+    margin-right: 7.5px;
+    width: 17px;
+    height: 20px;
+}

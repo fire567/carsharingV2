@@ -3,7 +3,7 @@ import car1 from "../../../assets/car1.svg";
 import car2 from "../../../assets/car2.svg";
 import car3 from "../../../assets/car3.svg";
 import car4 from "../../../assets/car4.svg";
-import "./Slides.css";
+import classes from "./Slides.module.css";
 
 
 const Slides = ({position}) => {
@@ -41,16 +41,16 @@ const Slides = ({position}) => {
 
     return(
         carouselItems.map((item) => (
-            <div className="carousel-content" key={item.id} style={{backgroundImage: `url(${item.img})`, transform: `translateX(${position}%)`}}>
-                <div className="dark-background"></div>
-                <div className="content-part">
-                    <div className="carousel-header">
+            <div className={classes.carousel_content} key={item.id} style={{backgroundImage: `url(${item.img})`, transform: `translateX(${position}%)`}}>
+                <div className={classes.dark_background}></div>
+                <div className={classes.content_part}>
+                    <div className={classes.carousel_header}>
                         {item.header}
                     </div>
-                    <div className="carousel-text">
+                    <div className={classes.carousel_text}>
                         {item.text}
                     </div>
-                    <button className="carousel-btn" style={{background: `${item.color}`}}>
+                    <button className={classes.carousel_btn} style={{background: `${item.color}`}}>
                         Подробнее
                     </button>
                 </div>
