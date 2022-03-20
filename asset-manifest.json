@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/carsharingV2/static/css/main.5f1bff49.css",
-    "main.js": "/carsharingV2/static/js/main.f45f7d70.js",
+    "main.css": "/carsharingV2/static/css/main.5c665e72.css",
+    "main.js": "/carsharingV2/static/js/main.d4b86068.js",
     "static/media/car4.svg": "/carsharingV2/static/media/car4.0d2c9f74cda9c8ac95586496869ba475.svg",
     "static/media/car1.svg": "/carsharingV2/static/media/car1.f576cc988319a8e8686d3c695f3aeb49.svg",
     "static/media/car3.svg": "/carsharingV2/static/media/car3.c0fc7cc7b0d005be70d3a088ffeff3b5.svg",
@@ -16,12 +16,11 @@
     "static/media/facebook.svg": "/carsharingV2/static/media/facebook.936a27e8720ce2f29c7706708435d666.svg",
     "index.html": "/carsharingV2/index.html",
     "static/media/exit.svg": "/carsharingV2/static/media/exit.0ee221b768c6b22e4877aeeb9f41bdd7.svg",
-    "static/media/triangle.svg": "/carsharingV2/static/media/triangle.ce81e7425fdbcb8e18e8475e250c5da8.svg",
-    "main.5f1bff49.css.map": "/carsharingV2/static/css/main.5f1bff49.css.map",
-    "main.f45f7d70.js.map": "/carsharingV2/static/js/main.f45f7d70.js.map"
+    "main.5c665e72.css.map": "/carsharingV2/static/css/main.5c665e72.css.map",
+    "main.d4b86068.js.map": "/carsharingV2/static/js/main.d4b86068.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f1bff49.css",
-    "static/js/main.f45f7d70.js"
+    "static/css/main.5c665e72.css",
+    "static/js/main.d4b86068.js"
   ]
 }
