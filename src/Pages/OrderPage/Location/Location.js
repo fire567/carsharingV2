@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import LocationInput from "../../../Components/LocationInput/LocationInput";
-import Map from "../../../Components/Map/Map";
+import Maps from "../../../Components/Map/Maps";
 import { getCities, getPoint } from "../../../Redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Location.module.css";
@@ -18,13 +18,18 @@ const Location = () => {
         dispatch(getPoint())
     }, [])
 
+    console.log(town)
+    console.log(point)
+
     useEffect(() => {
-        if(town.length > 1 && cities && points){
+        if(town && cities && points){
             setFilteredPoints(points.data.filter((item) => item.cityId ? item.cityId.name === town : null))
         }else{
             setFilteredPoints(points)
         }
     }, [town, cities])
+
+    //<Maps town={town.name} point={point.address}/>
 
     return(
         cities.data && points.data ?
@@ -34,7 +39,7 @@ const Location = () => {
                         label={"Город"} 
                         placeholder={"город"} 
                         setText={setTown} 
-                        text={town} 
+                        text={town.name ? town.name : town} 
                         items={cities.data}
                         disabled={false}
                     />
@@ -42,13 +47,13 @@ const Location = () => {
                         label={"Пункт выдачи"} 
                         placeholder={"пункт"} 
                         setText={setPoint} 
-                        text={point} 
+                        text={point.name ? point.name : point} 
                         items={filteredPoints} 
-                        disabled={town.length > 1 ? false : true}
+                        disabled={town ? false : true}
                     />
                 </div>
                 <div className={classes.map_part}>
-                    <Map />
+                    
                 </div>
             </> 
         : null

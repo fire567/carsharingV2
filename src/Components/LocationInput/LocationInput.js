@@ -48,7 +48,7 @@ const LocationInput = ({label, placeholder, setText, text, items, disabled}) => 
                     disabled={disabled}
                     placeholder={`Начните вводить ${placeholder} ...`}>
                 </input>
-                {text.length > 0 ? 
+                {text ? 
                     <span className={classes.close} onClick={() => deleteTextHandler()}></span> : null
                 }
                 {dropdown && !disabled ?
