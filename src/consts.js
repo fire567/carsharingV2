@@ -36,3 +36,10 @@ export const carouselItems = [
         color:"linear-gradient(90deg, #281349 0%, #720C7B 100%)"
      }
 ]
+
+export const links = [
+    {id: 0, name:"Местоположение", link:"location"},
+    {id: 1, name:"Модель", link:"model"},
+    {id: 2, name:"Дополнительно", link:"extra-opt"},
+    {id: 3, name:"Итого", link:"result"},
+]

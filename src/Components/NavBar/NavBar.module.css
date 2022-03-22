@@ -1,4 +1,4 @@
-.nav-bar-form{
+.nav_bar_form{
     margin-top: 32px;
     width: calc(100vw - 64 * 2px);
     padding-left: 64px;
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 580px) {
-    .nav-bar-form {
+    .nav_bar_form {
         padding-left: 0px;
         justify-content: center;
         width: calc(100vw - 64px);
@@ -18,23 +18,23 @@
   }
 
   @media (max-width: 540px) {
-    .nav-bar-form {
+    .nav_bar_form {
         width: 100vw;
         margin-top: 48px;
     }
   }
 
-.links-form{
+.links_form{
     display: flex;
 }
 
 @media (max-width: 580px) {
-    .links-form {
+    .links_form {
         display: none;
     }
   }
 
-.nav-link{
+.nav_link{
     display: flex;
     align-items: flex-end;
     text-decoration: none;
@@ -45,11 +45,26 @@
     font-weight: 700;
 }
 
-.nav-link:hover{
+.nav_link:hover{
     color: #0EC261;
 }
 
-.nav-link:not(:first-child){
+.nav_link:not(:first-child){
+    margin-left: 16px;
+}
+
+.nav_link_active{
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0EC261;
+    font-family: "Roboto";
+    font-weight: 700;
+}
+
+.nav_link_active:not(:first-child){
     margin-left: 16px;
 }
 
@@ -58,13 +73,13 @@
 }
 
 @media (min-width: 580px) {
-    .mobile-links-form {
+    .mobile_links_form {
         display: none;
     }
   }
 
   @media (max-width: 580px) {
-    .mobile-links-form {
+    .mobile_links_form {
         border: none;
         outline: none;
         font-family: "Roboto";
@@ -79,13 +94,13 @@
   }
 
   @media (max-width: 580px) {
-    .mobile-nav-link:hover{
+    .mobile_nav_link:hover{
         cursor: pointer;
         color: #0EC261
     }
   }
 
-  .links-popup{
+  .links_popup{
       position: absolute;
       margin-top: 7px;
       width: 130px;
@@ -94,7 +109,7 @@
       ;
   }
 
-  .nav-link-mobile{
+  .nav_link_mobile{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,21 +123,21 @@
     border-bottom: 0.5px solid #121212;
   }
 
-  .nav-link-mobile:hover{
+  .nav_link_mobile:hover{
       color: white;
       background-color: #0EC261;
   }
 
-  .nav-link-mobile:active{
+  .nav_link_mobile:active{
     color: white;
     background-color: #0EC261;
 }
 
-.down-arrow{
+.down_arrow{
     width: 4px;
     height: 4px;
     position: absolute;
-    margin-left: 120px;
+    margin-left: 5px;
     border: solid #121212;
     border-width: 0 2px 2px 0;
     display: inline-block;
@@ -131,11 +146,11 @@
     margin-top: 3px;
 }
 
-.up-arrow{
+.up_arrow{
     width: 4px;
     height: 4px;
     position: absolute;
-    margin-left: 120px;
+    margin-left: 5px;
     border: solid #121212;
     border-width: 0 2px 2px 0;
     display: inline-block;

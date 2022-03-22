@@ -1,12 +1,10 @@
 import { combineReducers } from "redux";
-import language from "./language";
-import isMenuOpened from "./isMenuOpened";
 import cities from "./cities";
 import point from "./point";
+import location from "./location";
 
 export default combineReducers({
-    language: language,
-    isMenuOpened: isMenuOpened,
     cities: cities,
     point: point,
+    location: location,
 })

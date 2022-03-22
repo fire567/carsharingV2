@@ -6,7 +6,7 @@ import { HashRouter } from "react-router-dom";
 import OrderPage from './Pages/OrderPage/OrderPage';
 import classes from "./App.module.css";
 
-const App = ({match}) => {
+const App = () => {
 
   const [isOpened, setIsOpened] = useState(false)
 

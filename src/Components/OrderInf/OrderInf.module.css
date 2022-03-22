@@ -1,4 +1,4 @@
-.order-inf-header{
+.order_inf_header{
     font-family: "Roboto";
     font-weight: 500;
     font-size: 18px;
@@ -8,19 +8,24 @@
     margin-top: 32px;
 }
 
-.all-order-inf{
+.all_order_inf{
     margin-top: 26px;
 }
 
-.inf-name{
+.inf_name{
+    display: flex;
+    align-items: flex-end;
+    width: fit-content;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
     color: #121212;
-    font-style: "Roboto";
+    font-family: "Roboto";
 }
 
-.inf-value{
+.inf_value{
+    width: 150px;
+    font-family: "Roboto";
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
@@ -28,19 +33,23 @@
     color: #999999;
 }
 
-.order-inf{
+.order_inf{
     display: flex;
     justify-content: space-between;
 }
 
-.dots-style{
+.order_inf_hidden{
+    display: none;
+}
+
+.dots_style{
     flex: 1;
     border-bottom: 2px dotted #999999;
     margin-left: 12px;
     margin-right: 12px;
 }
 
-.order-price-inf{
+.order_price_inf{
     margin-top: 32px;
     font-size: 16px;
     line-height: 16px;
@@ -48,17 +57,17 @@
     display: flex;
 }
 
-.order-price-header{
+.order_price_header{
     font-family: "Roboto";
     font-weight: 500;
 }
 
-.order-price{
+.order_price{
     font-family: "Roboto";
     font-weight: 400;
 }
 
-.order-inf-btn{
+.order_inf_btn{
     cursor: pointer;
     margin-top: 32px;
     background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
@@ -76,10 +85,10 @@
     font-style: "Roboto";
 }
 
-.order-inf-btn:hover{
+.order_inf_btn:hover{
     filter: brightness(90%);
 }
 
-.order-inf-btn:active{
+.order_inf_btn:active{
     filter: brightness(80%);
 }

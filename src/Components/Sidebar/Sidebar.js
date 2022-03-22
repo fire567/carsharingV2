@@ -4,7 +4,7 @@ import classes from "./Sidebar.module.css";
 const Sidebar = ({setIsOpened}) => {
     const [language, setLanguage] = useState(true)
 
-    const changeLanguageHandler = () => {
+    const isLanguageRussian = () => {
         setLanguage(!language)
     }
 
@@ -20,8 +20,8 @@ const Sidebar = ({setIsOpened}) => {
                     <div className={classes.vector}></div>
                     <div className={classes.vector}></div>
                 </div>
-                <div className={classes.change_language_form} onClick={() => changeLanguageHandler()}>
-                    {language === true ? "Рус" : "Eng"}
+                <div className={classes.change_language_form} onClick={() => isLanguageRussian()}>
+                    {language ? "Рус" : "Eng"}
                 </div>
             </div>
             <div className={classes.mobile_sidebar_form}>

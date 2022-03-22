@@ -6,8 +6,26 @@
     align-items: flex-end;
 }
 
+@media (max-width: 540px) {
+    .input_form{
+        margin-left: 8%;
+    }
+  }
+
 .map_part{
     height: calc(100vh - 130px - 85px);
     display: flex;
     align-items: center;
 }
+
+@media (max-width: 1160px) {
+    .map_part{
+        justify-content: center;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .map_part{
+        width: 100vw;
+    }
+  }

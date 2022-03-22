@@ -1,19 +1,5 @@
 import API from "../../apis/API"
 
-export const setLanguage = (language) => {
-    return{
-        type: "SET_LANGUAGE",
-        payload: language,
-    }
-}
-
-export const switchMenu = (isOpened) => {
-    return{
-        type: "SET_MENU",
-        payload: isOpened,
-    }
-}
-
 export const getCities = () => {
     return async (dispatch) => {
         const response = await API.get("city/")
@@ -33,5 +19,12 @@ export const getPoint = () => {
             type: "GET_POINT",
             payload: response.data,
         })
+    }
+}
+
+export const setLocation = (location) => {
+    return{
+        type: "SET_LOCATION",
+        payload: location,
     }
 }

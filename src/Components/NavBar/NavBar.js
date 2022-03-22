@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import triangle from "../../assets/triangle.svg";
+import { links } from "../../consts";
 import { ReactSVG } from "react-svg";
-import "./NavBar.css";
+import classes from "./NavBar.module.css";
 
 const NavBar = ({match}) => {
     const [popUp, setPopUp] = useState(false)
@@ -11,36 +12,29 @@ const NavBar = ({match}) => {
         setPopUp(!popUp)
     }
 
-    const links = [
-        {id: 0, name:"Местоположение", link:"location"},
-        {id: 1, name:"Модель", link:"model"},
-        {id: 2, name:"Дополнительно", link:"extra-opt"},
-        {id: 3, name:"Итого", link:"result"},
-    ]
-
     return(
-        <div className="nav-bar-form">
-            <div className="links-form">
+        <div className={classes.nav_bar_form}>
+            <div className={classes.links_form}>
                 {links.map((link) => (
                     <>
-                        <Link to={`${link.link}`} className="nav-link" key={link.id}>
+                        <Link to={`${link.link}`} className={match.name === link.link ? classes.nav_link_active : classes.nav_link} key={link.id}>
                             {link.name}
                         </Link>
-                        {link.id === 3 ? null : <ReactSVG src={triangle} className="triangles"/>}
+                        {link.id === 3 ? null : <ReactSVG src={triangle} className={classes.triangles}/>}
                     </>
                 ))}
             </div>
-            <div className="mobile-links-form" onClick={() => popUpHandler()}>
-                <div className={popUp === false ? "up-arrow" : "down-arrow"}></div>
+            <div className={classes.mobile_links_form} onClick={() => popUpHandler()}>
                 {links.map((link) => (
                     match.name === link.link ? link.name : null
                 ))
                 }
+                <div className={popUp === false ? classes.up_arrow : classes.down_arrow}></div>
                 {popUp === true ?  
-                    <div className="links-popup">
+                    <div className={classes.links_popup}>
                         {links.map((link) => (
                             match.name === link.link ? null : 
-                                <Link to={`${link.link}`} className="nav-link-mobile" key={link.id}>
+                                <Link to={`${link.link}`} className={classes.nav_link_mobile} key={link.id}>
                                     {link.name}
                                 </Link>
                             

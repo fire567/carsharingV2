@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import LocationInput from "../../../Components/LocationInput/LocationInput";
 import Maps from "../../../Components/Map/Maps";
-import { getCities, getPoint } from "../../../Redux/actions";
+import { getCities, getPoint, setLocation } from "../../../Redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Location.module.css";
 
@@ -10,16 +10,15 @@ const Location = () => {
     const cities = useSelector((state) => state.cities);
     const points = useSelector((state) => state.point);
     const [filteredPoints, setFilteredPoints] = useState(null)
+    const [filteredCities, setFilteredCities] = useState(null)
     const [town, setTown] = useState("");
     const [point, setPoint] = useState("");
+    const location = useSelector((state) => state.location)
 
     useEffect(() => {
         dispatch(getCities())
         dispatch(getPoint())
     }, [])
-
-    console.log(town)
-    console.log(point)
 
     useEffect(() => {
         if(town && cities && points){
@@ -27,9 +26,26 @@ const Location = () => {
         }else{
             setFilteredPoints(points)
         }
+
+        if(town){
+            setFilteredCities(cities.data.filter(item => item.name.toLowerCase().includes(town.toLowerCase())))
+        }else{
+            setFilteredCities(cities.data)
+        }
     }, [town, cities])
 
-    //<Maps town={town.name} point={point.address}/>
+    useEffect(() => {
+        if(town && point){
+            dispatch(setLocation({
+                town: town, 
+                point: point,
+            }))
+        }else{
+            dispatch(setLocation(null))
+        }
+    }, [town, point])
+
+    console.log(location)
 
     return(
         cities.data && points.data ?
@@ -39,21 +55,21 @@ const Location = () => {
                         label={"Город"} 
                         placeholder={"город"} 
                         setText={setTown} 
-                        text={town.name ? town.name : town} 
-                        items={cities.data}
+                        text={town} 
+                        items={filteredCities ? filteredCities : cities.data}
                         disabled={false}
                     />
                     <LocationInput 
                         label={"Пункт выдачи"} 
                         placeholder={"пункт"} 
                         setText={setPoint} 
-                        text={point.name ? point.name : point} 
+                        text={point} 
                         items={filteredPoints} 
                         disabled={town ? false : true}
                     />
                 </div>
                 <div className={classes.map_part}>
-                    
+                    <Maps town={town} point={point}/>
                 </div>
             </> 
         : null

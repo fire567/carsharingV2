@@ -1,33 +1,50 @@
 import React from "react";
-import "./OrderInf.css";
+import { useSelector } from "react-redux";
+import { links } from "../../consts";
+import classes from "./OrderInf.module.css";
 
-const OrderInf = () => {
+const OrderInf = ({match}) => {
+    const location = useSelector((state) => state.location)
+
+    const buttonHandler = () => {
+        let currentValue = "";
+        const filteredLinks = links.filter((item) => item.link === match.params.name)
+
+        if(filteredLinks.id + 1 !== 3){ 
+            currentValue = links[filteredLinks[0].id + 1].name
+        }else{
+            currentValue = "Заказать"
+        }
+
+        return currentValue
+    }
+
     return(
     <>
-        <div className="order-inf-header">
+        <div className={classes.order_inf_header}>
             Ваш заказ:
         </div>
-        <div className="all-order-inf">
-            <div className="order-inf">
-                <div className="inf-name">
+        <div className={classes.all_order_inf}>
+            <div className={location === null ? classes.order_inf_hidden : classes.order_inf}>
+                <div className={classes.inf_name}>
                     Пункт выдачи
                 </div>
-                <div className="dots-style">
+                <div className={classes.dots_style}>
                 </div>
-                <div className="inf-value">
-                    Ульянова, Наримовск 42
+                <div className={classes.inf_value}>
+                    {location ? `${location.town}, ${location.point}` : null}
                 </div>
             </div>
-            <div className="order-price-inf">
-                <div className="order-price-header">
+            <div className={classes.order_price_inf}>
+                <div className={classes.order_price_header}>
                     Цена:
                 </div>
-                <div className="order-price">
+                <div className={classes.order_price}>
                     от 8000 до 12000 ₽
                 </div>
             </div>
-            <button className="order-inf-btn">
-                Забронировать
+            <button className={classes.order_inf_btn}>
+                {buttonHandler()}
             </button>
         </div>
     </>

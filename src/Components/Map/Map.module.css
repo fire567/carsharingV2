@@ -3,3 +3,9 @@
     height: 352px;
     border: 1px solid black;
 }
+
+@media (max-width: 1160px) {
+    .map_form{
+        width: 60vw;
+    }
+  }

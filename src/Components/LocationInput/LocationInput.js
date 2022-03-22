@@ -54,8 +54,8 @@ const LocationInput = ({label, placeholder, setText, text, items, disabled}) => 
                 {dropdown && !disabled ?
                     <div className={classes.dropdown}>
                         {items.map((item) => (
-                            <li className={classes.current_item} key={item.id} onClick={() => dropdownHandler(item.name)}>
-                                {item.name}
+                            <li className={classes.current_item} key={item.id} onClick={() => dropdownHandler(item.address ? item.address : item.name)}>
+                                {item.address ? item.address : item.name}
                             </li>
                         ))}
                     </div> : null
