@@ -29,10 +29,10 @@ const Carousel = () => {
                 ))}
             </div>
             <div className={classes.left_btn} onClick={() => changeSlideHandler(LEFT_DIRECTION)}>
-                <div className={classes.left_arrow}></div>
+                <div className={classes.left_arrow} />
             </div>
             <div className={classes.right_btn} onClick={() => changeSlideHandler(RIGHT_DIRECTION)}>
-                <div className={classes.right_arrow}></div>
+                <div className={classes.right_arrow} />
             </div>
         </div>
     )
