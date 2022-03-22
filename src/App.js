@@ -1,11 +1,22 @@
+import React, {useState} from 'react';
+import MainPage from './Pages/MainPage/MainPage';
+import Menu from './Components/Menu/Menu';
+import { Route } from 'react-router-dom';
+import { HashRouter } from "react-router-dom";
+import classes from "./App.module.css";
 
-import './App.css';
+const App = () => {
+  const [isOpened, setIsOpened] = useState(false)
 
-function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <HashRouter basename={process.env.PUBLIC_URL}>
+      <div className={classes.app}>
+        <Route path="/" exact>
+            <MainPage setIsOpened={setIsOpened}/>
+        </Route>
+      <Menu setIsOpened={setIsOpened} isOpened={isOpened}/>
+      </div>
+    </HashRouter>
   );
 }
 
