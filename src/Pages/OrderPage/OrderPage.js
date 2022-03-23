@@ -6,6 +6,7 @@ import note from "../../assets/note.svg";
 import Location from "./Location/Location";
 import OrderInf from "../../Components/OrderInf/OrderInf";
 import OrderInfMobile from "../../Components/OrderInfMobile/OrderInfMobile";
+import Model from "./Model/Model";
 import { ReactSVG } from "react-svg";
 import { Route } from "react-router-dom";
 import classes from "./OrderPage.module.css";
@@ -29,6 +30,9 @@ const OrderPage = ({match, setIsOpened}) => {
                     <div className={classes.content_form}>
                         <Route path="/order-page/location" exact> 
                             <Location />
+                        </Route>
+                        <Route path="/order-page/model" exact> 
+                            <Model />
                         </Route>
                     </div>
                     <div className={classes.order_inf_form}>

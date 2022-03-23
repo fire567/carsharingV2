@@ -22,6 +22,17 @@ export const getPoint = () => {
     }
 }
 
+export const getCategory = () => {
+    return async (dispatch) => {
+        const response = await API.get("category/")
+
+        dispatch({
+            type: "GET_CATEGORY",
+            payload: response.data,
+        })
+    }
+}
+
 export const setLocation = (location) => {
     return{
         type: "SET_LOCATION",

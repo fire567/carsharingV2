@@ -27,6 +27,18 @@ const NavBar = ({match}) => {
                 return classes.nav_link_disabled
             }
         }
+
+        if(match.name === "model"){
+            if(link.link === match.name){
+                return classes.nav_link_active
+            }else if(link.id - 1 === currentLink[0].id){
+                return classes.nav_link
+            }else if(link.id < currentLink[0].id){
+                return classes.nav_link
+            }else {
+                return classes.nav_link_disabled
+            }
+        }
     }
 
     const mobileLinksStyleHandler = (link) => {
