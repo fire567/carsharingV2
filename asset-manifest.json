@@ -1,26 +1,28 @@
 {
   "files": {
-    "main.css": "/carsharingV2/static/css/main.5c665e72.css",
-    "main.js": "/carsharingV2/static/js/main.d4b86068.js",
-    "static/media/car4.svg": "/carsharingV2/static/media/car4.0d2c9f74cda9c8ac95586496869ba475.svg",
-    "static/media/car1.svg": "/carsharingV2/static/media/car1.f576cc988319a8e8686d3c695f3aeb49.svg",
-    "static/media/car3.svg": "/carsharingV2/static/media/car3.c0fc7cc7b0d005be70d3a088ffeff3b5.svg",
-    "static/media/car2.svg": "/carsharingV2/static/media/car2.b22e2cb2e299b457db30fa5dbfa19542.svg",
+    "main.css": "/carsharingV2/static/css/main.cad0704d.css",
+    "main.js": "/carsharingV2/static/js/main.9f9d1128.js",
+    "static/media/car4.svg": "/carsharingV2/static/media/car4.b5d628732997e078784dfa7fcde6667f.svg",
+    "static/media/car1.svg": "/carsharingV2/static/media/car1.b4325479a41fef6f6ac66f3c1c7d227a.svg",
+    "static/media/car3.svg": "/carsharingV2/static/media/car3.ec9133c40442f6380132df1c1fb49217.svg",
+    "static/media/car2.svg": "/carsharingV2/static/media/car2.27fda6cb0f5f81eaab107842bf7ec4e4.svg",
     "static/media/Roboto-Medium.ttf": "/carsharingV2/static/media/Roboto-Medium.7429a63c09f79a1760b0.ttf",
     "static/media/Roboto-Regular.ttf": "/carsharingV2/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
     "static/media/Roboto-Bold.ttf": "/carsharingV2/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
     "static/media/Roboto-Light.ttf": "/carsharingV2/static/media/Roboto-Light.8be2d1487420548b3b8d.ttf",
     "static/media/instagram.svg": "/carsharingV2/static/media/instagram.98094ec43567d0a8402f1c6fe5f9c96c.svg",
+    "static/media/note.svg": "/carsharingV2/static/media/note.b79fc2413bf99cf9662a98c4fc3585af.svg",
     "static/media/telegram.svg": "/carsharingV2/static/media/telegram.198f9ca6373aee9525ca6b1259639312.svg",
-    "static/media/location.svg": "/carsharingV2/static/media/location.a73e42ffd14b81bf030723e7f23d6eda.svg",
+    "static/media/location.svg": "/carsharingV2/static/media/location.7908a45d5ff0d42dede855f73432b932.svg",
     "static/media/facebook.svg": "/carsharingV2/static/media/facebook.936a27e8720ce2f29c7706708435d666.svg",
     "index.html": "/carsharingV2/index.html",
     "static/media/exit.svg": "/carsharingV2/static/media/exit.0ee221b768c6b22e4877aeeb9f41bdd7.svg",
-    "main.5c665e72.css.map": "/carsharingV2/static/css/main.5c665e72.css.map",
-    "main.d4b86068.js.map": "/carsharingV2/static/js/main.d4b86068.js.map"
+    "static/media/triangle.svg": "/carsharingV2/static/media/triangle.ce81e7425fdbcb8e18e8475e250c5da8.svg",
+    "main.cad0704d.css.map": "/carsharingV2/static/css/main.cad0704d.css.map",
+    "main.9f9d1128.js.map": "/carsharingV2/static/js/main.9f9d1128.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c665e72.css",
-    "static/js/main.d4b86068.js"
+    "static/css/main.cad0704d.css",
+    "static/js/main.9f9d1128.js"
   ]
 }
