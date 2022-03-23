@@ -1,23 +1,51 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { links } from "../../consts";
 import classes from "./OrderInf.module.css";
 
 const OrderInf = ({match}) => {
     const location = useSelector((state) => state.location)
+    const history = useHistory()
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
     const buttonHandler = () => {
-        let currentValue = "";
-        const filteredLinks = links.filter((item) => item.link === match.params.name)
+        let nextValue = "";
+        const filteredLinks = links.filter((item) => item.link == match.params.name)
 
-        if(filteredLinks.id + 1 !== 3){ 
-            currentValue = links[filteredLinks[0].id + 1].name
+        if(filteredLinks[0].id + 1 <= 3){ 
+            nextValue = links[filteredLinks[0].id + 1].name
         }else{
-            currentValue = "Заказать"
+            nextValue = "Заказать"
         }
 
-        return currentValue
+        return nextValue
     }
+
+    const linkHandler = () => {
+        const filteredLinks = links.filter((item) => item.link == match.params.name)
+
+        if(filteredLinks[0].id + 1 <= 3){ 
+            history.push(`${links[filteredLinks[0].id + 1].link}`)
+        }
+    }
+
+    useEffect(() => {
+        if(match.params.name === "location"){
+            location !== null ? setIsButtonDisabled(false) : setIsButtonDisabled(true)
+        }
+    }, [location])
+
+    /*Вставлю на странице с моделью
+        <div className={classes.order_price_inf}>
+                <div className={classes.order_price_header}>
+                    Цена:
+                </div>
+                <div className={classes.order_price}>
+                    от 8000 до 12000 ₽
+                </div>
+            </div>
+    */
 
     return(
     <>
@@ -35,15 +63,12 @@ const OrderInf = ({match}) => {
                     {location ? `${location.town}, ${location.point}` : null}
                 </div>
             </div>
-            <div className={classes.order_price_inf}>
-                <div className={classes.order_price_header}>
-                    Цена:
-                </div>
-                <div className={classes.order_price}>
-                    от 8000 до 12000 ₽
-                </div>
-            </div>
-            <button className={classes.order_inf_btn}>
+            
+            <button 
+                disabled={isButtonDisabled} 
+                className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn}
+                onClick={() => linkHandler()}
+            >
                 {buttonHandler()}
             </button>
         </div>

@@ -15,12 +15,13 @@
 .map_part{
     height: calc(100vh - 130px - 85px);
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 @media (max-width: 1160px) {
     .map_part{
-        justify-content: center;
+        align-items: center;
     }
   }
 
@@ -29,3 +30,9 @@
         width: 100vw;
     }
   }
+
+.map_header{
+    font-family: "Roboto";
+    font-weight: 300;
+    margin-bottom: 16px;
+}

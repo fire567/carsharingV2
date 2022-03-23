@@ -72,6 +72,18 @@
     margin-left: 16px;
 }
 
+.nav_link_disabled{
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+    font-family: "Roboto";
+    font-weight: 700;
+    margin-left: 16px;
+}
+
 @media (min-width: 580px) {
     .mobile_links_form {
         display: none;
@@ -104,9 +116,9 @@
       position: absolute;
       margin-top: 7px;
       width: 130px;
-      
+      z-index: 100;
+      background-color: white;
       border: 1px solid#121212;
-      ;
   }
 
   .nav_link_mobile{
@@ -131,6 +143,34 @@
   .nav_link_mobile:active{
     color: white;
     background-color: #0EC261;
+}
+
+.nav_link_mobile_active{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0EC261;
+    font-family: "Roboto";
+    font-weight: 700;
+    height: 24px;
+    border-bottom: 0.5px solid #121212;
+}
+
+.nav_link_mobile_disabled{
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: "Roboto";
+    font-weight: 700;
+    height: 24px;
+    border-bottom: 0.5px solid #121212;
 }
 
 .down_arrow{

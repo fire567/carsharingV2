@@ -13,7 +13,6 @@ const Location = () => {
     const [filteredCities, setFilteredCities] = useState(null)
     const [town, setTown] = useState("");
     const [point, setPoint] = useState("");
-    const location = useSelector((state) => state.location)
 
     useEffect(() => {
         dispatch(getCities())
@@ -45,8 +44,6 @@ const Location = () => {
         }
     }, [town, point])
 
-    console.log(location)
-
     return(
         cities.data && points.data ?
             <>
@@ -69,7 +66,10 @@ const Location = () => {
                     />
                 </div>
                 <div className={classes.map_part}>
-                    <Maps town={town} point={point}/>
+                    <div className={classes.map_header}>
+                        Выбрать на карте:
+                    </div>
+                    <Maps town={town} point={point} setTown={setTown} setPoint={setPoint}/>
                 </div>
             </> 
         : null

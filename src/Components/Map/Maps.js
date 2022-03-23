@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setLocation } from "../../Redux/actions";
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import classes from "./Map.module.css";
 
-const Maps = ({town, point}) => {
+const Maps = ({town, point, setTown, setPoint}) => {
+    const dispatch = useDispatch()
     const [currentPoint, setCurrentPoint] = useState(null)
     const [yamps, setYamps] = useState(null)
 
@@ -14,10 +17,33 @@ const Maps = ({town, point}) => {
         }
     }, [town, point])
 
+    const mapPointHandler = () => {
+        
+        if(currentPoint !== null){
+            yamps.geocode(currentPoint)
+                .then(res => {
+                        var nearest = res.geoObjects.get(0);
+                        setTown(nearest.properties.get("description").split(", ")[1]);
+                        setPoint(nearest.properties.get("name"))
+                        console.log()
+                    }
+                )
+        }else{
+            yamps.geocode([54.312280, 48.395406])
+                .then(res => {
+                        var nearest = res.geoObjects.get(0);
+                        setTown(nearest.properties.get("description").split(", ")[1]);
+                        setPoint(nearest.properties.get("name"))
+                        console.log()
+                    }
+                )
+        }
+    }
+
     return(
             <YMaps
                 query={{ 
-                    lang: 'en_RU',
+                    lang: 'ru_RU',
                     apikey: "33acfd5b-ed70-42eb-9384-bf3e617c248b"
                 }}
             >
@@ -25,16 +51,15 @@ const Maps = ({town, point}) => {
                     <Map
                         modules={["geocode"]}
                         onLoad={(ymaps) => {setYamps(ymaps)}}
-                        defaultState={{ center: [54.328, 48.386], zoom: 13 }} 
-                        state={{center: currentPoint ? currentPoint : [54.328, 48.386], zoom: 13}}
+                        state={{center: currentPoint ? currentPoint : [54.312280, 48.395406], zoom: 13}}
                         width={"100%"}
                         height={"352px"}
                     >
                         <Placemark 
                             options={{preset:'islands#circleIcon', iconColor:"#0EC261"}}
                             iconColor='#3caa3c'
-                            defaultGeometry={[54.328, 48.386]}
-                            geometry={currentPoint}
+                            geometry={currentPoint ? currentPoint : [54.312280, 48.395406]}
+                            onClick={() => mapPointHandler()}
                         />
                     </Map>
                 </div>
