@@ -1,26 +1,28 @@
-import React, {useState} from "react";
-import Slides from "./Slides/Slides";
-import {RIGHT_DIRECTION, LEFT_DIRECTION} from "../../consts"
-import classes from "./Carousel.module.css";
+/* eslint-disable no-unused-expressions */
+import React, { useState } from 'react';
+import Slides from './Slides/Slides';
+import { RIGHT_DIRECTION, LEFT_DIRECTION } from '../../consts';
+import classes from './Carousel.module.css';
 
 const Carousel = () => {
-    const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-    const changeSlideHandler = (direction) => {
-        direction === RIGHT_DIRECTION ?  setCurrentSlide(
-            currentSlide !== -300 ? currentSlide - 100 : 0
-        ) : setCurrentSlide(
-            currentSlide !== 0 ? currentSlide + 100 : -300) 
-    }
+  const changeSlideHandler = (direction) => {
+    direction === RIGHT_DIRECTION ? setCurrentSlide(
+      currentSlide !== -300 ? currentSlide - 100 : 0,
+    ) : setCurrentSlide(
+      currentSlide !== 0 ? currentSlide + 100 : -300,
+    );
+  };
 
-    const dots = [
-        {id:0, pos: 0},
-        {id:1, pos: -100},
-        {id:2, pos: -200},
-        {id:3, pos: -300},
-    ]
+  const dots = [
+    { id: 0, pos: 0 },
+    { id: 1, pos: -100 },
+    { id: 2, pos: -200 },
+    { id: 3, pos: -300 },
+  ];
 
-    return(
+  return (
         <div className={classes.carousel_form}>
             <Slides position={currentSlide}/>
             <div className={classes.carousel_dots}>
@@ -35,7 +37,7 @@ const Carousel = () => {
                 <div className={classes.right_arrow} />
             </div>
         </div>
-    )
-}
+  );
+};
 
 export default Carousel;

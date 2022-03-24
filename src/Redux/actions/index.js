@@ -1,26 +1,22 @@
-import API from "../../apis/API"
+import API from '../../apis/API';
 
-export const getCities = () => {
-    return async (dispatch) => {
-        const response = await API.get("city/")
+export const getCities = () => async (dispatch) => {
+  const response = await API.get('city/');
 
-        dispatch({
-            type: "GET_CITIES",
-            payload: response.data,
-        })
-    }
-}
+  dispatch({
+    type: 'GET_CITIES',
+    payload: response.data,
+  });
+};
 
-export const getPoint = () => {
-    return async (dispatch) => {
-        const response = await API.get("point/")
+export const getPoint = () => async (dispatch) => {
+  const response = await API.get('point/');
 
-        dispatch({
-            type: "GET_POINT",
-            payload: response.data,
-        })
-    }
-}
+  dispatch({
+    type: 'GET_POINT',
+    payload: response.data,
+  });
+};
 
 export const getCategory = () => {
     return async (dispatch) => {

@@ -91,12 +91,9 @@
         border: 1px solid #999999;
         box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, .2);
         border-radius: 50%;
+        background-color: white;
     }
   }
-
-.mobile_inf_btn{
-    filter: brightness(80%);
-}
 
 .mobile_inf_btn:hover{
     background-color: #0EC261;

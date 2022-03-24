@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Route, HashRouter } from 'react-router-dom';
 import MainPage from './Pages/MainPage/MainPage';
 import Menu from './Components/Menu/Menu';
-import { Route } from 'react-router-dom';
-import { HashRouter } from "react-router-dom";
 import OrderPage from './Pages/OrderPage/OrderPage';
-import classes from "./App.module.css";
+import classes from './App.module.css';
 
 const App = () => {
-
-  const [isOpened, setIsOpened] = useState(false)
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
     <HashRouter basename={process.env.PUBLIC_URL}>
@@ -21,6 +19,6 @@ const App = () => {
       </div>
     </HashRouter>
   );
-}
+};
 
 export default App;
