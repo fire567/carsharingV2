@@ -46,6 +46,10 @@
     justify-content: space-between;
 }
 
+.order_inf_hidden{
+    display: none;
+}
+
 .dots_style{
     flex: 1;
     border-bottom: 2px dotted #999999;
@@ -75,6 +79,24 @@
     cursor: pointer;
     margin-top: 32px;
     background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+    background-blend-mode: darken;
+    border-radius: 8px;
+    height: 48px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+    font-style: "Roboto";
+}
+
+.order_inf_btn_disabled{
+    cursor: pointer;
+    margin-top: 32px;
+    background: #EEEEEE;
     background-blend-mode: darken;
     border-radius: 8px;
     height: 48px;

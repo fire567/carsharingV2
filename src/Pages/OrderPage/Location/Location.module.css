@@ -14,20 +14,21 @@
 
 .map_part{
     height: calc(100vh - 130px - 85px);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    margin-top: 48px;
 }
 
 @media (max-width: 1160px) {
     .map_part{
-        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
   }
 
   @media (max-width: 540px) {
     .map_part{
+        align-items: center;
         width: 100vw;
+        margin-top: 24px;
     }
   }
 

@@ -1,18 +1,16 @@
-import React from "react";
-import Header from "../../../Components/Header/Header";
-import classes from "./MainPageContent.module.css";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import Header from '../../../Components/Header/Header';
+import classes from './MainPageContent.module.css';
 
 const MainPageContent = () => {
+  const history = useHistory();
 
-    const history = useHistory()
+  const linkHandler = () => {
+    history.push('order-page/location');
+  };
 
-    const linkHandler = () => {
-        history.push("order-page/location")
-    }
-    
-
-    return(
+  return (
         <div className={classes.main_page_content_form}>
                 <Header />
                 <div className={classes.main_page_content}>
@@ -38,7 +36,7 @@ const MainPageContent = () => {
                     </a>
                 </footer>
         </div>
-    )
-}
+  );
+};
 
 export default MainPageContent;
