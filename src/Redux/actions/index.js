@@ -33,6 +33,21 @@ export const getCategory = () => {
     }
 }
 
+export const getCars = () => {
+    return async (dispatch) => {
+        const response = await API.get("car/", {
+            params:{
+                limit: 5,
+            }
+        })
+
+        dispatch({
+            type: "GET_CARS",
+            payload: response.data,
+        })
+    }
+}
+
 export const setLocation = (location) => {
     return{
         type: "SET_LOCATION",

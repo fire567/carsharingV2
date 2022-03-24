@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FilterCars from "../../../Components/filterCars/FilterCars";
-import { getCategory } from "../../../Redux/actions";
+import CarsList from "../../../Components/CarsList/CarsList";
+import { getCategory, getCars } from "../../../Redux/actions";
 import classes from "./Model.module.css";
 
 const Model = () => {
@@ -11,6 +12,7 @@ const Model = () => {
 
     useEffect(() => {
         dispatch(getCategory())
+        dispatch(getCars())
     }, [])
 
     const isPopUpOpenedHandler = () => {
@@ -35,6 +37,9 @@ const Model = () => {
                     <div className={isPopUpOpened ? classes.triangle_right : classes.triangle_left}>
                     </div>
                 </div>
+            </div>
+            <div className={classes.cars_list_form}>
+                <CarsList />
             </div>
         </>
         : null

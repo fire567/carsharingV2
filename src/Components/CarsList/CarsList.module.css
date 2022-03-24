@@ -1,0 +1,28 @@
+.car_form{
+    width: 367px;
+    height: 224px;
+    padding: 16px;
+}
+
+.car_form:hover{
+    width: 367px;
+    height: 224px;
+    padding: 15px;
+    border: 1px solid #999999;
+}
+
+.model_name{
+    font-family: "Regular";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #121212;
+}
+
+.price{
+    font-family: "Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+}

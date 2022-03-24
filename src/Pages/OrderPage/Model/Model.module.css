@@ -87,3 +87,11 @@
     border-bottom: 5px solid transparent;
     border-left: 9px solid #0EC261;
 }   
+
+.cars_list_form{
+    overflow-y: scroll;
+    width: 734px;
+    display: grid;
+    margin-top: 48px;
+    height: calc(100vh - 184px - 48px);
+}
