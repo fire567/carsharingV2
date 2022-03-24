@@ -33,7 +33,7 @@ export const getCars = () => {
     return async (dispatch) => {
         const response = await API.get("car/", {
             params:{
-                limit: 5,
+                limit: 10,
             }
         })
 

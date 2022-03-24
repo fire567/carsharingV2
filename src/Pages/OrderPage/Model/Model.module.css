@@ -90,8 +90,19 @@
 
 .cars_list_form{
     overflow-y: scroll;
-    width: 734px;
     display: grid;
+    width: 741px;
+    grid-template-columns: 368px 368px;
     margin-top: 48px;
     height: calc(100vh - 184px - 48px);
+}
+
+.cars_list_form::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+.cars_list_form::-webkit-scrollbar-thumb {
+    background-color: #0EC261;
+    border-radius: 9em;
 }

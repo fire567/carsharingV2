@@ -8,29 +8,30 @@ import classes from './Model.module.css';
 const Model = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories);
+  const cars = useSelector((state) => state.cars);
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
 
   useEffect(() => {
     dispatch(getCategory());
     dispatch(getCars());
-  }, []);
+  }, [dispatch]);
 
   const isPopUpOpenedHandler = () => {
     setIsPopUpOpened(!isPopUpOpened);
   };
 
   return (
-    categories
+    categories && cars
       ? <>
             <div className={classes.flter_items_form}>
                 {categories.data.map((category) => (
-                    <FilterCars name={category.name} setIsPopUpOpened={setIsPopUpOpened}/>
+                  <FilterCars name={category.name} key={category.id} setIsPopUpOpened={setIsPopUpOpened}/>
                 ))
                 }
             </div>
             <div className={isPopUpOpened ? classes.mobile_flter_items_form_closed : classes.mobile_flter_items_form}>
                     {categories.data.map((category) => (
-                            <FilterCars name={category.name} setIsPopUpOpened={setIsPopUpOpened}/>
+                      <FilterCars name={category.name} key={category.id} setIsPopUpOpened={setIsPopUpOpened}/>
                     ))
                     }
                 <div className={classes.mobile_popup_btn} onClick={() => isPopUpOpenedHandler()}>
@@ -39,7 +40,7 @@ const Model = () => {
                 </div>
             </div>
             <div className={classes.cars_list_form}>
-                <CarsList />
+                {cars.data.map((car) => <CarsList car={car} key={car.id}/>)}
             </div>
         </>
       : null
