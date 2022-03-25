@@ -1,7 +1,13 @@
 {
-    "extends": ["airbnb/hooks", "airbnb/base", "plugin:react/jsx-runtime", "eslint:recommended", "plugin:react/recommended"],
-    "rules": {
-        "react/prop-types": 0,
-        "max-len": ["error", { "code": 200 }]
-      } 
+  "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+  },
+  "extends": ["airbnb/hooks", "airbnb/base", "plugin:react/jsx-runtime", "eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+      "react/prop-types": 0,
+      "max-len": ["error", { "code": 200 }],
+      "linebreak-style":"off"
+    } 
 }
