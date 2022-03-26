@@ -2,7 +2,7 @@
     display: flex;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 788px) {
     .flter_items_form{
         display: none;
     }
@@ -12,7 +12,7 @@
     display: none;
 }
 
-@media (max-width: 690px){
+@media (max-width: 788px){
     .mobile_flter_items_form {
         display: flex;
         flex-direction: column;
@@ -25,6 +25,7 @@
         left: 84px;
         transition: 0.3s;
         border-radius: 0 6px 6px 0;
+        background-color: white;
         }
     }
     
@@ -38,7 +39,7 @@
     display: none;
 }
 
-@media (max-width: 690px){
+@media (max-width: 788px){
     .mobile_flter_items_form_closed {
         display: flex;
         flex-direction: column;
@@ -51,6 +52,7 @@
         transform: translateX(-294px);
         transition: 0.3s;
         border-radius: 0 6px 6px 0;
+        background-color: white;
         }
     }
 
@@ -96,6 +98,60 @@
     margin-top: 48px;
     height: calc(100vh - 184px - 48px);
 }
+
+@media (max-width: 1350px){
+    .cars_list_form{
+        overflow-y: scroll;
+        display: grid;
+        width: 666px;
+        grid-template-columns: 328px 328px;
+        margin-top: 48px;
+        height: calc(100vh - 184px - 48px);
+    }
+}
+
+@media (max-width: 1268px){
+    .cars_list_form{
+        overflow-y: scroll;
+        display: grid;
+        width: 541px;
+        grid-template-columns: 268px 268px;
+        margin-top: 48px;
+        height: calc(100vh - 184px - 48px);
+    }
+}
+
+@media (max-width: 737px){
+    .cars_list_form{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: grid;
+        width: 333px;
+        grid-template-columns: 328px;
+        margin-top: 48px;
+        height: calc(100vh - 184px - 48px);
+    }
+}
+
+@media (max-width: 690px){
+    .cars_list_form{
+            margin-top: calc(48px + 54px);
+        }
+    }
+
+@media (max-width: 540px){
+    .cars_list_form{
+            margin-top: 32px;
+            width: 100vw;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 280px){
+        .cars_list_form{
+                grid-template-columns: 276px;
+            }
+        }
 
 .cars_list_form::-webkit-scrollbar {
     width: 5px;

@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
@@ -12,7 +13,12 @@ import Model from './Model/Model';
 import classes from './OrderPage.module.css';
 
 const OrderPage = ({ match, setIsOpened }) => {
+  const history = useHistory();
   const [infMobileOpened, setIsMobileOpened] = useState(false);
+
+  window.onload = () => {
+    history.push('/');
+  };
 
   const openMenuHandler = () => {
     setIsMobileOpened(true);

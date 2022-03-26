@@ -5,11 +5,87 @@
     padding: 16px;
 }
 
+@media (max-width: 1350px){
+    .car_form{
+        cursor: pointer;
+        width: 296px;
+        height: 192px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 1268px){
+    .car_form{
+        cursor: pointer;
+        width: 236px;
+        height: 152px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 737px){
+    .car_form{
+        cursor: pointer;
+        width: 296px;
+        height: 180px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 280px){
+    .car_form{
+        cursor: pointer;
+        width: 244px;
+        height: 180px;
+        padding: 16px;
+    }
+}
+
 .car_form:hover{
     width: 336px;
     height: 192px;
     padding: 15px;
     border: 1px solid #999999;
+}
+
+@media (max-width: 1350px){
+    .car_form:hover{
+        cursor: pointer;
+        width: 296px;
+        height: 192px;
+        padding: 15px;
+        border: 1px solid #999999;
+    }
+}
+
+@media (max-width: 1268px){
+    .car_form:hover{
+        cursor: pointer;
+        width: 236px;
+        height: 152px;
+        padding: 15px;
+        border: 1px solid #999999;
+    }
+}
+
+@media (max-width: 737px){
+    .car_form:hover{
+        cursor: pointer;
+        width: 296px;
+        height: 180px;
+        padding: 15px;
+        border: 1px solid #999999;
+    }
+}
+
+@media (max-width: 280px){
+    .car_form:hover{
+        cursor: pointer;
+        width: 276px;
+        height: 180px;
+        padding: 15px;
+        border: 1px solid #999999;
+    }
 }
 
 .model_name{
@@ -26,9 +102,4 @@
     font-size: 14px;
     line-height: 16px;
     color: #999999;
-}
-
-.img{
-    width: 100px;
-    height: 100px;
 }

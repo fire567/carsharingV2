@@ -18,35 +18,39 @@ export const getPoint = () => async (dispatch) => {
   });
 };
 
-export const getCategory = () => {
-    return async (dispatch) => {
-        const response = await API.get("category/")
+export const setLocation = (location) => ({
+  type: 'SET_LOCATION',
+  payload: location,
+});
 
-        dispatch({
-            type: "GET_CATEGORY",
-            payload: response.data,
-        })
-    }
+export const getCategory = () => {
+  return async (dispatch) => {
+      const response = await API.get("category/")
+
+      dispatch({
+          type: "GET_CATEGORY",
+          payload: response.data,
+      })
+  }
 }
 
 export const getCars = () => {
-    return async (dispatch) => {
-        const response = await API.get("car/", {
-            params:{
-                limit: 10,
-            }
-        })
+  return async (dispatch) => {
+      const response = await API.get("car/", {
+          params:{
+              limit: 10,
+          }
+      })
 
-        dispatch({
-            type: "GET_CARS",
-            payload: response.data,
-        })
-    }
+      dispatch({
+          type: "GET_CARS",
+          payload: response.data,
+      })
+  }
 }
 
-export const setLocation = (location) => {
-    return{
-        type: "SET_LOCATION",
-        payload: location,
-    }
-}
+export const setCurrentCar = (car) => ({
+  type: 'SET_CURRENTCAR',
+  payload: car,
+});
+

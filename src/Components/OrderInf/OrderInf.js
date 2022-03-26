@@ -7,6 +7,7 @@ import classes from './OrderInf.module.css';
 
 const OrderInf = ({ match }) => {
   const location = useSelector((state) => state.location);
+  const currentCar = useSelector((state) => state.currentCar);
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
@@ -31,11 +32,15 @@ const OrderInf = ({ match }) => {
     }
   };
 
+  console.log(isButtonDisabled, currentCar);
+
   useEffect(() => {
     if (match.params.name === 'location') {
-      location !== null ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
+      location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
+    } if (match.params.name === 'model') {
+      currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
-  }, [location, match.params.name]);
+  }, [location, match.params.name, currentCar]);
 
   /* Вставлю на странице с моделью
         <div className={classes.order_price_inf}>
