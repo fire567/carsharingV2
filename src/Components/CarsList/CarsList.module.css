@@ -88,6 +88,54 @@
     }
 }
 
+.car_form_active{
+    cursor: pointer;
+    width: 336px;
+    height: 192px;
+    padding: 15px;
+    border: 1px solid #0EC261;
+}
+
+@media (max-width: 1350px){
+    .car_form_active{
+        cursor: pointer;
+        width: 296px;
+        height: 192px;
+        padding: 15px;
+        border: 1px solid #0EC261;
+    }
+}
+
+@media (max-width: 1268px){
+    .car_form_active{
+        cursor: pointer;
+        width: 236px;
+        height: 152px;
+        padding: 15px;
+        border: 1px solid #0EC261;
+    }
+}
+
+@media (max-width: 737px){
+    .car_form_active{
+        cursor: pointer;
+        width: 296px;
+        height: 180px;
+        padding: 15px;
+        border: 1px solid #0EC261;
+    }
+}
+
+@media (max-width: 280px){
+    .car_form_active{
+        cursor: pointer;
+        width: 244px;
+        height: 180px;
+        padding: 15px;
+        border: 1px solid #0EC261;
+    }
+}
+
 .model_name{
     font-family: "Regular";
     font-weight: 400;

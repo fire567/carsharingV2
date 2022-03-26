@@ -1,15 +1,18 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentCar } from '../../Redux/actions';
 import { links } from '../../consts';
 import classes from './OrderInf.module.css';
 
 const OrderInf = ({ match }) => {
+  const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const currentCar = useSelector((state) => state.currentCar);
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [infArr, setInfArr] = useState(null);
 
   const buttonHandler = () => {
     let nextValue = '';
@@ -32,26 +35,29 @@ const OrderInf = ({ match }) => {
     }
   };
 
-  console.log(isButtonDisabled, currentCar);
-
   useEffect(() => {
+    setInfArr([
+      {
+        id: 0,
+        item: location && location,
+        header: 'Пункт выдачи',
+        value: location && `${location.town}, ${location.point}`,
+      },
+      {
+        id: 1,
+        item: currentCar && currentCar,
+        header: 'Модель',
+        value: currentCar && `${currentCar.name}`,
+      },
+    ]);
+
     if (match.params.name === 'location') {
+      dispatch(setCurrentCar(null));
       location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     } if (match.params.name === 'model') {
       currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
-  }, [location, match.params.name, currentCar]);
-
-  /* Вставлю на странице с моделью
-        <div className={classes.order_price_inf}>
-                <div className={classes.order_price_header}>
-                    Цена:
-                </div>
-                <div className={classes.order_price}>
-                    от 8000 до 12000 ₽
-                </div>
-            </div>
-    */
+  }, [location, match.params.name, currentCar, dispatch]);
 
   return (
     <>
@@ -59,17 +65,30 @@ const OrderInf = ({ match }) => {
             Ваш заказ:
         </div>
         <div className={classes.all_order_inf}>
-            <div className={location === null ? classes.order_inf_hidden : classes.order_inf}>
-                <div className={classes.inf_name}>
-                    Пункт выдачи
+          {infArr
+            && infArr.map((item) => (
+                <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={infArr.id}>
+                  <div className={classes.inf_name}>
+                      {item.header}
+                  </div>
+                  <div className={classes.dots_style}>
+                  </div>
+                  <div className={classes.inf_value}>
+                      {item.value}
+                  </div>
                 </div>
-                <div className={classes.dots_style}>
-                </div>
-                <div className={classes.inf_value}>
-                    {location && `${location.town}, ${location.point}`}
-                </div>
+            ))
+          }
+          {currentCar
+          && <div className={classes.order_price_inf}>
+              <div className={classes.order_price_header}>
+                  Цена:
+              </div>
+              <div className={classes.order_price}>
+                  от {currentCar.priceMin} до {currentCar.priceMax} ₽
+              </div>
             </div>
-
+          }
             <button
                 disabled={isButtonDisabled}
                 className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn}

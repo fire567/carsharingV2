@@ -11,7 +11,7 @@ const Model = () => {
   const categories = useSelector((state) => state.categories);
   const cars = useSelector((state) => state.cars);
   const [filteredCars, setFilteredCars] = useState([]);
-  const [currentFilter, setCurrentFilter] = useState(null);
+  const [currentFilter, setCurrentFilter] = useState('Все модели');
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
 
   useEffect(() => {

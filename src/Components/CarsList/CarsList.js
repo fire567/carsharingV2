@@ -1,9 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentCar } from '../../Redux/actions';
 import classes from './CarsList.module.css';
 
 const CarsList = ({ car }) => {
+  const currentCar = useSelector((state) => state.currentCar);
   const dispatch = useDispatch();
 
   const carPickHandler = () => {
@@ -12,7 +13,7 @@ const CarsList = ({ car }) => {
 
   return (
     <div
-      className={classes.car_form}
+      className={currentCar && currentCar.id === car.id ? classes.car_form_active : classes.car_form }
       style={{ background: `url(${car.thumbnail.path}) no-repeat 85% 97%`, backgroundSize: '70%' }}
       onClick={() => carPickHandler()}>
       <div className={classes.model_name}>{car.name}</div>

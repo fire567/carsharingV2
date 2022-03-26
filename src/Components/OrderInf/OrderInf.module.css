@@ -24,7 +24,7 @@
 }
 
 .inf_value{
-    width: 150px;
+    width: fit-content;
     font-family: "Roboto";
     font-weight: 300;
     font-size: 14px;
@@ -36,6 +36,10 @@
 .order_inf{
     display: flex;
     justify-content: space-between;
+}
+
+.order_inf:not(:first-child){
+    margin-top: 16px;
 }
 
 .order_inf_hidden{

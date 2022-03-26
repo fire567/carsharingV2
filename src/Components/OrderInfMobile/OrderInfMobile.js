@@ -1,16 +1,20 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactSVG } from 'react-svg';
+import { setCurrentCar } from '../../Redux/actions';
 import { links } from '../../consts';
 import exit from '../../assets/exit.svg';
 import classes from './OrderInfMobile.module.css';
 
 const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
+  const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
+  const currentCar = useSelector((state) => state.currentCar);
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [infArr, setInfArr] = useState(null);
 
   const closeMenuHandler = () => {
     setIsMobileOpened(false);
@@ -39,21 +43,28 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
   };
 
   useEffect(() => {
-    if (match.params.name === 'location') {
-      location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
-    }
-  }, [location, match.params.name]);
+    setInfArr([
+      {
+        id: 0,
+        item: location && location,
+        header: 'Пункт выдачи',
+        value: location && `${location.town}, ${location.point}`,
+      },
+      {
+        id: 1,
+        item: currentCar && currentCar,
+        header: 'Модель',
+        value: currentCar && `${currentCar.name}`,
+      },
+    ]);
 
-  /*
-        <div className={classes.order_price_inf}>
-                            <div className={classes.order_price_header}>
-                                Цена:
-                            </div>
-                            <div className={classes.order_price}>
-                                от 8000 до 12000 ₽
-                            </div>
-                        </div>
-    */
+    if (match.params.name === 'location') {
+      dispatch(setCurrentCar(null));
+      location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
+    } if (match.params.name === 'model') {
+      currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
+    }
+  }, [location, match.params.name, currentCar, dispatch]);
 
   return (
         <div className={infMobileOpened ? classes.order_inf_form_mobile : classes.order_inf_form_mobile_closed}>
@@ -64,17 +75,30 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
                         Ваш заказ:
                     </div>
                     <div className={classes.all_order_inf}>
-                        <div className={location === null ? classes.order_inf_hidden : classes.order_inf}>
+                    {infArr
+                      && infArr.map((item) => (
+                          <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={infArr.id}>
                             <div className={classes.inf_name}>
-                                Пункт выдачи
+                                {item.header}
                             </div>
                             <div className={classes.dots_style}>
                             </div>
                             <div className={classes.inf_value}>
-                                {location && `${location.town}, ${location.point}`}
+                                {item.value}
                             </div>
+                          </div>
+                      ))
+                    }
+                    {currentCar
+                      && <div className={classes.order_price_inf}>
+                          <div className={classes.order_price_header}>
+                              Цена:
+                          </div>
+                          <div className={classes.order_price}>
+                              от {currentCar.priceMin} до {currentCar.priceMax} ₽
+                          </div>
                         </div>
-
+                      }
                         <button
                             disabled={isButtonDisabled}
                             className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn} onClick={() => linkHandler()}
