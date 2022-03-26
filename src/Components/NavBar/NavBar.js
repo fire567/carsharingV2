@@ -10,6 +10,7 @@ import classes from './NavBar.module.css';
 const NavBar = ({ match }) => {
   const [popUp, setPopUp] = useState(false);
   const location = useSelector((state) => state.location);
+  const currentCar = useSelector((state) => state.currentCar);
 
   const popUpHandler = () => {
     setPopUp(!popUp);
@@ -29,6 +30,17 @@ const NavBar = ({ match }) => {
     }
 
     if (match.name === 'model') {
+      if (link.link === match.name) {
+        return classes.nav_link_active;
+      } if (link.id - 1 === currentLink[0].id && currentCar) {
+        return classes.nav_link;
+      } if (link.id < currentLink[0].id) {
+        return classes.nav_link;
+      }
+      return classes.nav_link_disabled;
+    }
+
+    if (match.name === 'extra-opt') {
       if (link.link === match.name) {
         return classes.nav_link_active;
       } if (link.id - 1 === currentLink[0].id) {

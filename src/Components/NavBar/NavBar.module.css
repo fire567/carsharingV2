@@ -73,6 +73,7 @@
 }
 
 .nav_link_disabled{
+    pointer-events: none;
     display: flex;
     align-items: flex-end;
     text-decoration: none;

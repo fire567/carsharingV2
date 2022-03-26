@@ -4,6 +4,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    z-index: 150;
 }
 
 .menu_form_closed{
