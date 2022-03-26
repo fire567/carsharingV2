@@ -13,7 +13,7 @@ const Menu = ({ setIsOpened, isOpened }) => {
   return (
         <div className={isOpened ? classes.menu_form : classes.menu_form_closed}>
             <div className={isOpened ? classes.menu_content_side : classes.menu_content_side_closed}>
-                <div className={classes.exit_btn} style={{ backgroundImage: `url(${exit})` }} onClick={() => closeMenuHandler()}>
+                <div className={classes.exit_btn} style={{ backgroundImage: `url(${exit})` }} onClick={closeMenuHandler}>
                 </div>
                 <div className={classes.menu_content_form}>
                     <div href="" className={classes.menu_content}>Парковка</div>

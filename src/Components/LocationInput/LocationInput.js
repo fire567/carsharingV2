@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect, useRef } from 'react';
 import classes from './LocationInput.module.css';
 
@@ -53,10 +51,10 @@ const LocationInput = ({
                     placeholder={`Начните вводить ${placeholder} ...`}>
                 </input>
                 {text
-                    && <span className={classes.close} onClick={() => deleteTextHandler()} />
+                    && <span className={classes.close} onClick={deleteTextHandler} />
                 }
                 {dropdown && !disabled
-                  ? <div className={items.length > 0 ? classes.dropdown : classes.dropdown_empty}>
+                  && <div className={items.length > 0 ? classes.dropdown : classes.dropdown_empty}>
                         {items.length > 0
                           ? items.map((item) => (
                                 <li className={classes.current_item} key={item.id} onClick={() => dropdownHandler(item.address ? item.address : item.name)}>
@@ -64,10 +62,10 @@ const LocationInput = ({
                                 </li>
                           ))
                           : <li className={items.length > 0 ? classes.current_item : classes.current_item_empty}>
-                                Нет доступных пуктов
+                                Нет доступных пунктов
                             </li>
                         }
-                    </div> : null
+                    </div>
                 }
             </div>
         </div>

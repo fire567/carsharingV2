@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -68,7 +67,7 @@ const OrderInf = ({ match }) => {
             <button
                 disabled={isButtonDisabled}
                 className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn}
-                onClick={() => linkHandler()}
+                onClick={linkHandler}
             >
                 {buttonHandler()}
             </button>

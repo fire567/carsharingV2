@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import Slides from './Slides/Slides';
 import { RIGHT_DIRECTION, LEFT_DIRECTION } from '../../consts';

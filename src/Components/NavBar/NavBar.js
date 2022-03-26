@@ -1,9 +1,6 @@
-/* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-import triangle from '../../assets/triangle.svg';
 import { links } from '../../consts';
 import classes from './NavBar.module.css';
 
@@ -49,11 +46,11 @@ const NavBar = ({ match }) => {
                         <Link to={`${link.link}`} className={linksStyleHandler(link)}>
                             {link.name}
                         </Link>
-                        {link.id !== 3 && <ReactSVG src={triangle} className={classes.triangles}/>}
+                        {link.id !== 3 && <div className={classes.triangle}/>}
                     </React.Fragment>
                 ))}
             </div>
-            <div className={classes.mobile_links_form} onClick={() => popUpHandler()}>
+            <div className={classes.mobile_links_form} onClick={popUpHandler}>
                 {links.map((link) => (
                   match.name === link.link && link.name
                 ))

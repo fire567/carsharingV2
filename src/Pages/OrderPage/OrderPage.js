@@ -43,7 +43,7 @@ const OrderPage = ({ match, setIsOpened }) => {
                     className={infMobileOpened
                       ? classes.mobile_inf_btn_closed : classes.mobile_inf_btn
                     }
-                    onClick={() => openMenuHandler()}
+                    onClick={openMenuHandler}
                 >
                     <ReactSVG className={classes.open_btn} src={note}/>
                 </div>

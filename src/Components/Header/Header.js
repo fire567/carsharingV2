@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
         <header className={classes.main_page_content_header}>
-            <div className={classes.logo} onClick={() => linkHandler()}>
+            <div className={classes.logo} onClick={linkHandler}>
                 Need for drive
             </div>
             <div className={classes.location}>
