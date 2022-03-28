@@ -71,7 +71,10 @@ const Model = () => {
                 </div>
             </div>
             <div className={classes.cars_list_form}>
-                {filteredCars.length > 0 ? filteredCars.map((car) => <CarsList car={car} key={car.id}/>) : cars.data.map((car) => <CarsList car={car} key={car.id}/>)}
+                {filteredCars.length > 0
+                  ? filteredCars.map((car) => <CarsList car={car} key={car.id}/>)
+                  : cars.data.map((car) => <CarsList car={car} key={car.id}/>)
+                  }
             </div>
         </>
       : <Loading />

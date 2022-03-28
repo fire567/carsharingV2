@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import Slides from './Slides/Slides';
 import { RIGHT_DIRECTION, LEFT_DIRECTION } from '../../consts';
@@ -27,7 +26,7 @@ const Carousel = () => {
             <Slides position={currentSlide}/>
             <div className={classes.carousel_dots}>
                 {dots.map((dot) => (
-                    <div className={currentSlide === dot.pos ? classes.active_dot : classes.dot} key={dot.id} onClick={() => setCurrentSlide(dot.pos)}></div>
+                    <div className={currentSlide === dot.pos ? classes.active_dot : classes.dot} key={dot.id} onClick={() => setCurrentSlide(dot.pos)} />
                 ))}
             </div>
             <div className={classes.left_btn} onClick={() => changeSlideHandler(LEFT_DIRECTION)}>

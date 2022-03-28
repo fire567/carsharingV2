@@ -15,7 +15,7 @@ const CarsList = ({ car }) => {
     <div
       className={currentCar && currentCar.id === car.id ? classes.car_form_active : classes.car_form }
       style={{ background: `url(${car.thumbnail.path}) no-repeat 85% 97%`, backgroundSize: '70%' }}
-      onClick={() => carPickHandler()}>
+      onClick={carPickHandler}>
       <div className={classes.model_name}>{car.name}</div>
       <div className={classes.price}>{car.priceMin} - {car.priceMax} ₽</div>
     </div>

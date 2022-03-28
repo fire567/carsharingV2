@@ -10,8 +10,8 @@ const FilterCars = ({
   };
 
   return (
-        <div className={classes.filter_item_form}>
-            <div className={currentFilter === name ? classes.circle_active : classes.circle} onClick={() => filterBtnHabdler()}></div>
+        <div className={classes.filter_item_form} key={name}>
+            <div className={currentFilter === name ? classes.circle_active : classes.circle} onClick={filterBtnHabdler}></div>
             <div className={classes.filter_item_name}>
                 {name}
             </div>

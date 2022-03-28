@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,7 +19,7 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
     setIsMobileOpened(false);
   };
 
-  const buttonHandler = () => {
+  const buttonText = () => {
     let nextValue = '';
     const filteredLinks = links.filter((item) => item.link === match.params.name);
 
@@ -69,15 +68,15 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
   return (
         <div className={infMobileOpened ? classes.order_inf_form_mobile : classes.order_inf_form_mobile_closed}>
             <div className={classes.menu_form}>
-                <ReactSVG className={classes.exit_btn} src={exit} onClick={() => closeMenuHandler()}/>
+                <ReactSVG className={classes.exit_btn} src={exit} onClick={closeMenuHandler}/>
                 <div className={classes.order_inf_form}>
                     <div className={classes.order_inf_header}>
                         Ваш заказ:
                     </div>
                     <div className={classes.all_order_inf}>
                     {infArr
-                      && infArr.map((item) => (
-                          <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={infArr.id}>
+                      && infArr.map((item, index) => (
+                          <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={index}>
                             <div className={classes.inf_name}>
                                 {item.header}
                             </div>
@@ -101,9 +100,9 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
                       }
                         <button
                             disabled={isButtonDisabled}
-                            className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn} onClick={() => linkHandler()}
+                            className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn} onClick={linkHandler}
                         >
-                            {buttonHandler()}
+                            {buttonText()}
                         </button>
                     </div>
                 </div>

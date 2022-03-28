@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import LocationInput from '../../../Components/LocationInput/LocationInput';
+import Loading from '../../../Components/Loading/Loading';
 import Maps from '../../../Components/Map/Maps';
 import { getCities, getPoint, setLocation } from '../../../Redux/actions';
 import classes from './Location.module.css';
@@ -71,8 +72,7 @@ const Location = () => {
                     </div>
                     <Maps town={town} point={point} setTown={setTown} setPoint={setPoint} points={points.data}/>
                 </div>
-            </>
-      : null
+            </> : <Loading />
   );
 };
 

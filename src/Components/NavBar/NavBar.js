@@ -1,9 +1,6 @@
-/* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-import triangle from '../../assets/triangle.svg';
 import { links } from '../../consts';
 import classes from './NavBar.module.css';
 
@@ -48,6 +45,7 @@ const NavBar = ({ match }) => {
       } if (link.id < currentLink[0].id) {
         return classes.nav_link;
       }
+
       return classes.nav_link_disabled;
     }
   };
@@ -59,9 +57,17 @@ const NavBar = ({ match }) => {
       if (location && link.id - 1 === currentLink[0].id) {
         return classes.nav_link_mobile;
       }
-
-      return classes.nav_link_mobile_disabled;
     }
+
+    if (match.name === 'model') {
+      if (link.id - 1 === currentLink[0].id && currentCar) {
+        return classes.nav_link_mobile;
+      } if (link.id < currentLink[0].id) {
+        return classes.nav_link_mobile;
+      }
+    }
+
+    return classes.nav_link_mobile_disabled;
   };
 
   return (
@@ -72,11 +78,11 @@ const NavBar = ({ match }) => {
                         <Link to={`${link.link}`} className={linksStyleHandler(link)}>
                             {link.name}
                         </Link>
-                        {link.id !== 3 && <ReactSVG src={triangle} className={classes.triangles}/>}
+                        {link.id !== 3 && <div className={classes.triangle}/>}
                     </React.Fragment>
                 ))}
             </div>
-            <div className={classes.mobile_links_form} onClick={() => popUpHandler()}>
+            <div className={classes.mobile_links_form} onClick={popUpHandler}>
                 {links.map((link) => (
                   match.name === link.link && link.name
                 ))

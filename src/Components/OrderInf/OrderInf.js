@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -66,8 +65,8 @@ const OrderInf = ({ match }) => {
         </div>
         <div className={classes.all_order_inf}>
           {infArr
-            && infArr.map((item) => (
-                <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={infArr.id}>
+            && infArr.map((item, index) => (
+                <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={index}>
                   <div className={classes.inf_name}>
                       {item.header}
                   </div>
@@ -92,7 +91,7 @@ const OrderInf = ({ match }) => {
             <button
                 disabled={isButtonDisabled}
                 className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn}
-                onClick={() => linkHandler()}
+                onClick={linkHandler}
             >
                 {buttonHandler()}
             </button>

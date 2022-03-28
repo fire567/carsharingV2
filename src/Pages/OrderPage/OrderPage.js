@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { Route, useHistory } from 'react-router-dom';
@@ -53,7 +52,7 @@ const OrderPage = ({ match, setIsOpened }) => {
                     className={infMobileOpened
                       ? classes.mobile_inf_btn_closed : classes.mobile_inf_btn
                     }
-                    onClick={() => openMenuHandler()}
+                    onClick={openMenuHandler}
                 >
                     <ReactSVG className={classes.open_btn} src={note}/>
                 </div>
