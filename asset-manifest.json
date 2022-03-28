@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/carsharingV2/static/css/main.8b1ecfa9.css",
-    "main.js": "/carsharingV2/static/js/main.1c64a466.js",
+    "main.js": "/carsharingV2/static/js/main.45e77c8e.js",
     "static/media/car4.svg": "/carsharingV2/static/media/car4.b5d628732997e078784dfa7fcde6667f.svg",
     "static/media/car1.svg": "/carsharingV2/static/media/car1.b4325479a41fef6f6ac66f3c1c7d227a.svg",
     "static/media/car3.svg": "/carsharingV2/static/media/car3.ec9133c40442f6380132df1c1fb49217.svg",
@@ -10,18 +10,16 @@
     "static/media/Roboto-Regular.ttf": "/carsharingV2/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
     "static/media/Roboto-Bold.ttf": "/carsharingV2/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
     "static/media/Roboto-Light.ttf": "/carsharingV2/static/media/Roboto-Light.8be2d1487420548b3b8d.ttf",
-    "static/media/instagram.svg": "/carsharingV2/static/media/instagram.98094ec43567d0a8402f1c6fe5f9c96c.svg",
     "static/media/note.svg": "/carsharingV2/static/media/note.b79fc2413bf99cf9662a98c4fc3585af.svg",
     "static/media/telegram.svg": "/carsharingV2/static/media/telegram.198f9ca6373aee9525ca6b1259639312.svg",
     "static/media/location.svg": "/carsharingV2/static/media/location.7908a45d5ff0d42dede855f73432b932.svg",
-    "static/media/facebook.svg": "/carsharingV2/static/media/facebook.936a27e8720ce2f29c7706708435d666.svg",
     "index.html": "/carsharingV2/index.html",
     "static/media/exit.svg": "/carsharingV2/static/media/exit.0ee221b768c6b22e4877aeeb9f41bdd7.svg",
     "main.8b1ecfa9.css.map": "/carsharingV2/static/css/main.8b1ecfa9.css.map",
-    "main.1c64a466.js.map": "/carsharingV2/static/js/main.1c64a466.js.map"
+    "main.45e77c8e.js.map": "/carsharingV2/static/js/main.45e77c8e.js.map"
   },
   "entrypoints": [
     "static/css/main.8b1ecfa9.css",
-    "static/js/main.1c64a466.js"
+    "static/js/main.45e77c8e.js"
   ]
 }
