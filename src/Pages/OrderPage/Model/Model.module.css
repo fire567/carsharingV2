@@ -1,0 +1,97 @@
+.flter_items_form{
+    display: flex;
+}
+
+@media (max-width: 690px) {
+    .flter_items_form{
+        display: none;
+    }
+  }
+
+.mobile_flter_items_form{
+    display: none;
+}
+
+@media (max-width: 690px){
+    .mobile_flter_items_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 32px;
+        position: absolute;
+        width: 230px;
+        border: 1px solid #bdbdbd;
+        border-left: 0px;
+        left: 84px;
+        transition: 0.3s;
+        border-radius: 0 6px 6px 0;
+        }
+    }
+    
+@media (max-width: 540px){
+    .mobile_flter_items_form {
+        left: 0;
+        }
+    }
+
+.mobile_flter_items_form_closed{
+    display: none;
+}
+
+@media (max-width: 690px){
+    .mobile_flter_items_form_closed {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 32px;
+        position: absolute;
+        width: 230px;
+        border: 1px solid #bdbdbd;
+        border-left: 0px;
+        transform: translateX(-294px);
+        transition: 0.3s;
+        border-radius: 0 6px 6px 0;
+        }
+    }
+
+    @media (max-width: 540px){
+    .mobile_flter_items_form_closed {
+        transform: translateX(-232px);
+        }
+    }
+
+.mobile_popup_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 230px;
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background-color: #bdbdbd;
+    border-radius: 0 6px 6px 0;
+}
+
+.triangle_left {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 9px solid #0EC261;
+}
+
+.triangle_right {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 9px solid #0EC261;
+}   
+
+.cars_list_form{
+    overflow-y: scroll;
+    width: 734px;
+    display: grid;
+    margin-top: 48px;
+    height: calc(100vh - 184px - 48px);
+}

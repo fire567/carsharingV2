@@ -1,0 +1,121 @@
+.input_form{
+    position: relative;
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #121212;
+    display: flex;
+    align-items: center;
+}
+
+.input_form:not(:first-child){
+    margin-top: 13px;
+}
+
+.input_ref{
+    display: flex;
+    align-items: center;
+}
+
+.input{
+    height: 17px;
+    text-indent: 10px;
+    padding-right: 20px;
+    font-family: "Roboto";
+    font-weight: 300;
+    color: #121212;
+    width: 204px;
+    margin-left: 8px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    border-bottom: 1px solid #999999;
+}
+
+.close {
+    position: absolute;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    content: ' ';
+    height: 8px;
+    width: 1px;
+    background-color:#121212;
+    border: 50%;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.dropdown{
+    height: 90px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    right: 0px;
+    top: 19px;
+    width: 224px;
+    border: 1px solid#999999;
+}
+
+.dropdown_empty{
+    height: 30px;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    right: 0px;
+    top: 19px;
+    width: 224px;
+    border: 1px solid#999999;
+}
+
+.dropdown::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+    background-color: #0EC261;
+    border-radius: 9em;
+}
+
+.current_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    list-style-type: none;
+    text-indent: 5px;
+    width: 224px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.current_item_empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    list-style-type: none;
+    height: 25px;
+    overflow: hidden;
+}
+
+.current_item:hover{
+    background-color: #0EC261;
+    color: white;
+}
