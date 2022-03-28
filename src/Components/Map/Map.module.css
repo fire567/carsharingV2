@@ -1,0 +1,16 @@
+.map_form{
+    width: 40vw;
+    height: 352px;
+}
+
+@media (max-width: 1160px) {
+    .map_form{
+        width: calc(100vw - 86px - 64px - 64px);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .map_form{
+        width: 100vw;
+    }
+  }
