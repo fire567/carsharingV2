@@ -46,7 +46,7 @@ const Location = () => {
 
   return (
     cities.data && points.data
-      && <>
+      ? <>
                 <div className={classes.input_form}>
                     <LocationInput
                         label={'Город'}
@@ -71,7 +71,7 @@ const Location = () => {
                     </div>
                     <Maps town={town} point={point} setTown={setTown} setPoint={setPoint} points={points.data}/>
                 </div>
-            </>
+            </> : null
   );
 };
 
