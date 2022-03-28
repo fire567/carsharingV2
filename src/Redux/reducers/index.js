@@ -5,12 +5,16 @@ import location from "./location";
 import categories from "./categories";
 import cars from "./cars";
 import currentCar from "./currentCar";
+import rates from "./rates";
+import color from "./color";
 
 export default combineReducers({
+    color: color,
     cities: cities,
     point: point,
     location: location,
     categories: categories,
     cars: cars,
     currentCar: currentCar,
+    rates: rates,
 })

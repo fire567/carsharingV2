@@ -34,6 +34,17 @@ export const getCategory = () => {
   }
 }
 
+export const getRateTypes = () => {
+  return async (dispatch) => {
+      const response = await API.get("rate/")
+
+      dispatch({
+          type: "GET_RATETYPES",
+          payload: response.data,
+      })
+  }
+}
+
 export const getCars = () => {
   return async (dispatch) => {
       const response = await API.get("car/", {
@@ -52,5 +63,10 @@ export const getCars = () => {
 export const setCurrentCar = (car) => ({
   type: 'SET_CURRENTCAR',
   payload: car,
+});
+
+export const setColor = (color) => ({
+  type: 'SET_COLOR',
+  payload: color,
 });
 

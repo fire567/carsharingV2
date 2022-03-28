@@ -11,6 +11,7 @@ import OrderInf from '../../Components/OrderInf/OrderInf';
 import OrderInfMobile from '../../Components/OrderInfMobile/OrderInfMobile';
 import Model from './Model/Model';
 import classes from './OrderPage.module.css';
+import ExtraOpt from './ExtraOpt/ExtraOpt';
 
 const OrderPage = ({ match, setIsOpened }) => {
   const history = useHistory();
@@ -39,6 +40,9 @@ const OrderPage = ({ match, setIsOpened }) => {
                         </Route>
                         <Route path="/order-page/model" exact>
                             <Model />
+                        </Route>
+                        <Route path="/order-page/extra-opt" exact>
+                            <ExtraOpt />
                         </Route>
                     </div>
                     <div className={classes.order_inf_form}>

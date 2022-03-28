@@ -1,0 +1,206 @@
+@media (max-width: 540px) {
+  .options_form{
+    margin-left: 15vw;
+  }
+}
+
+.opt_form{
+  margin-top: 32px;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.header{
+  color: #121212;
+}
+
+.colors_form{
+  margin-top: 16px;
+  display: flex;
+}
+
+.tarif_form{
+  margin-top: 16px;
+  display: block;
+}
+
+.opt_colors_form{
+  display: flex;
+}
+
+.opt_tarif_form{
+  margin-top: 8px;
+  display: flex;
+}
+
+.opt_colors_form:not(:first-child){
+  margin-left: 16px;
+}
+
+.circle{
+  width: 11px;
+  height: 11px;
+  border: 1px solid #999999;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circle:hover{
+  width: 7px;
+  height: 7px;
+  border: 3px solid #0EC261;
+  border-radius: 50%;
+}
+
+.circle_active{
+  width: 7px;
+  height: 7px;
+  border: 3px solid #0EC261;
+  border-radius: 50%;
+}
+
+.circle_active{
+  width: 7px;
+  height: 7px;
+  border: 3px solid #0EC261;
+  border-radius: 50%;
+}
+
+.opt_value{
+  margin-left: 8px;
+  color: #999999;
+}
+
+.inputs_form{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.date_form{
+  width: fit-content;
+  margin-top: 16px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.label{
+  display: flex;
+  align-items: center;
+}
+
+.date{
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0 10px;
+  height: 17px;
+  outline: none;
+  width: 204px;
+  border: none;
+  border-bottom: 1px solid #999999;
+}
+
+.date:not(:first-child){
+  margin-top: 16px;
+}
+
+.date react-datepicker-wrapper{
+  margin-left: 8px;
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  content: ' ';
+  height: 8px;
+  width: 1px;
+  background-color:#121212;
+  border: 50%;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.checkbox{
+  display: none;
+}
+
+.opt_extra_form{
+  position: relative;
+  font-family: "Roboto";
+  color: #999999;
+}
+
+.opt_extra_form label{
+  font-family: "Roboto";
+  color: #999999;
+}
+
+.opt_extra_form:not(:first-child){
+  margin-top: 8px;
+  font-family: "Roboto";
+  color: #999999;
+}
+
+.opt_extra_form label::before{
+  color: #999999;
+  content: "";
+  display: inline-block;
+  margin-right: 9px;
+  height: 12px;
+  width: 12px;
+  
+  border: 1px solid;   
+}
+
+.opt_extra_form label:hover::before{
+  cursor: pointer;
+  border: 1px solid #0EC261;
+}
+
+.opt_extra_form label::after {
+  content: "";
+  display: inline-block;
+  height: 6px;
+  width: 11px;
+  border-left: 3px solid #121212;
+  border-bottom: 3px solid #121212;
+  position: absolute;
+  left: 3px;
+  transform: rotate(-45deg);
+}
+
+.opt_extra_form input[type="checkbox"] + label::after {
+  content: none;
+}
+/*Показываем галку по состоянию checked*/
+.opt_extra_form input[type="checkbox"]:checked + label::before {
+  margin-right: 9px;
+  border: 1px solid #0EC261;
+  }
+.opt_extra_form input[type="checkbox"]:checked + label {
+  color: black;
+}
+.opt_extra_form input[type="checkbox"]:checked + label::after {
+  content: "";
+}
