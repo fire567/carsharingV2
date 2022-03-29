@@ -54,26 +54,6 @@
     }
   }
 
-.order_inf_form{
-    padding: 0 63px 0 32px;
-    width: 384px;
-    height: calc(100vh - 130px);
-    border-left: 1px solid #EEEEEE;
-}
-
-
-@media (max-width: 1160px) {
-    .order_inf_form{
-        display: none;
-    }
-  }
-
-  @media (max-width: 1160px) {
-    .order_inf_form{
-        display: none;
-    }
-  }
-
   .mobile_inf_btn{
     display: none;
 }

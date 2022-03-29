@@ -36,7 +36,11 @@ export const getCategory = () => {
 
 export const getCars = () => {
   return async (dispatch) => {
-      const response = await API.get("car/")
+      const response = await API.get("car/", {
+        params: {
+          limit: 10,
+        }
+      })
 
       dispatch({
           type: "GET_CARS",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import className from 'classnames';
 import { links } from '../../consts';
 import classes from './NavBar.module.css';
 
@@ -87,7 +88,11 @@ const NavBar = ({ match }) => {
                   match.name === link.link && link.name
                 ))
                 }
-                <div className={!popUp ? classes.up_arrow : classes.down_arrow}/>
+                <div className={className({
+                  [classes.arrow]: true,
+                  [classes.up_arrow]: !popUp,
+                  [classes.down_arrow]: popUp,
+                })}/>
                 {popUp
                   && <div className={classes.links_popup}>
                         {links.map((link) => (

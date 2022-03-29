@@ -8,11 +8,6 @@
 }
 
 .menu_form_closed{
-    top: 0;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
     transform: translateX(-100vw);
     transition: all 0.3s
 }
@@ -27,19 +22,13 @@
     flex-direction: column;
     justify-content: center;
     transition: all 0.3s;
+}
+
+.menu_content_side_opened{
     transform: translateX(0vw);
 }
 
 .menu_content_side_closed{
-    position: absolute;
-    z-index: 5;
-    width: calc(50vw + 32px);
-    height: 100vh;
-    background-color:#111518;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.3s;
     transform: translateX(-100vw);
 }
 

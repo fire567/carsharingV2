@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
 import { setCurrentCar } from '../../Redux/actions';
 import { links } from '../../consts';
+import OrderInfMobile from '../OrderInfMobile/OrderInfMobile';
 import classes from './OrderInf.module.css';
 
-const OrderInf = ({ match }) => {
+const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const currentCar = useSelector((state) => state.currentCar);
@@ -38,13 +40,13 @@ const OrderInf = ({ match }) => {
     setInfArr([
       {
         id: 0,
-        item: location && location,
+        item: location,
         header: 'Пункт выдачи',
         value: location && `${location.town}, ${location.point}`,
       },
       {
         id: 1,
-        item: currentCar && currentCar,
+        item: currentCar,
         header: 'Модель',
         value: currentCar && `${currentCar.name}`,
       },
@@ -60,6 +62,7 @@ const OrderInf = ({ match }) => {
 
   return (
     <>
+      <div className={classes.order_inf_form}>
         <div className={classes.order_inf_header}>
             Ваш заказ:
         </div>
@@ -90,12 +93,28 @@ const OrderInf = ({ match }) => {
           }
             <button
                 disabled={isButtonDisabled}
-                className={isButtonDisabled ? classes.order_inf_btn_disabled : classes.order_inf_btn}
+                className={classNames({
+                  [classes.order_inf_btn]: true,
+                  [classes.order_inf_btn_active]: !isButtonDisabled,
+                  [classes.order_inf_btn_disabled]: isButtonDisabled,
+                })}
                 onClick={linkHandler}
             >
                 {buttonHandler()}
             </button>
         </div>
+        </div>
+        <OrderInfMobile
+        setIsMobileOpened={setIsMobileOpened}
+        match={match}
+        infMobileOpened={infMobileOpened}
+        location={location}
+        currentCar={currentCar}
+        infArr={infArr}
+        isButtonDisabled={isButtonDisabled}
+        linkHandler={linkHandler}
+        buttonHandler={buttonHandler}
+        />
     </>
   );
 };

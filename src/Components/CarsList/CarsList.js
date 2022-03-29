@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentCar } from '../../Redux/actions';
 import classes from './CarsList.module.css';
@@ -13,8 +14,12 @@ const CarsList = ({ car }) => {
 
   return (
     <div
-      className={currentCar && currentCar.id === car.id ? classes.car_form_active : classes.car_form }
-      style={{ background: `url(${car.thumbnail.path}) no-repeat 85% 97%`, backgroundSize: '70%' }}
+      className={classNames({
+        [classes.car_form]: true,
+        [classes.car_form_active]: currentCar && currentCar.id === car.id,
+        [classes.car_form_unactive]: currentCar && currentCar.id !== car.id,
+      })}
+      style={{ background: `url(${car.thumbnail.path}) no-repeat 85% 95%`, backgroundSize: '60%' }}
       onClick={carPickHandler}>
       <div className={classes.model_name}>{car.name}</div>
       <div className={classes.price}>{car.priceMin} - {car.priceMax} ₽</div>

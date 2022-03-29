@@ -7,7 +7,6 @@ import NavBar from '../../Components/NavBar/NavBar';
 import note from '../../assets/note.svg';
 import Location from './Location/Location';
 import OrderInf from '../../Components/OrderInf/OrderInf';
-import OrderInfMobile from '../../Components/OrderInfMobile/OrderInfMobile';
 import Model from './Model/Model';
 import classes from './OrderPage.module.css';
 
@@ -16,7 +15,7 @@ const OrderPage = ({ match, setIsOpened }) => {
   const [infMobileOpened, setIsMobileOpened] = useState(false);
 
   window.onload = () => {
-    history.push('/');
+    history.push('/order-page/location');
   };
 
   const openMenuHandler = () => {
@@ -40,13 +39,7 @@ const OrderPage = ({ match, setIsOpened }) => {
                             <Model />
                         </Route>
                     </div>
-                    <div className={classes.order_inf_form}>
-                        <OrderInf match={match}/>
-                    </div>
-                    <OrderInfMobile
-                        setIsMobileOpened={setIsMobileOpened}
-                        infMobileOpened={infMobileOpened} match={match}
-                    />
+                    <OrderInf match={match} setIsMobileOpened={setIsMobileOpened} infMobileOpened={infMobileOpened}/>
                 </div>
                 <div
                     className={infMobileOpened

@@ -78,7 +78,6 @@
 .dot{
     width: 8px;
     height: 8px;
-    background-color: white;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -87,14 +86,10 @@
     margin-left: 8px;
 }
 
-.active_dot{
-    width: 8px;
-    height: 8px;
-    background-color: #0EC261;
-    border-radius: 5px;
-    cursor: pointer;
+.unactive_dot{
+    background-color: white;
 }
 
-.active_dot:not(:first-child){
-    margin-left: 8px;
+.active_dot{
+    background-color: #0EC261;
 }

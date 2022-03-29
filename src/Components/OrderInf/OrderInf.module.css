@@ -74,7 +74,6 @@
 .order_inf_btn{
     cursor: pointer;
     margin-top: 32px;
-    background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
     background-blend-mode: darken;
     border-radius: 8px;
     height: 48px;
@@ -87,6 +86,14 @@
     text-align: center;
     color: #FFFFFF;
     font-style: "Roboto";
+}
+
+.order_inf_btn_active{
+    background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+}
+
+.order_inf_btn_disabled{
+    background: #EEEEEE;
 }
 
 .order_inf_btn:hover{
@@ -97,20 +104,16 @@
     filter: brightness(80%);
 }
 
-.order_inf_btn_disabled{
-    cursor: pointer;
-    margin-top: 32px;
-    background: #EEEEEE;
-    background-blend-mode: darken;
-    border-radius: 8px;
-    height: 48px;
-    width: 100%;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
-    color: #FFFFFF;
-    font-style: "Roboto";
+.order_inf_form{
+    padding: 0 63px 0 32px;
+    width: 384px;
+    height: calc(100vh - 130px);
+    border-left: 1px solid #EEEEEE;
 }
+
+
+@media (max-width: 1160px) {
+    .order_inf_form{
+        display: none;
+    }
+  }

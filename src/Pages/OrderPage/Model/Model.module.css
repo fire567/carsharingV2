@@ -2,7 +2,7 @@
     display: flex;
 }
 
-@media (max-width: 788px) {
+@media (max-width: 1190px) {
     .flter_items_form{
         display: none;
     }
@@ -12,7 +12,7 @@
     display: none;
 }
 
-@media (max-width: 788px){
+@media (max-width: 1190px){
     .mobile_flter_items_form {
         display: flex;
         flex-direction: column;
@@ -42,17 +42,7 @@
 @media (max-width: 788px){
     .mobile_flter_items_form_closed {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-top: 32px;
-        position: absolute;
-        width: 230px;
-        border: 1px solid #bdbdbd;
-        border-left: 0px;
         transform: translateX(-294px);
-        transition: 0.3s;
-        border-radius: 0 6px 6px 0;
-        background-color: white;
         }
     }
 
@@ -88,7 +78,7 @@
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-left: 9px solid #0EC261;
-}   
+}
 
 .cars_list_form{
     overflow-y: scroll;
@@ -121,37 +111,11 @@
     }
 }
 
-@media (max-width: 737px){
+@media (max-width: 1190px) {
     .cars_list_form{
-        overflow-y: scroll;
-        overflow-x: hidden;
-        display: grid;
-        width: 333px;
-        grid-template-columns: 328px;
-        margin-top: 48px;
-        height: calc(100vh - 184px - 48px);
+        display: none;
     }
-}
-
-@media (max-width: 690px){
-    .cars_list_form{
-            margin-top: calc(48px + 54px);
-        }
-    }
-
-@media (max-width: 540px){
-    .cars_list_form{
-            margin-top: 32px;
-            width: 100vw;
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 280px){
-        .cars_list_form{
-                grid-template-columns: 276px;
-            }
-        }
+  }
 
 .cars_list_form::-webkit-scrollbar {
     width: 5px;
@@ -161,4 +125,112 @@
 .cars_list_form::-webkit-scrollbar-thumb {
     background-color: #0EC261;
     border-radius: 9em;
+}
+
+.cras_list_paginate{
+    display: none;
+}
+
+.cras_list_paginate::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+.cras_list_paginate::-webkit-scrollbar-thumb {
+    background-color: #0EC261;
+    border-radius: 9em;
+}
+
+@media (max-width: 1190px){
+    .cras_list_paginate{
+            display: block;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            display: grid;
+            width: 541px;
+            grid-template-columns: 268px 268px;
+            margin-top: 48px;
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 737px){
+        .cras_list_paginate{
+            overflow-y: scroll;
+            overflow-x: hidden;
+            display: grid;
+            width: 333px;
+            grid-template-columns: 328px;
+            margin-top: 48px;
+            height: 400;
+        }
+    }
+    
+    @media (max-width: 690px){
+        .cras_list_paginate{
+                margin-top: calc(48px + 54px);
+            }
+        }
+    
+    @media (max-width: 540px){
+        .cras_list_paginate{
+                margin-top: 32px;
+                height: 250px;
+                width: 100vw;
+                justify-content: center;
+            }
+        }
+    
+        @media (max-width: 280px){
+            .cras_list_paginate{
+                    grid-template-columns: 276px;
+                }
+            }
+
+.pagination{
+    display: none;
+    color: #0EC261;
+}
+
+@media (max-width: 1190px){
+    .pagination{
+            grid-template-columns: 276px;
+            margin-top: 40px;
+            list-style-type: none;
+            display: flex;
+            padding-left: 0px;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 1160px){
+        .list_mobile{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+.page{
+    cursor: pointer;
+    margin-left: 10px;
+    width: 18px;
+    text-align: center;
+}
+
+.active{
+    width: 18px;
+    border-radius: 50%;
+    background-color: #0EC261;
+    color: white;
+    text-align: center;
+}
+
+.next{
+    margin-left: 10px;
+}
+
+.break{
+    margin-left: 10px;
 }
