@@ -1,68 +1,68 @@
-.carousel_content{
-    min-width: 100%;
-    overflow: hidden;
-    color: #FFFFFF;
-    transition: all 0.7s;
+.carousel_content {
+  min-width: 100%;
+  overflow: hidden;
+  color: #ffffff;
+  transition: all 0.7s;
 }
 
-.carousel_btn{
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    width: 164px;
-    height: 48px;
-    color: #FFFFFF;
-    margin-top: 32px;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
+.carousel_btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  width: 164px;
+  height: 48px;
+  color: #ffffff;
+  margin-top: 32px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
 }
 
-.dark_background{
-    z-index: 1;
-    position: absolute;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-    width: calc(50vw - 32px);
-    height: 100vh;
+.dark_background {
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  width: calc(50vw - 32px);
+  height: 100vh;
 }
 
-.carousel_btn:hover{
-    filter: brightness(90%);
+.carousel_btn:hover {
+  filter: brightness(90%);
 }
 
-.carousel_btn:active{
-    filter: brightness(80%);
+.carousel_btn:active {
+  filter: brightness(80%);
 }
 
-.carousel_text{
-    font-family: 'Roboto';
-    margin-top: 8px;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 90%;
-    color: #EEEEEE;
-    width: 495px;
+.carousel_text {
+  font-family: "Roboto";
+  margin-top: 8px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 90%;
+  color: #eeeeee;
+  width: 495px;
 }
 
 @media (max-width: 1278px) {
-    .carousel_text {
-        width: 282px;
-    }
+  .carousel_text {
+    width: 282px;
   }
-
-.carousel_header{
-    margin-top: 235px;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 47px;
-    color: #FFFFFF;
 }
 
-.content_part{
-    position: absolute;
-    z-index: 10;
-    margin-left: 96px;
+.carousel_header {
+  margin-top: 235px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 47px;
+  color: #ffffff;
+}
+
+.content_part {
+  position: absolute;
+  z-index: 10;
+  margin-left: 96px;
 }

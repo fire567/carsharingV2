@@ -1,73 +1,73 @@
-.car_form{
+.car_form {
+  cursor: pointer;
+  width: 336px;
+  height: 192px;
+  padding: 16px;
+}
+
+@media (max-width: 1350px) {
+  .car_form {
     cursor: pointer;
-    width: 336px;
+    width: 296px;
     height: 192px;
-    padding: 16px;
+  }
 }
 
-@media (max-width: 1350px){
-    .car_form{
-        cursor: pointer;
-        width: 296px;
-        height: 192px;
-    }
+@media (max-width: 1268px) {
+  .car_form {
+    cursor: pointer;
+    width: 236px;
+    height: 152px;
+  }
 }
 
-@media (max-width: 1268px){
-    .car_form{
-        cursor: pointer;
-        width: 236px;
-        height: 152px;
-    }
+@media (max-width: 737px) {
+  .car_form {
+    cursor: pointer;
+    width: 296px;
+    height: 180px;
+  }
 }
 
-@media (max-width: 737px){
-    .car_form{
-        cursor: pointer;
-        width: 296px;
-        height: 180px;
-    }
+@media (max-width: 280px) {
+  .car_form {
+    cursor: pointer;
+    width: 244px;
+    height: 180px;
+  }
 }
 
-@media (max-width: 280px){
-    .car_form{
-        cursor: pointer;
-        width: 244px;
-        height: 180px;
-    }
+.car_form_unactive {
+  padding: 16px;
 }
 
-.car_form_unactive{
-    padding: 16px;
+.car_form:hover {
+  padding: 15px;
+  border: 1px solid #999999;
 }
 
-.car_form:hover{
-    padding: 15px;
-    border: 1px solid #999999;
+.car_form_active {
+  padding: 15px;
+  border: 1px solid #0ec261;
 }
 
-.car_form_active{
-    padding: 15px;
-    border: 1px solid #0EC261;
+.car_form_active:hover {
+  padding: 15px;
+  border: 1px solid #0ec261;
 }
 
-.car_form_active:hover{
-    padding: 15px;
-    border: 1px solid #0EC261;
+.model_name {
+  font-family: "Regular";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #121212;
 }
 
-.model_name{
-    font-family: "Regular";
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    color: #121212;
-}
-
-.price{
-    font-family: "Regular";
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #999999;
+.price {
+  font-family: "Regular";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999999;
 }

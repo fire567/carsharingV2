@@ -23,34 +23,40 @@ const OrderPage = ({ match, setIsOpened }) => {
   };
 
   return (
-        <div className={classes.order_page_form}>
-            <Sidebar setIsOpened={setIsOpened}/>
-            <div className={classes.page_form}>
-                <div className={classes.page_header}>
-                    <Header />
-                </div>
-                <NavBar match={match.params}/>
-                <div className={classes.order_page_content_form}>
-                    <div className={classes.content_form}>
-                        <Route path="/order-page/location" exact>
-                            <Location />
-                        </Route>
-                        <Route path="/order-page/model" exact>
-                            <Model />
-                        </Route>
-                    </div>
-                    <OrderInf match={match} setIsMobileOpened={setIsMobileOpened} infMobileOpened={infMobileOpened}/>
-                </div>
-                <div
-                    className={infMobileOpened
-                      ? classes.mobile_inf_btn_closed : classes.mobile_inf_btn
-                    }
-                    onClick={openMenuHandler}
-                >
-                    <ReactSVG className={classes.open_btn} src={note}/>
-                </div>
-            </div>
+    <div className={classes.order_page_form}>
+      <Sidebar setIsOpened={setIsOpened} />
+      <div className={classes.page_form}>
+        <div className={classes.page_header}>
+          <Header />
         </div>
+        <NavBar match={match.params} />
+        <div className={classes.order_page_content_form}>
+          <div className={classes.content_form}>
+            <Route path="/order-page/location" exact>
+              <Location />
+            </Route>
+            <Route path="/order-page/model" exact>
+              <Model />
+            </Route>
+          </div>
+          <OrderInf
+            match={match}
+            setIsMobileOpened={setIsMobileOpened}
+            infMobileOpened={infMobileOpened}
+          />
+        </div>
+        <div
+          className={
+            infMobileOpened
+              ? classes.mobile_inf_btn_closed
+              : classes.mobile_inf_btn
+          }
+          onClick={openMenuHandler}
+        >
+          <ReactSVG className={classes.open_btn} src={note} />
+        </div>
+      </div>
+    </div>
   );
 };
 

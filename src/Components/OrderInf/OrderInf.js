@@ -17,7 +17,9 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
 
   const buttonHandler = () => {
     let nextValue = '';
-    const filteredLinks = links.filter((item) => item.link === match.params.name);
+    const filteredLinks = links.filter(
+      (item) => item.link === match.params.name,
+    );
 
     if (filteredLinks[0].id + 1 <= 3) {
       nextValue = links[filteredLinks[0].id + 1].name;
@@ -29,7 +31,9 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   };
 
   const linkHandler = () => {
-    const filteredLinks = links.filter((item) => item.link === match.params.name);
+    const filteredLinks = links.filter(
+      (item) => item.link === match.params.name,
+    );
 
     if (filteredLinks[0].id + 1 <= 3) {
       history.push(`${links[filteredLinks[0].id + 1].link}`);
@@ -55,56 +59,65 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
     if (match.params.name === 'location') {
       dispatch(setCurrentCar(null));
       location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
-    } if (match.params.name === 'model') {
+    }
+    if (match.params.name === 'model') {
       currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
   }, [location, match.params.name, currentCar, dispatch]);
 
   return (
     <>
-      <div className={classes.order_inf_form}>
-        <div className={classes.order_inf_header}>
-            Ваш заказ:
-        </div>
-        <div className={classes.all_order_inf}>
-          {infArr
-            && infArr.map((item, index) => (
-                <div className={item.item ? classes.order_inf : classes.order_inf_hidden } key={index}>
-                  <div className={classes.inf_name}>
-                      {item.header}
-                  </div>
-                  <div className={classes.dots_style}>
-                  </div>
-                  <div className={classes.inf_value}>
-                      {item.value}
-                  </div>
+      <div className={classes.order_inf_hide}>
+        <div className={classes.order_inf_form}>
+          <div className={classes.order_inf_header}>Ваш заказ:</div>
+          <div className={classes.all_order_inf}>
+            {infArr
+              && infArr.map((item, index) => (
+                <div
+                  className={
+                    item.item ? classes.order_inf : classes.order_inf_hidden
+                  }
+                  key={index}
+                >
+                  <div className={classes.inf_name}>{item.header}</div>
+                  <div className={classes.dots_style}></div>
+                  <div className={classes.inf_value}>{item.value}</div>
                 </div>
-            ))
-          }
-          {currentCar
-          && <div className={classes.order_price_inf}>
-              <div className={classes.order_price_header}>
-                  Цена:
-              </div>
-              <div className={classes.order_price}>
+              ))}
+            {currentCar && (
+              <div className={classes.order_price_inf}>
+                <div className={classes.order_price_header}>Цена:</div>
+                <div className={classes.order_price}>
                   от {currentCar.priceMin} до {currentCar.priceMax} ₽
+                </div>
               </div>
-            </div>
-          }
-            <button
-                disabled={isButtonDisabled}
-                className={classNames({
-                  [classes.order_inf_btn]: true,
-                  [classes.order_inf_btn_active]: !isButtonDisabled,
-                  [classes.order_inf_btn_disabled]: isButtonDisabled,
-                })}
-                onClick={linkHandler}
-            >
-                {buttonHandler()}
-            </button>
+            )}
+          </div>
+          <button
+            disabled={isButtonDisabled}
+            className={classNames({
+              [classes.order_inf_btn]: true,
+              [classes.order_inf_btn_active]: !isButtonDisabled,
+              [classes.order_inf_btn_disabled]: isButtonDisabled,
+            })}
+            onClick={linkHandler}
+          >
+            {buttonHandler()}
+          </button>
         </div>
-        </div>
-        <OrderInfMobile
+      </div>
+      <button
+        disabled={isButtonDisabled}
+        className={classNames({
+          [classes.mobile_order_inf_btn]: true,
+          [classes.order_inf_btn_active]: !isButtonDisabled,
+          [classes.order_inf_btn_disabled]: isButtonDisabled,
+        })}
+        onClick={linkHandler}
+      >
+        {buttonHandler()}
+      </button>
+      <OrderInfMobile
         setIsMobileOpened={setIsMobileOpened}
         match={match}
         infMobileOpened={infMobileOpened}
@@ -114,7 +127,7 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
         isButtonDisabled={isButtonDisabled}
         linkHandler={linkHandler}
         buttonHandler={buttonHandler}
-        />
+      />
     </>
   );
 };

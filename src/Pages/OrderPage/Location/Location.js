@@ -22,13 +22,17 @@ const Location = () => {
 
   useEffect(() => {
     if (town && cities.data && points.data) {
-      setFilteredPoints(points.data.filter((item) => item.cityId && item.cityId.name === town));
+      setFilteredPoints(
+        points.data.filter((item) => item.cityId && item.cityId.name === town),
+      );
     } else {
       setFilteredPoints(points);
     }
 
     if (town && cities.data) {
-      setFilteredCities(cities.data.filter((item) => item.name.toLowerCase().includes(town.toLowerCase())));
+      setFilteredCities(
+        cities.data.filter((item) => item.name.toLowerCase().includes(town.toLowerCase())),
+      );
     } else {
       setFilteredCities(cities.data);
     }
@@ -36,43 +40,50 @@ const Location = () => {
 
   useEffect(() => {
     if (town && point) {
-      dispatch(setLocation({
-        town,
-        point,
-      }));
+      dispatch(
+        setLocation({
+          town,
+          point,
+        }),
+      );
     } else {
       dispatch(setLocation(null));
     }
   }, [town, point, dispatch]);
 
-  return (
-    cities.data && points.data
-      ? <>
-                <div className={classes.input_form}>
-                    <LocationInput
-                        label={'Город'}
-                        placeholder={'город'}
-                        setText={setTown}
-                        text={town}
-                        items={filteredCities || cities.data}
-                        disabled={false}
-                    />
-                    <LocationInput
-                        label={'Пункт выдачи'}
-                        placeholder={'пункт'}
-                        setText={setPoint}
-                        text={point}
-                        items={filteredPoints}
-                        disabled={!town}
-                    />
-                </div>
-                <div className={classes.map_part}>
-                    <div className={classes.map_header}>
-                        Выбрать на карте:
-                    </div>
-                    <Maps town={town} point={point} setTown={setTown} setPoint={setPoint} points={points.data}/>
-                </div>
-            </> : <Loading />
+  return cities.data && points.data ? (
+    <>
+      <div className={classes.input_form}>
+        <LocationInput
+          label={'Город'}
+          placeholder={'город'}
+          setText={setTown}
+          text={town}
+          items={filteredCities || cities.data}
+          disabled={false}
+        />
+        <LocationInput
+          label={'Пункт выдачи'}
+          placeholder={'пункт'}
+          setText={setPoint}
+          text={point}
+          items={filteredPoints}
+          disabled={!town}
+        />
+      </div>
+      <div className={classes.map_part}>
+        <div className={classes.map_header}>Выбрать на карте:</div>
+        <Maps
+          town={town}
+          point={point}
+          setTown={setTown}
+          setPoint={setPoint}
+          points={points.data}
+        />
+      </div>
+    </>
+  ) : (
+    <Loading />
   );
 };
 

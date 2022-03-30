@@ -19,10 +19,16 @@ const CarsList = ({ car }) => {
         [classes.car_form_active]: currentCar && currentCar.id === car.id,
         [classes.car_form_unactive]: currentCar && currentCar.id !== car.id,
       })}
-      style={{ background: `url(${car.thumbnail.path}) no-repeat 85% 95%`, backgroundSize: '60%' }}
-      onClick={carPickHandler}>
+      style={{
+        background: `url(${car.thumbnail.path}) no-repeat 85% 95%`,
+        backgroundSize: '60%',
+      }}
+      onClick={carPickHandler}
+    >
       <div className={classes.model_name}>{car.name}</div>
-      <div className={classes.price}>{car.priceMin} - {car.priceMax} ₽</div>
+      <div className={classes.price}>
+        {car.priceMin} - {car.priceMax} ₽
+      </div>
     </div>
   );
 };
