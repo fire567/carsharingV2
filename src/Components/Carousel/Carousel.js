@@ -26,8 +26,7 @@ const Carousel = () => {
       <div className={classes.carousel_dots}>
         {dots.map((dot) => (
           <div
-            className={classNames({
-              [classes.dot]: true,
+            className={classNames(classes.dot, {
               [classes.active_dot]: currentSlide === dot.pos,
               [classes.unactive_dot]: currentSlide !== dot.pos,
             })}

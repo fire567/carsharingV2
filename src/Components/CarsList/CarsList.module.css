@@ -37,10 +37,6 @@
   }
 }
 
-.car_form_unactive {
-  padding: 16px;
-}
-
 .car_form:hover {
   padding: 15px;
   border: 1px solid #999999;

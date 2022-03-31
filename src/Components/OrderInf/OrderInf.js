@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { setCurrentCar } from '../../Redux/actions';
 import { links } from '../../consts';
-import OrderInfMobile from '../OrderInfMobile/OrderInfMobile';
+import OrderInfMobile from './OrderInfMobile/OrderInfMobile';
+import CurrentInf from './CurrentInf/CurrentInf';
 import classes from './OrderInf.module.css';
 
 const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
@@ -70,33 +71,10 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
       <div className={classes.order_inf_hide}>
         <div className={classes.order_inf_form}>
           <div className={classes.order_inf_header}>Ваш заказ:</div>
-          <div className={classes.all_order_inf}>
-            {infArr
-              && infArr.map((item, index) => (
-                <div
-                  className={
-                    item.item ? classes.order_inf : classes.order_inf_hidden
-                  }
-                  key={index}
-                >
-                  <div className={classes.inf_name}>{item.header}</div>
-                  <div className={classes.dots_style}></div>
-                  <div className={classes.inf_value}>{item.value}</div>
-                </div>
-              ))}
-            {currentCar && (
-              <div className={classes.order_price_inf}>
-                <div className={classes.order_price_header}>Цена:</div>
-                <div className={classes.order_price}>
-                  от {currentCar.priceMin} до {currentCar.priceMax} ₽
-                </div>
-              </div>
-            )}
-          </div>
+          <CurrentInf infArr={infArr} currentCar={currentCar}/>
           <button
             disabled={isButtonDisabled}
-            className={classNames({
-              [classes.order_inf_btn]: true,
+            className={classNames(classes.order_inf_btn, {
               [classes.order_inf_btn_active]: !isButtonDisabled,
               [classes.order_inf_btn_disabled]: isButtonDisabled,
             })}
@@ -108,8 +86,7 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
       </div>
       <button
         disabled={isButtonDisabled}
-        className={classNames({
-          [classes.mobile_order_inf_btn]: true,
+        className={classNames(classes.mobile_order_inf_btn, {
           [classes.order_inf_btn_active]: !isButtonDisabled,
           [classes.order_inf_btn_disabled]: isButtonDisabled,
         })}

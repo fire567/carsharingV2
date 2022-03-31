@@ -57,12 +57,11 @@ const LocationInput = ({
           onClick={() => setDropDown(true)}
           disabled={disabled}
           placeholder={`Начните вводить ${placeholder} ...`}
-        ></input>
+        />
         {text && <span className={classes.close} onClick={deleteTextHandler} />}
         {dropdown && !disabled && (
           <div
-            className={classNames({
-              [classes.dropdown]: true,
+            className={classNames(classes.dropdown, {
               [classes.dropdown_filled]: items.length > 0,
               [classes.dropdown_empty]: items.length === 0,
             })}
@@ -80,8 +79,7 @@ const LocationInput = ({
               ))
             ) : (
               <li
-                className={classNames({
-                  [classes.current_item]: true,
+                className={classNames(classes.current_item, {
                   [classes.current_item_filled]: items.length > 0,
                   [classes.current_item_empty]: items.length === 0,
                 })}

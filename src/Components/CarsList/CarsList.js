@@ -14,10 +14,8 @@ const CarsList = ({ car }) => {
 
   return (
     <div
-      className={classNames({
-        [classes.car_form]: true,
+      className={classNames(classes.car_form, {
         [classes.car_form_active]: currentCar && currentCar.id === car.id,
-        [classes.car_form_unactive]: currentCar && currentCar.id !== car.id,
       })}
       style={{
         background: `url(${car.thumbnail.path}) no-repeat 85% 95%`,

@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 32px;
-    position: absolute;
+    position: fixed;
     width: 230px;
     border: 1px solid #bdbdbd;
     border-left: 0px;
@@ -31,7 +31,7 @@
 
 @media (max-width: 1024px) {
   .mobile_flter_items_form {
-    left: 86px;
+    left: 75px;
   }
 }
 
@@ -188,7 +188,7 @@
 @media (max-width: 540px) {
   .cras_list_paginate {
     margin-top: 32px;
-    height: 250px;
+    height: fit-content;
     width: 100vw;
     justify-content: center;
   }
@@ -216,12 +216,20 @@
   }
 }
 
-@media (max-width: 1160px) {
-  .list_mobile {
+@media (max-width: 1190px) {
+  .pagination {
+    grid-template-columns: 276px;
+    margin-top: 40px;
+    list-style-type: none;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    padding-left: 0px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .pagination {
+    margin-bottom: 90px;
   }
 }
 

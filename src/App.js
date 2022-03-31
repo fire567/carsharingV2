@@ -9,7 +9,7 @@ const App = () => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL }>
       <div className={classes.app}>
         <Route path="/" exact>
           <MainPage setIsOpened={setIsOpened} />

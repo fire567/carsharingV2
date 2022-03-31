@@ -11,14 +11,12 @@ const Menu = ({ setIsOpened, isOpened }) => {
   };
   return (
     <div
-      className={classNames({
-        [classes.menu_form]: true,
+      className={classNames(classes.menu_form, {
         [classes.menu_form_closed]: !isOpened,
       })}
     >
       <div
-        className={classNames({
-          [classes.menu_content_side]: true,
+        className={classNames(classes.menu_content_side, {
           [classes.menu_content_side_opened]: isOpened,
           [classes.menu_content_side_closed]: !isOpened,
         })}
@@ -47,8 +45,7 @@ const Menu = ({ setIsOpened, isOpened }) => {
         </div>
       </div>
       <div
-        className={classNames({
-          [classes.menu_transparent_side]: true,
+        className={classNames(classes.menu_transparent_side, {
           [classes.menu_transparent_side_closed]: !isOpened,
         })}
       />

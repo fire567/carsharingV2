@@ -69,8 +69,7 @@ const Model = () => {
         ))}
       </div>
       <div
-        className={classNames({
-          [classes.mobile_flter_items_form]: true,
+        className={classNames(classes.mobile_flter_items_form, {
           [classes.mobile_flter_items_form_closed]: !isPopUpOpened,
         })}
       >
@@ -98,7 +97,7 @@ const Model = () => {
             className={
               isPopUpOpened ? classes.triangle_right : classes.triangle_left
             }
-          ></div>
+          />
         </div>
       </div>
       <div className={classes.cars_list_form}>

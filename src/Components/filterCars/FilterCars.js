@@ -16,8 +16,7 @@ const FilterCars = ({
   return (
     <div className={classes.filter_item_form} key={name}>
       <div
-        className={classNames({
-          [classes.circle]: true,
+        className={classNames(classes.circle, {
           [classes.circle_active]: currentFilter === name,
           [classes.circle_unactive]: currentFilter !== name,
         })}
