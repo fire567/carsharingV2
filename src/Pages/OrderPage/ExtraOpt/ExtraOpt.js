@@ -70,7 +70,7 @@ const ExtraOpt = () => {
     dispatch(setRate(rate));
   };
 
-  console.log(extra);
+  console.log('asd');
 
   const extraHandler = (item) => {
     if (item.id === 0) {

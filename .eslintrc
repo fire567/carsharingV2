@@ -4,12 +4,15 @@
         "es6": true,
         "node": true
     },
-    "extends": ["airbnb/hooks", "airbnb/base", "plugin:react/jsx-runtime", "eslint:recommended", "plugin:react/recommended"],
+    "extends": ["airbnb/hooks", "airbnb/base", "plugin:react/jsx-runtime", "eslint:recommended", "plugin:react/recommended", "prettier"],
     "rules": {
         "react/prop-types": 0,
         "max-len": ["error", { "code": 200 }],
         "linebreak-style":"off",
         "default-param-last" : "off",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "react/self-closing-comp": "off",
+        "comma-dangle": "off",
+        "operator-linebreak":"off"
       } 
 }
