@@ -8,15 +8,17 @@ import currentCar from "./currentCar";
 import rates from "./rates";
 import color from "./color";
 import currentRate from "./currentRate";
+import extra from "./extra";
 
 export default combineReducers({
-    color: color,
-    cities: cities,
-    point: point,
-    location: location,
-    categories: categories,
-    cars: cars,
-    currentCar: currentCar,
-    rates: rates,
-    currentRate: currentRate,
-})
+  color: color,
+  cities: cities,
+  point: point,
+  location: location,
+  categories: categories,
+  cars: cars,
+  currentCar: currentCar,
+  rates: rates,
+  currentRate: currentRate,
+  extra: extra,
+});

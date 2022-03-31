@@ -66,8 +66,7 @@ const Model = () => {
                     ))
                     }
                 <div className={classes.mobile_popup_btn} onClick={() => isPopUpOpenedHandler()}>
-                    <div className={isPopUpOpened ? classes.triangle_right : classes.triangle_left}>
-                    </div>
+                    <div className={isPopUpOpened ? classes.triangle_right : classes.triangle_left} />
                 </div>
             </div>
             <div className={classes.cars_list_form}>

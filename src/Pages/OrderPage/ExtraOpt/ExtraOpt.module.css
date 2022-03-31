@@ -173,6 +173,7 @@
 }
 
 .opt_extra_form label::before {
+  cursor: pointer;
   color: #999999;
   content: "";
   display: inline-block;
@@ -183,16 +184,33 @@
   border: 1px solid;
 }
 
-.opt_extra_form label:hover::before {
+.opt_extra_form_active{
+  position: relative;
+  font-family: "Roboto"; 
+}
+
+.opt_extra_form_active:not(:first-child) {
+  margin-top: 8px;
+}
+
+.opt_extra_form_active label {
+  font-family: "Roboto";
+  color: #121212;;
+}
+
+.opt_extra_form_active label::before {
+  color: #0ec261;
+  content: "";
+  display: inline-block;
+  margin-right: 9px;
+  height: 12px;
+  width: 12px;
   cursor: pointer;
-  border: 1px solid #0ec261;
+  border: 1px solid;
 }
 
-.opt_extra_form label::after {
-  content: none;
-}
-
-.opt_extra_form label::after {
+.opt_extra_form_active label::after {
+  cursor: pointer;
   content: "";
   display: inline-block;
   height: 6px;
@@ -205,8 +223,8 @@
   transform: rotate(-45deg);
 }
 
-/*Показываем галку по состоянию checked*/
-.opt_extra_form label::before {
+.opt_extra_form:active label::before {
+  cursor: pointer;
   margin-right: 9px;
   border: 1px solid #0ec261;
 }
