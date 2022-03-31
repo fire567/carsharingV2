@@ -25,6 +25,8 @@
     "react/self-closing-comp": ["error", {
       "component": true,
       "html": true
-    }]
+    }],
+    "comma-dangle": "off",
+    "operator-linebreak":"off"
   }
 }

@@ -26,7 +26,7 @@ const Model = () => {
   useEffect(() => {
     if (cars && currentFilter) {
       setFilteredCars(
-        cars.data.filter((car) => car.categoryId.name === currentFilter),
+        cars.data.filter((car) => car.categoryId.name === currentFilter)
       );
     }
   }, [currentFilter, cars]);
@@ -40,7 +40,7 @@ const Model = () => {
     setCurrentItems(
       filteredCars.length > 0
         ? filteredCars.slice(itemOffset, endOffset)
-        : cars && cars.data.slice(itemOffset, endOffset),
+        : cars && cars.data.slice(itemOffset, endOffset)
     );
   }, [itemOffset, cars, filteredCars]);
 
@@ -107,15 +107,15 @@ const Model = () => {
       </div>
       <div className={classes.list_mobile}>
         <div className={classes.cras_list_paginate}>
-          {currentItems
-            && currentItems.map((car) => <CarsList car={car} key={car.id} />)}
+          {currentItems &&
+            currentItems.map((car) => <CarsList car={car} key={car.id} />)}
         </div>
         <ReactPaginate
           pageCount={
             filteredCars.length > 0 ? filteredCars.length / 3 : cars.count / 3
           }
-          previousLabel="<"
-          nextLabel=">"
+          previousLabel='<'
+          nextLabel='>'
           pageRangeDisplayed={1}
           marginPagesDisplayed={2}
           initialPage={0}
