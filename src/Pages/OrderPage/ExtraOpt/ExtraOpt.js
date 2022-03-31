@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
-import { getRateTypes, setColor } from '../../../Redux/actions';
+import setHours from 'date-fns/setHours';
+import setMinutes from 'date-fns/setMinutes';
+import { getRateTypes, setColor, setRate } from '../../../Redux/actions';
 import 'react-datepicker/dist/react-datepicker.css';
 import classes from './ExtraOpt.module.css';
 import Loading from '../../../Components/Loading/Loading';
@@ -11,9 +13,14 @@ const ExtraOpt = () => {
   const currentCar = useSelector((state) => state.currentCar);
   const color = useSelector((state) => state.color);
   const rates = useSelector((state) => state.rates);
+  const currentRate = useSelector((state) => state.currentRate);
   const [sinceDate, setSinceDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const [isDisabled, setDisabled] = useState(true);
+  const [isFullTank, setIsFullTank] = useState(false);
+  const [isChair, setIsChair] = useState(false);
+  const [isRightWheel, setIsRightWheel] = useState(false);
+  const [extra, setExtra] = useState({});
 
   const extraOptions = [
     { id: 0, value: 'Полный бак, 500р', name: 'Полный бак' },
@@ -29,12 +36,21 @@ const ExtraOpt = () => {
     }
   }, [sinceDate]);
 
+  useEffect(() => {
+    setExtra({
+      isFullTank,
+      isChair,
+      isRightWheel,
+    });
+  }, [isFullTank, isChair, isRightWheel]);
+
   const colorHandler = (currentColor) => {
     dispatch(setColor(currentColor));
   };
 
   const sinceDateHandler = (date) => {
     setSinceDate(date);
+    setEndDate(null);
   };
 
   const endDateHandler = (date) => {
@@ -50,12 +66,28 @@ const ExtraOpt = () => {
     setEndDate(null);
   };
 
+  const rateHandler = (rate) => {
+    dispatch(setRate(rate));
+  };
+
+  console.log(extra);
+
+  const extraHandler = (item) => {
+    if (item.id === 0) {
+      setIsFullTank(!isFullTank);
+    } else if (item.id === 1) {
+      setIsChair(!isChair);
+    } else if (item.id === 2) {
+      setIsRightWheel(!isRightWheel);
+    }
+  };
+
   useEffect(() => {
     dispatch(getRateTypes());
   }, [dispatch]);
 
   return (
-    rates
+    rates && currentCar
       ? <div className={classes.options_form}>
       <div className={classes.opt_form}>
         <div className={classes.header}>Цвет</div>
@@ -79,12 +111,15 @@ const ExtraOpt = () => {
             <DatePicker
               className={classes.date}
               selected={sinceDate}
-              filterTime={false}
               minDate={new Date()}
               onChange={sinceDateHandler}
-              showTimeInput
+              minTime={ sinceDate.getDate() === new Date().getDate() ? sinceDate : setHours(setMinutes(new Date(), 0), 0)}
+              maxTime={setHours(setMinutes(new Date(), 59), 23)}
+              showTimeSelect
+              timeFormat="HH:mm"
               dateFormat="dd/MM/yyyy HH:mm"
               placeholderText={'Введите дату и время'}
+              calendarClassName={classes.calendar}
             />
           </div>
           <div className={classes.date_form}>
@@ -94,10 +129,15 @@ const ExtraOpt = () => {
               className={classes.date}
               selected={endDate}
               onChange={(date) => endDateHandler(date)}
-              showTimeInput
+              showTimeSelect
+              minTime={sinceDate.getTime()}
+              maxTime={setHours(setMinutes(new Date(), 59), 23)}
+              timeFormat="HH:mm"
+              minDate={sinceDate}
               disabled={isDisabled}
               dateFormat="dd/MM/yyyy hh:mm"
               placeholderText={'Введите дату и время'}
+              calendarClassName={classes.calendar}
             />
           </div>
         </div>
@@ -108,7 +148,7 @@ const ExtraOpt = () => {
         <div className={classes.tarif_form}>
         {rates.data.map((item) => (
             <div className={classes.opt_tarif_form} key={item.id}>
-              <div className={classes.circle}></div>
+              <div className={currentRate && currentRate.id === item.id ? classes.circle_active : classes.circle} onClick={() => rateHandler(item)}></div>
               <div className={classes.opt_value}>{item.rateTypeId.name}</div>
             </div>
         ))
@@ -122,7 +162,7 @@ const ExtraOpt = () => {
         {extraOptions.map((item) => (
             <div className={classes.opt_extra_form} key={item.id}>
               <input type="checkbox" className={classes.checkbox}></input>
-              <label className={classes.opt_extra}>{item.value}</label>
+              <label className={classes.opt_extra} onClick={() => extraHandler(item)}>{item.value}</label>
             </div>
         ))
         }

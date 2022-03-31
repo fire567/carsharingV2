@@ -70,3 +70,8 @@ export const setColor = (color) => ({
   payload: color,
 });
 
+export const setRate = (rate) => ({
+  type: 'SET_RATE',
+  payload: rate,
+});
+

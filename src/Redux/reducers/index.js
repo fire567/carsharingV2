@@ -7,6 +7,7 @@ import cars from "./cars";
 import currentCar from "./currentCar";
 import rates from "./rates";
 import color from "./color";
+import currentRate from "./currentRate";
 
 export default combineReducers({
     color: color,
@@ -17,4 +18,5 @@ export default combineReducers({
     cars: cars,
     currentCar: currentCar,
     rates: rates,
+    currentRate: currentRate,
 })

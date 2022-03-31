@@ -1,10 +1,10 @@
 @media (max-width: 540px) {
-  .options_form{
+  .options_form {
     margin-left: 15vw;
   }
 }
 
-.opt_form{
+.opt_form {
   margin-top: 32px;
   font-family: "Roboto";
   font-weight: 300;
@@ -12,34 +12,34 @@
   line-height: 16px;
 }
 
-.header{
+.header {
   color: #121212;
 }
 
-.colors_form{
+.colors_form {
   margin-top: 16px;
   display: flex;
 }
 
-.tarif_form{
+.tarif_form {
   margin-top: 16px;
   display: block;
 }
 
-.opt_colors_form{
+.opt_colors_form {
   display: flex;
 }
 
-.opt_tarif_form{
+.opt_tarif_form {
   margin-top: 8px;
   display: flex;
 }
 
-.opt_colors_form:not(:first-child){
+.opt_colors_form:not(:first-child) {
   margin-left: 16px;
 }
 
-.circle{
+.circle {
   width: 11px;
   height: 11px;
   border: 1px solid #999999;
@@ -47,41 +47,41 @@
   cursor: pointer;
 }
 
-.circle:hover{
+.circle:hover {
   width: 7px;
   height: 7px;
-  border: 3px solid #0EC261;
+  border: 3px solid #0ec261;
   border-radius: 50%;
 }
 
-.circle_active{
+.circle_active {
   width: 7px;
   height: 7px;
-  border: 3px solid #0EC261;
+  border: 3px solid #0ec261;
   border-radius: 50%;
 }
 
-.circle_active{
+.circle_active {
   width: 7px;
   height: 7px;
-  border: 3px solid #0EC261;
+  border: 3px solid #0ec261;
   border-radius: 50%;
+  cursor: pointer;
 }
 
-.opt_value{
+.opt_value {
   margin-left: 8px;
   color: #999999;
 }
 
-.inputs_form{
+.inputs_form {
   width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-.date_form{
-  width: fit-content;
+.date_form {
   margin-top: 16px;
   display: flex;
   position: relative;
@@ -89,12 +89,17 @@
   justify-content: flex-end;
 }
 
-.label{
+.react-datepicker {
+  display: flex;
+}
+
+.label {
   display: flex;
   align-items: center;
 }
 
-.date{
+.date {
+  display: flex;
   font-family: "Roboto";
   font-weight: 300;
   font-size: 14px;
@@ -107,11 +112,15 @@
   border-bottom: 1px solid #999999;
 }
 
-.date:not(:first-child){
+.date:not(:first-child) {
   margin-top: 16px;
 }
 
-.date react-datepicker-wrapper{
+.calendar {
+  display: flex;
+}
+
+.date react-datepicker-wrapper {
   margin-left: 8px;
 }
 
@@ -124,12 +133,13 @@
   z-index: 5;
 }
 
-.close:before, .close:after {
+.close:before,
+.close:after {
   position: absolute;
-  content: ' ';
+  content: " ";
   height: 8px;
   width: 1px;
-  background-color:#121212;
+  background-color: #121212;
   border: 50%;
 }
 
@@ -141,41 +151,45 @@
   transform: rotate(-45deg);
 }
 
-.checkbox{
+.checkbox {
   display: none;
 }
 
-.opt_extra_form{
+.opt_extra_form {
   position: relative;
   font-family: "Roboto";
   color: #999999;
 }
 
-.opt_extra_form label{
+.opt_extra_form label {
   font-family: "Roboto";
   color: #999999;
 }
 
-.opt_extra_form:not(:first-child){
+.opt_extra_form:not(:first-child) {
   margin-top: 8px;
   font-family: "Roboto";
   color: #999999;
 }
 
-.opt_extra_form label::before{
+.opt_extra_form label::before {
   color: #999999;
   content: "";
   display: inline-block;
   margin-right: 9px;
   height: 12px;
   width: 12px;
-  
-  border: 1px solid;   
+
+  border: 1px solid;
 }
 
-.opt_extra_form label:hover::before{
+.opt_extra_form label:hover::before {
   cursor: pointer;
-  border: 1px solid #0EC261;
+  border: 1px solid #0ec261;
+}
+
+.opt_extra_form label::after {
+  content: none;
 }
 
 .opt_extra_form label::after {
@@ -186,21 +200,13 @@
   border-left: 3px solid #121212;
   border-bottom: 3px solid #121212;
   position: absolute;
+  z-index: 5;
   left: 3px;
   transform: rotate(-45deg);
 }
 
-.opt_extra_form input[type="checkbox"] + label::after {
-  content: none;
-}
 /*Показываем галку по состоянию checked*/
-.opt_extra_form input[type="checkbox"]:checked + label::before {
+.opt_extra_form label::before {
   margin-right: 9px;
-  border: 1px solid #0EC261;
-  }
-.opt_extra_form input[type="checkbox"]:checked + label {
-  color: black;
-}
-.opt_extra_form input[type="checkbox"]:checked + label::after {
-  content: "";
+  border: 1px solid #0ec261;
 }
