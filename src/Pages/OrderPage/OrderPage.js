@@ -32,10 +32,10 @@ const OrderPage = ({ match, setIsOpened }) => {
         <NavBar match={match.params} />
         <div className={classes.order_page_content_form}>
           <div className={classes.content_form}>
-            <Route path="/order-page/location" exact>
+            <Route path='/order-page/location' exact>
               <Location />
             </Route>
-            <Route path="/order-page/model" exact>
+            <Route path='/order-page/model' exact>
               <Model />
             </Route>
           </div>

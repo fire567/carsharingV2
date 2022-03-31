@@ -23,7 +23,7 @@ const Location = () => {
   useEffect(() => {
     if (town && cities.data && points.data) {
       setFilteredPoints(
-        points.data.filter((item) => item.cityId && item.cityId.name === town),
+        points.data.filter((item) => item.cityId && item.cityId.name === town)
       );
     } else {
       setFilteredPoints(points);
@@ -31,7 +31,9 @@ const Location = () => {
 
     if (town && cities.data) {
       setFilteredCities(
-        cities.data.filter((item) => item.name.toLowerCase().includes(town.toLowerCase())),
+        cities.data.filter((item) =>
+          item.name.toLowerCase().includes(town.toLowerCase())
+        )
       );
     } else {
       setFilteredCities(cities.data);
@@ -44,7 +46,7 @@ const Location = () => {
         setLocation({
           town,
           point,
-        }),
+        })
       );
     } else {
       dispatch(setLocation(null));
