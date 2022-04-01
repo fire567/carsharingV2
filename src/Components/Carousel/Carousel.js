@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import Slides from './Slides/Slides';
 import { RIGHT_DIRECTION, LEFT_DIRECTION } from '../../consts';
 import classes from './Carousel.module.css';
@@ -7,11 +8,9 @@ const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const changeSlideHandler = (direction) => {
-    direction === RIGHT_DIRECTION ? setCurrentSlide(
-      currentSlide !== -300 ? currentSlide - 100 : 0,
-    ) : setCurrentSlide(
-      currentSlide !== 0 ? currentSlide + 100 : -300,
-    );
+    direction === RIGHT_DIRECTION
+      ? setCurrentSlide(currentSlide !== -300 ? currentSlide - 100 : 0)
+      : setCurrentSlide(currentSlide !== 0 ? currentSlide + 100 : -300);
   };
 
   const dots = [
@@ -22,20 +21,33 @@ const Carousel = () => {
   ];
 
   return (
-        <div className={classes.carousel_form}>
-            <Slides position={currentSlide}/>
-            <div className={classes.carousel_dots}>
-                {dots.map((dot) => (
-                    <div className={currentSlide === dot.pos ? classes.active_dot : classes.dot} key={dot.id} onClick={() => setCurrentSlide(dot.pos)} />
-                ))}
-            </div>
-            <div className={classes.left_btn} onClick={() => changeSlideHandler(LEFT_DIRECTION)}>
-                <div className={classes.left_arrow} />
-            </div>
-            <div className={classes.right_btn} onClick={() => changeSlideHandler(RIGHT_DIRECTION)}>
-                <div className={classes.right_arrow} />
-            </div>
-        </div>
+    <div className={classes.carousel_form}>
+      <Slides position={currentSlide} />
+      <div className={classes.carousel_dots}>
+        {dots.map((dot) => (
+          <div
+            className={classNames(classes.dot, {
+              [classes.active_dot]: currentSlide === dot.pos,
+              [classes.unactive_dot]: currentSlide !== dot.pos,
+            })}
+            key={dot.id}
+            onClick={() => setCurrentSlide(dot.pos)}
+          />
+        ))}
+      </div>
+      <div
+        className={classes.left_btn}
+        onClick={() => changeSlideHandler(LEFT_DIRECTION)}
+      >
+        <div className={classes.left_arrow} />
+      </div>
+      <div
+        className={classes.right_btn}
+        onClick={() => changeSlideHandler(RIGHT_DIRECTION)}
+      >
+        <div className={classes.right_arrow} />
+      </div>
+    </div>
   );
 };
 
