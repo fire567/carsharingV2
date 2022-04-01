@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,13 +7,17 @@ import { links } from "../../consts";
 import exit from "../../assets/exit.svg";
 import classes from "./OrderInfMobile.module.css";
 
-const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
+const OrderInfMobile = ({
+  setIsMobileOpened,
+  infMobileOpened,
+  match,
+  setInfArr,
+  currentCar,
+}) => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
-  const currentCar = useSelector((state) => state.currentCar);
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [infArr, setInfArr] = useState(null);
 
   const closeMenuHandler = () => {
     setIsMobileOpened(false);
@@ -83,32 +86,23 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
         <ReactSVG
           className={classes.exit_btn}
           src={exit}
-          onClick={() => closeMenuHandler()}
+          onClick={closeMenuHandler}
         />
         <div className={classes.order_inf_form}>
           <div className={classes.order_inf_header}>Ваш заказ:</div>
           <div className={classes.all_order_inf}>
-            {infArr &&
-              infArr.map((item) => (
-                <div
-                  className={
-                    item.item ? classes.order_inf : classes.order_inf_hidden
-                  }
-                  key={infArr.id}
-                >
-                  <div className={classes.inf_name}>{item.header}</div>
-                  <div className={classes.dots_style} />
-                  <div className={classes.inf_value}>{item.value}</div>
-                </div>
-              ))}
-            {currentCar && (
-              <div className={classes.order_price_inf}>
-                <div className={classes.order_price_header}>Цена:</div>
-                <div className={classes.order_price}>
-                  от {currentCar.priceMin} до {currentCar.priceMax} ₽
-                </div>
+            <div
+              className={
+                location === null ? classes.order_inf_hidden : classes.order_inf
+              }
+            >
+              <div className={classes.inf_name}>Пункт выдачи</div>
+              <div className={classes.dots_style}></div>
+              <div className={classes.inf_value}>
+                {location && `${location.town}, ${location.point}`}
               </div>
-            )}
+            </div>
+
             <button
               disabled={isButtonDisabled}
               className={
@@ -116,7 +110,7 @@ const OrderInfMobile = ({ setIsMobileOpened, infMobileOpened, match }) => {
                   ? classes.order_inf_btn_disabled
                   : classes.order_inf_btn
               }
-              onClick={() => linkHandler()}
+              onClick={linkHandler}
             >
               {buttonHandler()}
             </button>

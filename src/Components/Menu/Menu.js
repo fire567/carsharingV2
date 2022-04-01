@@ -1,8 +1,6 @@
 import React from "react";
 import { ReactSVG } from "react-svg";
 import exit from "../../assets/exit.svg";
-import facebook from "../../assets/facebook.svg";
-import instagram from "../../assets/instagram.svg";
 import telegram from "../../assets/telegram.svg";
 import classes from "./Menu.module.css";
 
@@ -22,7 +20,7 @@ const Menu = ({ setIsOpened, isOpened }) => {
         <div
           className={classes.exit_btn}
           style={{ backgroundImage: `url(${exit})` }}
-          onClick={() => closeMenuHandler()}
+          onClick={closeMenuHandler}
         />
         <div className={classes.menu_content_form}>
           <div href="" className={classes.menu_content}>
@@ -40,8 +38,6 @@ const Menu = ({ setIsOpened, isOpened }) => {
         </div>
         <div className={classes.media_icons}>
           <ReactSVG src={telegram} className={classes.media_icon} />
-          <ReactSVG src={facebook} className={classes.media_icon} />
-          <ReactSVG src={instagram} className={classes.media_icon} />
         </div>
       </div>
       <div

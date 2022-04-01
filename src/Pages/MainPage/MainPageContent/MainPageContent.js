@@ -23,7 +23,7 @@ const MainPageContent = () => {
                     <div className={classes.purpose}>
                         Поминутная аренда авто твоего города
                     </div>
-                    <button className={classes.order_btn_form} onClick={() => linkHandler()}>
+                    <button className={classes.order_btn_form} onClick={linkHandler}>
                         Забронировать
                     </button>
                 </div>

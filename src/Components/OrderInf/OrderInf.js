@@ -118,7 +118,7 @@ const OrderInf = ({ match }) => {
     extra,
   ]);
 
-  console.log(date);
+  console.log(currentPrice);
 
   const calculatePrice = () => {
     const miliseconds = Date.parse(date.endDate) - Date.parse(date.sinceDate);
@@ -145,7 +145,7 @@ const OrderInf = ({ match }) => {
       setCurrentPrice((prev) => Math.floor(prev + 0));
     }
     if (extra.isRightWheel === true) {
-      setCurrentPrice((prev) => Math.floor(prev + 1600));
+      setCurrentPrice((prev) => Math.floor(prev + 1500));
     } else {
       setCurrentPrice((prev) => Math.floor(prev + 0));
     }
@@ -175,8 +175,8 @@ const OrderInf = ({ match }) => {
             <div className={classes.order_price_header}>Цена:</div>
             <div className={classes.order_price}>
               {currentPrice
-                ? ` ${currentPrice} ₽`
-                : ` от ${currentCar.priceMin} до ${currentCar.priceMax} ₽`}
+                ? `${currentPrice}`
+                : `от ${currentCar.priceMin} до ${currentCar.priceMax} ₽`}
             </div>
           </div>
         )}
