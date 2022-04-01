@@ -41,14 +41,12 @@ const ExtraOpt = () => {
       setDisabled(true);
     }
 
-    if (sinceDate && endDate) {
-      dispatch(
-        setDate({
-          sinceDate,
-          endDate,
-        })
-      );
-    }
+    dispatch(
+      setDate({
+        sinceDate,
+        endDate,
+      })
+    );
   }, [sinceDate, endDate]);
 
   useEffect(() => {
@@ -79,7 +77,7 @@ const ExtraOpt = () => {
   };
 
   const deleteSinceDate = () => {
-    setSinceDate(null);
+    setSinceDate(new Date());
     setEndDate(null);
   };
 
@@ -161,7 +159,6 @@ const ExtraOpt = () => {
               minTime={sinceDate.getTime()}
               maxTime={setHours(setMinutes(new Date(), 59), 23)}
               timeFormat="HH:mm"
-              minDate={sinceDate}
               disabled={isDisabled}
               dateFormat="dd/MM/yyyy HH:mm"
               placeholderText={"Введите дату и время"}
@@ -191,7 +188,10 @@ const ExtraOpt = () => {
                     : classes.opt_value
                 }
               >
-                {item.rateTypeId.name}
+                {item.rateTypeId.name},{" "}
+                {rates.data[0].id === item.id
+                  ? `${item.price}₽/мес`
+                  : `${item.price}₽/мин`}
               </div>
             </div>
           ))}

@@ -16,6 +16,7 @@ const OrderInf = ({ match }) => {
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [infArr, setInfArr] = useState(null);
+  const [currentPrice, setCurrentPrice] = useState(null);
 
   const buttonHandler = () => {
     let nextValue = "";
@@ -41,8 +42,6 @@ const OrderInf = ({ match }) => {
       history.push(`${links[filteredLinks[0].id + 1].link}`);
     }
   };
-
-  console.log(infArr);
 
   useEffect(() => {
     setInfArr([
@@ -103,6 +102,11 @@ const OrderInf = ({ match }) => {
     if (match.params.name === "model") {
       currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
+    if (match.params.name === "extra-opt") {
+      color && currentRate && date.sinceDate && date.endDate
+        ? setIsButtonDisabled(false)
+        : setIsButtonDisabled(true);
+    }
   }, [
     location,
     match.params.name,
@@ -113,6 +117,39 @@ const OrderInf = ({ match }) => {
     currentRate,
     extra,
   ]);
+
+  console.log(date);
+
+  const calculatePrice = () => {
+    const miliseconds = Date.parse(date.endDate) - Date.parse(date.sinceDate);
+    if (currentRate.price === 7) {
+      return Math.floor((miliseconds / (1000 * 60)) * currentRate.price);
+    }
+    return Math.floor(
+      (miliseconds / (1000 * 60 * 60 * 24 * 31)) * currentRate.price
+    );
+  };
+
+  useEffect(() => {
+    if (date.sinceDate && date.endDate && currentRate) {
+      setCurrentPrice(calculatePrice);
+    }
+    if (extra.isFullTank === true) {
+      setCurrentPrice((prev) => Math.floor(prev + 500));
+    } else {
+      setCurrentPrice((prev) => Math.floor(prev + 0));
+    }
+    if (extra.isChair === true) {
+      setCurrentPrice((prev) => Math.floor(prev + 200));
+    } else {
+      setCurrentPrice((prev) => Math.floor(prev + 0));
+    }
+    if (extra.isRightWheel === true) {
+      setCurrentPrice((prev) => Math.floor(prev + 1600));
+    } else {
+      setCurrentPrice((prev) => Math.floor(prev + 0));
+    }
+  }, [date, currentRate, extra]);
 
   return (
     <>
@@ -137,7 +174,9 @@ const OrderInf = ({ match }) => {
           <div className={classes.order_price_inf}>
             <div className={classes.order_price_header}>Цена:</div>
             <div className={classes.order_price}>
-              от {currentCar.priceMin} до {currentCar.priceMax} ₽
+              {currentPrice
+                ? ` ${currentPrice} ₽`
+                : ` от ${currentCar.priceMin} до ${currentCar.priceMax} ₽`}
             </div>
           </div>
         )}
