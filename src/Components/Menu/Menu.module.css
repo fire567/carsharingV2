@@ -1,151 +1,140 @@
-.menu_form{
-    top: 0;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    z-index: 150;
+.menu_form {
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  z-index: 150;
 }
 
-.menu_form_closed{
-    top: 0;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    transform: translateX(-100vw);
-    transition: all 0.3s
+.menu_form_closed {
+  transform: translateX(-100vw);
+  transition: all 0.3s;
 }
 
-.menu_content_side{
-    position: absolute;
-    z-index: 5;
-    width: calc(50vw + 32px);
-    height: 100vh;
-    background-color:#111518;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.3s;
-    transform: translateX(0vw);
+.menu_content_side {
+  position: absolute;
+  z-index: 5;
+  width: calc(50vw + 32px);
+  height: 100%;
+  background-color: #111518;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s;
 }
 
-.menu_content_side_closed{
-    position: absolute;
-    z-index: 5;
-    width: calc(50vw + 32px);
-    height: 100vh;
-    background-color:#111518;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.3s;
-    transform: translateX(-100vw);
+.menu_content_side_opened {
+  transform: translateX(0vw);
+}
+
+.menu_content_side_closed {
+  transform: translateX(-100vw);
 }
 
 @media (max-width: 1024px) {
-    .menu_content_side {
-        width: 100vw;
-    }
+  .menu_content_side {
+    width: 100vw;
   }
+}
 
 @media (max-width: 540px) {
-    .menu_content_side {
-        display: block;
-}
-}
-
-.menu_transparent_side{
-    z-index: 1;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(21, 27, 31, 0.81);
+  .menu_content_side {
+    display: block;
+  }
 }
 
-.menu_transparent_side_closed{
-    z-index: 1;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(21, 27, 31, 0.81);
+.menu_transparent_side {
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(21, 27, 31, 0.81);
+}
+
+.menu_transparent_side_closed {
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(21, 27, 31, 0.81);
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .menu_transparent_side {
     display: none;
+  }
 }
 
-@media (max-width: 1024px) {
-    .menu_transparent_side {
-        display: none;
-    }
-  }
-
-.exit_btn{
-    cursor: pointer;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 17px;
-    top: 32px;
+.exit_btn {
+  cursor: pointer;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 17px;
+  top: 32px;
 }
 
 @media (max-width: 540px) {
-    .exit_btn {
-        top: 28px;
-        left: 28px;
-    }
+  .exit_btn {
+    top: 28px;
+    left: 28px;
   }
+}
 
-.menu_content_form{
-    color: white;
-    margin-left: 128px;
+.menu_content_form {
+  color: white;
+  margin-left: 128px;
 }
 
 @media (max-width: 540px) {
-    .menu_content_form {
-        margin-left: 28px;
-        margin-top: 80px;
-    }
+  .menu_content_form {
+    margin-left: 28px;
+    margin-top: 80px;
   }
-
-.menu_content{
-    cursor: pointer;
-    width: fit-content;
-    font-family: "Roboto";
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 38px;
-    color: #FFFFFF;
-    transition: color 0.3s;
 }
 
-.menu_content:not(:first-child){
-    margin-top: 10px;
+.menu_content {
+  cursor: pointer;
+  width: fit-content;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  color: #ffffff;
+  transition: color 0.3s;
 }
 
-.menu_content:hover{
-    color: #0EC261;
+.menu_content:not(:first-child) {
+  margin-top: 10px;
 }
 
-.media_icons{
-    display: flex;
-    margin-left: 128px;
-    margin-top: 34px;
+.menu_content:hover {
+  color: #0ec261;
+}
+
+.media_icons {
+  display: flex;
+  margin-left: 128px;
+  margin-top: 34px;
 }
 
 @media (max-width: 540px) {
-    .media_icons {
-        margin-left: 28px;
-    }
+  .media_icons {
+    margin-left: 28px;
   }
-
-.media_icon{
-    cursor: pointer;
 }
 
-.media_icon:hover svg path{
-    fill:#0EC261;
-    transition: all 0.3s;
+.media_icon {
+  cursor: pointer;
 }
 
-.media_icon:not(:first-child){
-    margin-left: 24px;
+.media_icon:hover svg path {
+  fill: #0ec261;
+  transition: all 0.3s;
+}
+
+.media_icon:not(:first-child) {
+  margin-left: 24px;
 }

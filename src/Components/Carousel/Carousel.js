@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import classNames from "classnames";
-import Slides from "./Slides/Slides";
-import { RIGHT_DIRECTION, LEFT_DIRECTION } from "../../consts";
-import classes from "./Carousel.module.css";
+import React, { useState } from 'react';
+import classNames from 'classnames';
+import Slides from './Slides/Slides';
+import { RIGHT_DIRECTION, LEFT_DIRECTION } from '../../consts';
+import classes from './Carousel.module.css';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -1,5 +1,6 @@
-import React from "react";
-import classes from "./FilterCars.module.css";
+import React from 'react';
+import classNames from 'classnames';
+import classes from './FilterCars.module.css';
 
 const FilterCars = ({
   name,
@@ -13,12 +14,13 @@ const FilterCars = ({
   };
 
   return (
-    <div className={classes.filter_item_form}>
+    <div className={classes.filter_item_form} key={name}>
       <div
-        className={
-          currentFilter === name ? classes.circle_active : classes.circle
-        }
-        onClick={() => filterBtnHabdler()}
+        className={classNames(classes.circle, {
+          [classes.circle_active]: currentFilter === name,
+          [classes.circle_unactive]: currentFilter !== name,
+        })}
+        onClick={filterBtnHabdler}
       />
       <div className={classes.filter_item_name}>{name}</div>
     </div>

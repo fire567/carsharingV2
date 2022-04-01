@@ -1,13 +1,13 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import location from "../../assets/location.svg";
-import classes from "./Header.module.css";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import location from '../../assets/location.svg';
+import classes from './Header.module.css';
 
 const Header = () => {
   const history = useHistory();
 
   const linkHandler = () => {
-    history.push("/");
+    history.push('/');
   };
 
   return (
@@ -19,7 +19,7 @@ const Header = () => {
         <div
           className={classes.location_image}
           style={{ backgroundImage: `url(${location})` }}
-        ></div>
+        />
         Ульяновск
       </div>
     </header>

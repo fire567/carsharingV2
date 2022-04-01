@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import classes from "./LocationInput.module.css";
+import React, { useState, useEffect, useRef } from 'react';
+import classNames from 'classnames';
+import classes from './LocationInput.module.css';
 
 const LocationInput = ({
   label,
@@ -23,15 +24,15 @@ const LocationInput = ({
         : setDropDown(false);
     };
 
-    document.addEventListener("mousedown", dropDownHandler);
+    document.addEventListener('mousedown', dropDownHandler);
     return () => {
-      document.removeEventListener("mousedown", dropDownHandler);
+      document.removeEventListener('mousedown', dropDownHandler);
     };
   }, []);
 
   useEffect(() => {
     if (disabled) {
-      setText("");
+      setText('');
     }
   }, [disabled, setText]);
 
@@ -41,7 +42,7 @@ const LocationInput = ({
   };
 
   const deleteTextHandler = () => {
-    setText("");
+    setText('');
     setDropDown(false);
   };
 
@@ -56,13 +57,14 @@ const LocationInput = ({
           onClick={() => setDropDown(true)}
           disabled={disabled}
           placeholder={`Начните вводить ${placeholder} ...`}
-        ></input>
+        />
         {text && <span className={classes.close} onClick={deleteTextHandler} />}
         {dropdown && !disabled && (
           <div
-            className={
-              items.length > 0 ? classes.dropdown : classes.dropdown_empty
-            }
+            className={classNames(classes.dropdown, {
+              [classes.dropdown_filled]: items.length > 0,
+              [classes.dropdown_empty]: items.length === 0,
+            })}
           >
             {items.length > 0 ? (
               items.map((item) => (
@@ -78,11 +80,10 @@ const LocationInput = ({
               ))
             ) : (
               <li
-                className={
-                  items.length > 0
-                    ? classes.current_item
-                    : classes.current_item_empty
-                }
+                className={classNames(classes.current_item, {
+                  [classes.current_item_filled]: items.length > 0,
+                  [classes.current_item_empty]: items.length === 0,
+                })}
               >
                 Нет доступных пунктов
               </li>

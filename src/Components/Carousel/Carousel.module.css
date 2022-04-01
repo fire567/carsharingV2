@@ -1,100 +1,95 @@
-.carousel_form{
-    width: calc(50vw - 32px);
-    height: 100vh;
-    position: relative;
-    display: flex;
-    overflow: hidden;
+.carousel_form {
+  width: calc(50vw - 32px);
+  height: 100vh;
+  position: relative;
+  display: flex;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
-    .carousel_form {
-        display: none;
-    }
+  .carousel_form {
+    display: none;
   }
-
-.left_btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    width: 64px;
-    height: 100vh;
-    transition: background-color 0.5s;
 }
 
-.right_btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    width: 64px;
-    height: 100vh;
-    transition: background-color 0.5s;
+.left_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  width: 64px;
+  height: 100vh;
+  transition: background-color 0.5s;
 }
 
-.left_btn:hover{
-    position: absolute;
-    width: 64px;
-    background-color: rgba(14, 194, 97, 0.2);
-    height: 100vh;
+.right_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  width: 64px;
+  height: 100vh;
+  transition: background-color 0.5s;
 }
 
-.right_btn:hover{
-    position: absolute;
-    right: 0;
-    width: 64px;
-    background-color: rgba(14, 194, 97, 0.2);
-    height: 100vh;
+.left_btn:hover {
+  position: absolute;
+  width: 64px;
+  background-color: rgba(14, 194, 97, 0.2);
+  height: 100vh;
 }
 
-.left_arrow{
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 7px;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
+.right_btn:hover {
+  position: absolute;
+  right: 0;
+  width: 64px;
+  background-color: rgba(14, 194, 97, 0.2);
+  height: 100vh;
 }
 
-.right_arrow{
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 7px;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+.left_arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 7px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
-.carousel_dots{
-    display: flex;
-    position: absolute;
-    bottom: 32px;
-    margin-left: 47%;
+.right_arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 7px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
-.dot{
-    width: 8px;
-    height: 8px;
-    background-color: white;
-    border-radius: 5px;
-    cursor: pointer;
+.carousel_dots {
+  display: flex;
+  position: absolute;
+  bottom: 32px;
+  margin-left: 47%;
 }
 
-.dot:not(:first-child){
-    margin-left: 8px;
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.active_dot{
-    width: 8px;
-    height: 8px;
-    background-color: #0EC261;
-    border-radius: 5px;
-    cursor: pointer;
+.dot:not(:first-child) {
+  margin-left: 8px;
 }
 
-.active_dot:not(:first-child){
-    margin-left: 8px;
+.unactive_dot {
+  background-color: white;
+}
+
+.active_dot {
+  background-color: #0ec261;
 }

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import LocationInput from "../../../Components/LocationInput/LocationInput";
-import Maps from "../../../Components/Map/Maps";
-import { getCities, getPoint, setLocation } from "../../../Redux/actions";
-import classes from "./Location.module.css";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import LocationInput from '../../../Components/LocationInput/LocationInput';
+import Loading from '../../../Components/Loading/Loading';
+import Maps from '../../../Components/Map/Maps';
+import { getCities, getPoint, setLocation } from '../../../Redux/actions';
+import classes from './Location.module.css';
 
 const Location = () => {
   const dispatch = useDispatch();
@@ -11,8 +12,8 @@ const Location = () => {
   const points = useSelector((state) => state.point);
   const [filteredPoints, setFilteredPoints] = useState([]);
   const [filteredCities, setFilteredCities] = useState(null);
-  const [town, setTown] = useState("Ульяновск");
-  const [point, setPoint] = useState("");
+  const [town, setTown] = useState('Ульяновск');
+  const [point, setPoint] = useState('');
 
   useEffect(() => {
     dispatch(getCities());
@@ -56,16 +57,16 @@ const Location = () => {
     <>
       <div className={classes.input_form}>
         <LocationInput
-          label={"Город"}
-          placeholder={"город"}
+          label={'Город'}
+          placeholder={'город'}
           setText={setTown}
           text={town}
           items={filteredCities || cities.data}
           disabled={false}
         />
         <LocationInput
-          label={"Пункт выдачи"}
-          placeholder={"пункт"}
+          label={'Пункт выдачи'}
+          placeholder={'пункт'}
           setText={setPoint}
           text={point}
           items={filteredPoints}
@@ -83,7 +84,9 @@ const Location = () => {
         />
       </div>
     </>
-  ) : null;
+  ) : (
+    <Loading />
+  );
 };
 
 export default Location;

@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setCurrentCar } from "../../Redux/actions";
-import { links } from "../../consts";
-import classes from "./OrderInf.module.css";
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
+import { setCurrentCar } from '../../Redux/actions';
+import { links } from '../../consts';
+import OrderInfMobile from './OrderInfMobile/OrderInfMobile';
+import CurrentInf from './CurrentInf/CurrentInf';
+import classes from './OrderInf.module.css';
 
-const OrderInf = ({ match }) => {
+const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const currentCar = useSelector((state) => state.currentCar);
@@ -19,9 +22,9 @@ const OrderInf = ({ match }) => {
   const [currentPrice, setCurrentPrice] = useState(null);
 
   const buttonHandler = () => {
-    let nextValue = "";
+    let nextValue = '';
     const filteredLinks = links.filter(
-      (item) => item.link === match.params.name
+      (item) => item.link === match.params.name,
     );
 
     if (filteredLinks[0].id + 1 <= 3) {
@@ -35,7 +38,7 @@ const OrderInf = ({ match }) => {
 
   const linkHandler = () => {
     const filteredLinks = links.filter(
-      (item) => item.link === match.params.name
+      (item) => item.link === match.params.name,
     );
 
     if (filteredLinks[0].id + 1 <= 3) {
@@ -47,21 +50,21 @@ const OrderInf = ({ match }) => {
     setInfArr([
       {
         id: 0,
-        item: location && location,
-        header: "Пункт выдачи",
+        item: location,
+        header: 'Пункт выдачи',
         value: location && `${location.town}, ${location.point}`,
       },
       {
         id: 1,
-        item: currentCar && currentCar,
-        header: "Модель",
+        item: currentCar,
+        header: 'Модель',
         value: currentCar && `${currentCar.name}`,
       },
       {
         id: 2,
-        item: color && color,
+        item: color,
         header: "Цвет",
-        value: color && color,
+        value: color,
       },
       {
         id: 3,
@@ -71,27 +74,27 @@ const OrderInf = ({ match }) => {
       },
       {
         id: 3,
-        item: currentRate && currentRate,
+        item: currentRate,
         header: "Длительность аренды",
-        value: currentRate && currentRate.rateTypeId.name,
+        value: currentRate.rateTypeId.name,
       },
       {
         id: 4,
-        item: extra.isFullTank && extra.isFullTank,
+        item: extra.isFullTank,
         header: "Полный бак",
-        value: extra.isFullTank && extra.isFullTank,
+        value:extra.isFullTank && extra.isFullTank,
       },
       {
         id: 5,
-        item: extra.isChair && extra.isChair,
+        item: extra.isChair,
         header: "Детское кресло",
-        value: extra.isChair && extra.isChair,
+        value: extra.isChair,
       },
       {
         id: 6,
-        item: extra.isRightWheel && extra.isRightWheel,
+        item: extra.isRightWheel,
         header: "Правый руль",
-        value: extra.isRightWheel && extra.isRightWheel,
+        value: extra.isRightWheel,
       },
     ]);
 
@@ -99,7 +102,7 @@ const OrderInf = ({ match }) => {
       dispatch(setCurrentCar(null));
       location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
-    if (match.params.name === "model") {
+    if (match.params.name === 'model') {
       currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
     if (match.params.name === "extra-opt") {
@@ -153,45 +156,43 @@ const OrderInf = ({ match }) => {
 
   return (
     <>
-      <div className={classes.order_inf_header}>Ваш заказ:</div>
-      <div className={classes.all_order_inf}>
-        {infArr &&
-          infArr.map((item, index) => (
-            <div
-              className={
-                item.item ? classes.order_inf : classes.order_inf_hidden
-              }
-              key={index}
-            >
-              <div className={classes.inf_name}>{item.header}</div>
-              <div className={classes.dots_style} />
-              <div className={classes.inf_value}>
-                {item.value === true ? "Да" : item.value}
-              </div>
-            </div>
-          ))}
-        {currentCar && (
-          <div className={classes.order_price_inf}>
-            <div className={classes.order_price_header}>Цена:</div>
-            <div className={classes.order_price}>
-              {currentPrice
-                ? `${currentPrice}`
-                : `от ${currentCar.priceMin} до ${currentCar.priceMax} ₽`}
-            </div>
-          </div>
-        )}
-        <button
-          disabled={isButtonDisabled}
-          className={
-            isButtonDisabled
-              ? classes.order_inf_btn_disabled
-              : classes.order_inf_btn
-          }
-          onClick={() => linkHandler()}
-        >
-          {buttonHandler()}
-        </button>
+      <div className={classes.order_inf_hide}>
+        <div className={classes.order_inf_form}>
+          <div className={classes.order_inf_header}>Ваш заказ:</div>
+          <CurrentInf infArr={infArr} currentCar={currentCar}/>
+          <button
+            disabled={isButtonDisabled}
+            className={classNames(classes.order_inf_btn, {
+              [classes.order_inf_btn_active]: !isButtonDisabled,
+              [classes.order_inf_btn_disabled]: isButtonDisabled,
+            })}
+            onClick={linkHandler}
+          >
+            {buttonHandler()}
+          </button>
+        </div>
       </div>
+      <button
+        disabled={isButtonDisabled}
+        className={classNames(classes.mobile_order_inf_btn, {
+          [classes.order_inf_btn_active]: !isButtonDisabled,
+          [classes.order_inf_btn_disabled]: isButtonDisabled,
+        })}
+        onClick={linkHandler}
+      >
+        {buttonHandler()}
+      </button>
+      <OrderInfMobile
+        setIsMobileOpened={setIsMobileOpened}
+        match={match}
+        infMobileOpened={infMobileOpened}
+        location={location}
+        currentCar={currentCar}
+        infArr={infArr}
+        isButtonDisabled={isButtonDisabled}
+        linkHandler={linkHandler}
+        buttonHandler={buttonHandler}
+      />
     </>
   );
 };
