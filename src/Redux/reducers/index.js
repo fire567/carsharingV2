@@ -9,6 +9,7 @@ import rates from "./rates";
 import color from "./color";
 import currentRate from "./currentRate";
 import extra from "./extra";
+import date from "./date";
 
 export default combineReducers({
   color: color,
@@ -21,4 +22,5 @@ export default combineReducers({
   rates: rates,
   currentRate: currentRate,
   extra: extra,
+  date: date,
 });

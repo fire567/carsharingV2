@@ -74,6 +74,11 @@
   color: #999999;
 }
 
+.opt_value_active{
+  margin-left: 8px;
+  color: #121212;
+}
+
 .inputs_form {
   width: fit-content;
   display: flex;

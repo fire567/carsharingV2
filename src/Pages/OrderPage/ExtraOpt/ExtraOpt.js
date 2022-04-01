@@ -8,6 +8,7 @@ import {
   setColor,
   setRate,
   setExtra,
+  setDate,
 } from "../../../Redux/actions";
 import "react-datepicker/dist/react-datepicker.css";
 import classes from "./ExtraOpt.module.css";
@@ -39,7 +40,16 @@ const ExtraOpt = () => {
     } else {
       setDisabled(true);
     }
-  }, [sinceDate]);
+
+    if (sinceDate && endDate) {
+      dispatch(
+        setDate({
+          sinceDate,
+          endDate,
+        })
+      );
+    }
+  }, [sinceDate, endDate]);
 
   useEffect(() => {
     dispatch(
@@ -55,13 +65,13 @@ const ExtraOpt = () => {
     dispatch(setColor(currentColor));
   };
 
-  const sinceDateHandler = (date) => {
-    setSinceDate(date);
+  const sinceDateHandler = (item) => {
+    setSinceDate(item);
     setEndDate(null);
   };
 
-  const endDateHandler = (date) => {
-    setEndDate(date);
+  const endDateHandler = (item) => {
+    setEndDate(item);
   };
 
   const deleteEndDate = () => {
@@ -76,8 +86,6 @@ const ExtraOpt = () => {
   const rateHandler = (rate) => {
     dispatch(setRate(rate));
   };
-
-  console.log(Object.values(extra));
 
   const extraHandler = (item) => {
     if (item.id === 0) {
@@ -106,7 +114,13 @@ const ExtraOpt = () => {
                 }
                 onClick={() => colorHandler(item)}
               />
-              <div className={classes.opt_value}>{item}</div>
+              <div
+                className={
+                  color === item ? classes.opt_value_active : classes.opt_value
+                }
+              >
+                {item}
+              </div>
             </div>
           ))}
         </div>
@@ -142,14 +156,14 @@ const ExtraOpt = () => {
             <DatePicker
               className={classes.date}
               selected={endDate}
-              onChange={(date) => endDateHandler(date)}
+              onChange={(item) => endDateHandler(item)}
               showTimeSelect
               minTime={sinceDate.getTime()}
               maxTime={setHours(setMinutes(new Date(), 59), 23)}
               timeFormat="HH:mm"
               minDate={sinceDate}
               disabled={isDisabled}
-              dateFormat="dd/MM/yyyy hh:mm"
+              dateFormat="dd/MM/yyyy HH:mm"
               placeholderText={"Введите дату и время"}
               calendarClassName={classes.calendar}
             />
@@ -170,7 +184,15 @@ const ExtraOpt = () => {
                 }
                 onClick={() => rateHandler(item)}
               />
-              <div className={classes.opt_value}>{item.rateTypeId.name}</div>
+              <div
+                className={
+                  currentRate && currentRate.id === item.id
+                    ? classes.opt_value_active
+                    : classes.opt_value
+                }
+              >
+                {item.rateTypeId.name}
+              </div>
             </div>
           ))}
         </div>

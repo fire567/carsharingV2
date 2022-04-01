@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +9,10 @@ const OrderInf = ({ match }) => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const currentCar = useSelector((state) => state.currentCar);
+  const color = useSelector((state) => state.color);
+  const date = useSelector((state) => state.date);
+  const extra = useSelector((state) => state.extra);
+  const currentRate = useSelector((state) => state.currentRate);
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [infArr, setInfArr] = useState(null);
@@ -39,6 +42,8 @@ const OrderInf = ({ match }) => {
     }
   };
 
+  console.log(infArr);
+
   useEffect(() => {
     setInfArr([
       {
@@ -53,6 +58,42 @@ const OrderInf = ({ match }) => {
         header: "Модель",
         value: currentCar && `${currentCar.name}`,
       },
+      {
+        id: 2,
+        item: color && color,
+        header: "Цвет",
+        value: color && color,
+      },
+      {
+        id: 3,
+        item: date.sinceDate && date,
+        header: "Длительность аренды",
+        value: date.sinceDate && "5ч",
+      },
+      {
+        id: 3,
+        item: currentRate && currentRate,
+        header: "Длительность аренды",
+        value: currentRate && currentRate.rateTypeId.name,
+      },
+      {
+        id: 4,
+        item: extra.isFullTank && extra.isFullTank,
+        header: "Полный бак",
+        value: extra.isFullTank && extra.isFullTank,
+      },
+      {
+        id: 5,
+        item: extra.isChair && extra.isChair,
+        header: "Детское кресло",
+        value: extra.isChair && extra.isChair,
+      },
+      {
+        id: 6,
+        item: extra.isRightWheel && extra.isRightWheel,
+        header: "Правый руль",
+        value: extra.isRightWheel && extra.isRightWheel,
+      },
     ]);
 
     if (match.params.name === "location") {
@@ -62,23 +103,34 @@ const OrderInf = ({ match }) => {
     if (match.params.name === "model") {
       currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
-  }, [location, match.params.name, currentCar, dispatch]);
+  }, [
+    location,
+    match.params.name,
+    currentCar,
+    dispatch,
+    color,
+    date,
+    currentRate,
+    extra,
+  ]);
 
   return (
     <>
       <div className={classes.order_inf_header}>Ваш заказ:</div>
       <div className={classes.all_order_inf}>
         {infArr &&
-          infArr.map((item) => (
+          infArr.map((item, index) => (
             <div
               className={
                 item.item ? classes.order_inf : classes.order_inf_hidden
               }
-              key={infArr.id}
+              key={index}
             >
               <div className={classes.inf_name}>{item.header}</div>
               <div className={classes.dots_style} />
-              <div className={classes.inf_value}>{item.value}</div>
+              <div className={classes.inf_value}>
+                {item.value === true ? "Да" : item.value}
+              </div>
             </div>
           ))}
         {currentCar && (
