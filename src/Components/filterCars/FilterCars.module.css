@@ -1,0 +1,54 @@
+.filter_item_form {
+  display: flex;
+  margin-top: 38px;
+  align-items: center;
+}
+
+@media (max-width: 744px) {
+  .filter_item_form {
+    height: 30px;
+    margin: 0 0 0 16px;
+  }
+}
+
+.filter_item_form:not(:first-child) {
+  margin-left: 16px;
+}
+
+@media (max-width: 744px) {
+  .filter_item_form:not(:first-child) {
+    margin: 0 0 0 16px;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circle_unactive {
+  width: 11px;
+  height: 11px;
+  border: 1px solid #999999;
+}
+
+.circle:hover {
+  width: 7px;
+  height: 7px;
+  border: 3px solid #0ec261;
+}
+
+.circle_active {
+  width: 7px;
+  height: 7px;
+  border: 3px solid #0ec261;
+}
+
+.filter_item_name {
+  font-style: "Roboto";
+  font-weight: 300;
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+}

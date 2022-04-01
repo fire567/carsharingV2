@@ -22,3 +22,30 @@ export const setLocation = (location) => ({
   type: 'SET_LOCATION',
   payload: location,
 });
+
+export const getCategory = () => {
+  return async (dispatch) => {
+    const response = await API.get('category/');
+
+    dispatch({
+      type: 'GET_CATEGORY',
+      payload: response.data,
+    });
+  };
+};
+
+export const getCars = () => {
+  return async (dispatch) => {
+    const response = await API.get('car/');
+
+    dispatch({
+      type: 'GET_CARS',
+      payload: response.data,
+    });
+  };
+};
+
+export const setCurrentCar = (car) => ({
+  type: 'SET_CURRENTCAR',
+  payload: car,
+});

@@ -5,11 +5,11 @@ import Carousel from '../../Components/Carousel/Carousel';
 import classes from './MainPage.module.css';
 
 const MainPage = ({ setIsOpened }) => (
-        <div className={classes.main_page_form}>
-            <Sidebar setIsOpened={setIsOpened}/>
-            <MainPageContent />
-            <Carousel />
-        </div>
+  <div className={classes.main_page_form}>
+    <Sidebar setIsOpened={setIsOpened} />
+    <MainPageContent />
+    <Carousel />
+  </div>
 );
 
 export default MainPage;
