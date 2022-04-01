@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-@media (max-width: 1190px) {
+@media (max-width: 744px) {
   .filter_item_form {
     height: 30px;
     margin: 0 0 0 16px;
@@ -15,7 +15,7 @@
   margin-left: 16px;
 }
 
-@media (max-width: 1190px) {
+@media (max-width: 744px) {
   .filter_item_form:not(:first-child) {
     margin: 0 0 0 16px;
   }
