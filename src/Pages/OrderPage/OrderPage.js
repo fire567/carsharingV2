@@ -39,6 +39,9 @@ const OrderPage = ({ match, setIsOpened }) => {
             <Route path='/order-page/model' exact>
               <Model />
             </Route>
+            <Route path='/order-page/extra-opt' exact>
+              <ExtraOpt />
+            </Route>
           </div>
           <OrderInf
             match={match}
