@@ -1,0 +1,23 @@
+.total_form{
+  margin-top: 32px;
+}
+
+.car_name{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #121212;
+}
+
+.car_numbers{
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 0 8px;
+  border-radius: 4px;
+}

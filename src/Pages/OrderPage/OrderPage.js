@@ -8,8 +8,9 @@ import note from '../../assets/note.svg';
 import Location from './Location/Location';
 import OrderInf from '../../Components/OrderInf/OrderInf';
 import Model from './Model/Model';
-import classes from './OrderPage.module.css';
 import ExtraOpt from './ExtraOpt/ExtraOpt';
+import Total from './Total/Total';
+import classes from './OrderPage.module.css';
 
 const OrderPage = ({ match, setIsOpened }) => {
   const history = useHistory();
@@ -41,6 +42,9 @@ const OrderPage = ({ match, setIsOpened }) => {
             </Route>
             <Route path='/order-page/extra-opt' exact>
               <ExtraOpt />
+            </Route>
+            <Route path='/order-page/result' exact>
+              <Total />
             </Route>
           </div>
           <OrderInf

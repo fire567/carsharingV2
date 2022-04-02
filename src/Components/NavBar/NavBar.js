@@ -94,7 +94,12 @@ const NavBar = ({ match }) => {
       if (link.link === match.name) {
         return classes.nav_link_active;
       }
-      if (link.id - 1 === currentLink[0].id) {
+      if (
+        link.id - 1 === currentLink[0].id &&
+        date.endDate &&
+        color &&
+        currentRate
+      ) {
         return classes.nav_link;
       }
       if (link.id < currentLink[0].id) {
@@ -102,6 +107,13 @@ const NavBar = ({ match }) => {
       }
 
       return classes.nav_link_disabled;
+    }
+
+    if (match.name === 'result') {
+      if (link.link === match.name) {
+        return classes.nav_link_active;
+      }
+      return classes.nav_link;
     }
   };
 
@@ -135,6 +147,10 @@ const NavBar = ({ match }) => {
       if (link.id < currentLink[0].id) {
         return classes.nav_link_mobile;
       }
+    }
+
+    if (match.name === 'result') {
+      return classes.nav_link_mobile;
     }
 
     return classes.nav_link_mobile_disabled;
