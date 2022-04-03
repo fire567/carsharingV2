@@ -10,11 +10,13 @@ import OrderInf from '../../Components/OrderInf/OrderInf';
 import Model from './Model/Model';
 import ExtraOpt from './ExtraOpt/ExtraOpt';
 import Total from './Total/Total';
+import OrderPopUp from '../../Components/OrderPopUp/OrderPopUp';
 import classes from './OrderPage.module.css';
 
 const OrderPage = ({ match, setIsOpened }) => {
   const history = useHistory();
   const [infMobileOpened, setIsMobileOpened] = useState(false);
+  const [isPopUpOpened, setIsPopUpOpened] = useState(false);
 
   window.onload = () => {
     history.push('/order-page/location');
@@ -51,6 +53,7 @@ const OrderPage = ({ match, setIsOpened }) => {
             match={match}
             setIsMobileOpened={setIsMobileOpened}
             infMobileOpened={infMobileOpened}
+            setIsPopUpOpened={setIsPopUpOpened}
           />
         </div>
         <div
@@ -64,6 +67,10 @@ const OrderPage = ({ match, setIsOpened }) => {
           <ReactSVG className={classes.open_btn} src={note} />
         </div>
       </div>
+      <OrderPopUp
+        setIsPopUpOpened={setIsPopUpOpened}
+        isPopUpOpened={isPopUpOpened}
+      />
     </div>
   );
 };

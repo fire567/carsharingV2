@@ -42,10 +42,17 @@ const Location = () => {
 
   useEffect(() => {
     if (town && point) {
+      const townObj = cities.data.filter((item) => item.name === town);
+      const pointObj = points.data.filter(
+        (item) =>
+          item.address &&
+          item.cityId &&
+          point.toLowerCase().includes(item.address.toLowerCase())
+      );
       dispatch(
         setLocation({
-          town,
-          point,
+          town: townObj,
+          point: pointObj,
         })
       );
     } else {
