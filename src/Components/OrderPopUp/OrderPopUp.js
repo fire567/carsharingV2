@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { postOrder } from '../../Redux/actions';
 import classes from './OrderPopUp.module.css';
 
 const OrderPopUp = ({ setIsPopUpOpened, isPopUpOpened }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [allInf, setAllInf] = useState({});
   const location = useSelector((state) => state.location);
@@ -18,7 +20,11 @@ const OrderPopUp = ({ setIsPopUpOpened, isPopUpOpened }) => {
     setIsPopUpOpened(false);
   };
 
-  console.log(postedOrder);
+  useEffect(() => {
+    if (postedOrder) {
+      history.push(`/order/${postedOrder.data.id}`);
+    }
+  }, [postedOrder]);
 
   useEffect(() => {
     setAllInf({
