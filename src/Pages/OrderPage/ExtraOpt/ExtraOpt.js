@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import DatePicker from "react-datepicker";
-import setHours from "date-fns/setHours";
-import setMinutes from "date-fns/setMinutes";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import setHours from 'date-fns/setHours';
+import setMinutes from 'date-fns/setMinutes';
+import { extraOptions } from '../../../consts';
 import {
   getRateTypes,
   setColor,
   setRate,
   setExtra,
   setDate,
-} from "../../../Redux/actions";
-import "react-datepicker/dist/react-datepicker.css";
-import classes from "./ExtraOpt.module.css";
-import Loading from "../../../Components/Loading/Loading";
+} from '../../../Redux/actions';
+import 'react-datepicker/dist/react-datepicker.css';
+import classes from './ExtraOpt.module.css';
+import Loading from '../../../Components/Loading/Loading';
 
 const ExtraOpt = () => {
   const dispatch = useDispatch();
@@ -27,12 +28,6 @@ const ExtraOpt = () => {
   const [isFullTank, setIsFullTank] = useState(false);
   const [isChair, setIsChair] = useState(false);
   const [isRightWheel, setIsRightWheel] = useState(false);
-
-  const extraOptions = [
-    { id: 0, value: "Полный бак, 500р", name: "Полный бак" },
-    { id: 1, value: "Детское кресло, 200р", name: "Детское кресло" },
-    { id: 2, value: "Правый руль, 1600р", name: "Правый руль" },
-  ];
 
   useEffect(() => {
     if (sinceDate) {
@@ -142,9 +137,9 @@ const ExtraOpt = () => {
               }
               maxTime={setHours(setMinutes(new Date(), 59), 23)}
               showTimeSelect
-              timeFormat="HH:mm"
-              dateFormat="dd/MM/yyyy HH:mm"
-              placeholderText={"Введите дату и время"}
+              timeFormat='HH:mm'
+              dateFormat='dd/MM/yyyy HH:mm'
+              placeholderText={'Введите дату и время'}
               calendarClassName={classes.calendar}
             />
           </div>
@@ -158,10 +153,11 @@ const ExtraOpt = () => {
               showTimeSelect
               minTime={sinceDate.getTime()}
               maxTime={setHours(setMinutes(new Date(), 59), 23)}
-              timeFormat="HH:mm"
+              minDate={sinceDate}
+              timeFormat='HH:mm'
               disabled={isDisabled}
-              dateFormat="dd/MM/yyyy HH:mm"
-              placeholderText={"Введите дату и время"}
+              dateFormat='dd/MM/yyyy HH:mm'
+              placeholderText={'Введите дату и время'}
               calendarClassName={classes.calendar}
             />
           </div>
@@ -188,7 +184,7 @@ const ExtraOpt = () => {
                     : classes.opt_value
                 }
               >
-                {item.rateTypeId.name},{" "}
+                {item.rateTypeId.name},{' '}
                 {rates.data[0].id === item.id
                   ? `${item.price}₽/мес`
                   : `${item.price}₽/мин`}
@@ -210,7 +206,7 @@ const ExtraOpt = () => {
               }
               key={item.id}
             >
-              <input type="checkbox" className={classes.checkbox} />
+              <input type='checkbox' className={classes.checkbox} />
               <label
                 className={classes.opt_extra}
                 onClick={() => extraHandler(item)}
