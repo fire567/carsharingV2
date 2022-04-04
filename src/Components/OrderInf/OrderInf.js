@@ -78,7 +78,8 @@ const OrderInf = ({
         id: 0,
         item: location,
         header: 'Пункт выдачи',
-        value: location && `${location.town}, ${location.point}`,
+        value:
+          location && `${location.town[0].name}, ${location.point[0].address}`,
       },
       {
         id: 1,
