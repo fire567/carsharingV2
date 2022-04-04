@@ -6,13 +6,13 @@ const CurrentInf = ({ infArr, currentCar, currentPrice }) => (
     {infArr &&
       infArr.map((item, index) => (
         <div
-          className={item.item ? classes.order_inf : classes.order_inf_hidden}
+          className={item.value ? classes.order_inf : classes.order_inf_hidden}
           key={index}
         >
           <div className={classes.inf_name}>{item.header}</div>
           <div className={classes.dots_style} />
           <div className={classes.inf_value}>
-            {item.item === true ? 'Да' : item.value}
+            {item.value === true ? 'Да' : item.value}
           </div>
         </div>
       ))}

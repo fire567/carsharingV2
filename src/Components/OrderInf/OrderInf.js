@@ -6,6 +6,7 @@ import { setCurrentPrice, getOrder } from '../../Redux/actions';
 import { links } from '../../consts';
 import OrderInfMobile from './OrderInfMobile/OrderInfMobile';
 import CurrentInf from './CurrentInf/CurrentInf';
+import { dateFormat, changePrice, infArrHandler } from '../../helpers';
 import classes from './OrderInf.module.css';
 
 const OrderInf = ({
@@ -72,142 +73,64 @@ const OrderInf = ({
   useEffect(() => {
     if (match.path.split('/')[1] !== 'order') {
       if (date.sinceDate && date.endDate) {
-        const miliseconds =
-          Date.parse(date.endDate) - Date.parse(date.sinceDate);
-        const minute = 1000 * 60;
-        const hour = minute * 60;
-        const currentMinutes = Math.floor(miliseconds / minute);
-        const currentHours = Math.floor(miliseconds / hour);
-        const currentDays = Math.floor(currentHours / 24);
-        setHours(Math.floor(currentDays * 24 - currentHours));
-        setMinutes(Math.floor(currentHours * 60 - currentMinutes));
-        setDays(currentDays);
+        dateFormat(
+          Date.parse(date.sinceDate),
+          Date.parse(date.endDate),
+          setHours,
+          setMinutes,
+          setDays
+        );
       }
     } else if (order) {
-      const miliseconds = order.data.dateTo - order.data.dateFrom;
-      const minute = 1000 * 60;
-      const hour = minute * 60;
-      const currentMinutes = Math.floor(miliseconds / minute);
-      const currentHours = Math.floor(miliseconds / hour);
-      const currentDays = Math.floor(currentHours / 24);
-      setHours(Math.floor(currentDays * 24 - currentHours));
-      setMinutes(Math.floor(currentHours * 60 - currentMinutes));
-      setDays(currentDays);
+      dateFormat(
+        order.data.dateFrom,
+        order.data.dateTo,
+        setHours,
+        setMinutes,
+        setDays
+      );
     }
   }, [date, order]);
 
+  console.log(location);
+
   useEffect(() => {
     if (match.path.split('/')[1] !== 'order') {
-      setInfArr([
-        {
-          id: 0,
-          item: location,
-          header: 'Пункт выдачи',
-          value:
-            location &&
-            `${location.town[0].name}, ${location.point[0].address}`,
-        },
-        {
-          id: 1,
-          item: currentCar,
-          header: 'Модель',
-          value: currentCar && `${currentCar.name}`,
-        },
-        {
-          id: 2,
-          item: color,
-          header: 'Цвет',
-          value: color,
-        },
-        {
-          id: 3,
-          item: date.sinceDate && date.endDate && date,
-          header: 'Длительность аренды',
-          value:
-            date.sinceDate &&
-            date.endDate &&
-            `${days !== 0 ? `${days}д.` : ''} ${
-              hours !== 0 ? `${Math.abs(hours)}ч.` : ''
-            } ${minutes !== 0 ? `${Math.abs(minutes)}мин.` : ''}`,
-        },
-        {
-          id: 4,
-          item: currentRate,
-          header: 'Длительность аренды',
-          value: currentRate && currentRate.rateTypeId.name,
-        },
-        {
-          id: 5,
-          item: extra && extra.isFullTank,
-          header: 'Полный бак',
-          value: extra && extra.isFullTank,
-        },
-        {
-          id: 6,
-          item: extra && extra.isChair,
-          header: 'Детское кресло',
-          value: extra && extra.isChair,
-        },
-        {
-          id: 7,
-          item: extra && extra.isRightWheel,
-          header: 'Правый руль',
-          value: extra && extra.isRightWheel,
-        },
-      ]);
+      setInfArr(
+        infArrHandler(
+          location && location.town[0].name,
+          location && location.point[0].address,
+          currentCar && currentCar.name,
+          color,
+          date.sinceDate,
+          date.endDate,
+          days,
+          hours,
+          minutes,
+          currentRate && currentRate.rateTypeId.name,
+          extra.isFullTank,
+          extra.isChair,
+          extra.isRightWheel
+        )
+      );
     } else if (order) {
-      setInfArr([
-        {
-          id: 0,
-          item: order.data.cityId,
-          header: 'Пункт выдачи',
-          value: `${order.data.cityId.name}, ${order.data.pointId.address}`,
-        },
-        {
-          id: 1,
-          item: order.data.carId,
-          header: 'Модель',
-          value: `${order.data.carId.name}`,
-        },
-        {
-          id: 2,
-          item: order.data.color,
-          header: 'Цвет',
-          value: order.data.color,
-        },
-        {
-          id: 3,
-          item: order.data.dateFrom,
-          header: 'Длительность аренды',
-          value: `${days !== 0 ? `${days}д.` : ''} ${
-            hours !== 0 ? `${Math.abs(hours)}ч.` : ''
-          } ${minutes !== 0 ? `${Math.abs(minutes)}мин.` : ''}`,
-        },
-        {
-          id: 4,
-          item: order.data.rateId,
-          header: 'Длительность аренды',
-          value: order.data.rateId.rateTypeId.name,
-        },
-        {
-          id: 5,
-          item: order.data.isFullTank,
-          header: 'Полный бак',
-          value: order.data.isFullTank,
-        },
-        {
-          id: 6,
-          item: order.data.isNeedChildChair,
-          header: 'Детское кресло',
-          value: order.data.isNeedChildChair,
-        },
-        {
-          id: 7,
-          item: order.data.isRightWheel,
-          header: 'Правый руль',
-          value: order.data.isRightWheel,
-        },
-      ]);
+      setInfArr(
+        infArrHandler(
+          order.data.cityId.name,
+          order.data.pointId.address,
+          order.data.carId.name,
+          order.data.color,
+          order.data.dateFrom,
+          order.data.dateTo,
+          days,
+          hours,
+          minutes,
+          order.data.rateId.rateTypeId.name,
+          order.data.isFullTank,
+          order.data.isNeedChildChair,
+          order.data.isRightWheel
+        )
+      );
     }
 
     if (match.params.name === 'location') {
@@ -241,42 +164,15 @@ const OrderInf = ({
     order,
   ]);
 
-  const calculatePrice = () => {
-    const miliseconds = Date.parse(date.endDate) - Date.parse(date.sinceDate);
-    if (currentRate.price === 7) {
-      return Math.floor((miliseconds / (1000 * 60)) * currentRate.price);
-    }
-    return Math.floor(
-      (miliseconds / (1000 * 60 * 60 * 24 * 31)) * currentRate.price
-    );
-  };
-
   useEffect(() => {
-    let test = 0;
+    let price = 0;
     if (match.path.split('/')[1] !== 'order') {
-      if (date.sinceDate && date.endDate && currentRate) {
-        test = calculatePrice();
-      }
-      if (extra && extra.isFullTank === true) {
-        test = Math.floor(test + 500);
-      } else {
-        test = Math.floor(test + 0);
-      }
-      if (extra && extra.isChair === true) {
-        test = Math.floor(test + 200);
-      } else {
-        test = Math.floor(test + 0);
-      }
-      if (extra && extra.isRightWheel === true) {
-        test = Math.floor(test + 1500);
-      } else {
-        test = Math.floor(test + 0);
-      }
+      price = changePrice(date, extra, currentRate);
     } else if (order) {
-      test = order.data.price;
+      price = order.data.price;
     }
 
-    dispatch(setCurrentPrice(test));
+    dispatch(setCurrentPrice(price));
   }, [date, currentRate, extra, order]);
 
   return (

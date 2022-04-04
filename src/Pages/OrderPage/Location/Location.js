@@ -40,6 +40,8 @@ const Location = () => {
     }
   }, [town, cities, points]);
 
+  console.log(point.split(' ')[point.split(' ').length - 1]);
+
   useEffect(() => {
     if (town && point) {
       const townObj = cities.data.filter((item) => item.name === town);
@@ -47,7 +49,11 @@ const Location = () => {
         (item) =>
           item.address &&
           item.cityId &&
-          point.toLowerCase().includes(item.address.toLowerCase())
+          item.address
+            .toLowerCase()
+            .endsWith(
+              point.split(' ')[point.split(' ').length - 1].toLowerCase()
+            )
       );
       dispatch(
         setLocation({
