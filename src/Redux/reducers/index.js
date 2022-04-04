@@ -12,6 +12,7 @@ import extra from './extra';
 import date from './date';
 import currentPrice from './currentPrice';
 import postedOrder from './postedOrder';
+import order from './order';
 
 export default combineReducers({
   color: color,
@@ -27,4 +28,5 @@ export default combineReducers({
   date: date,
   currentPrice: currentPrice,
   postedOrder: postedOrder,
+  order: order,
 });

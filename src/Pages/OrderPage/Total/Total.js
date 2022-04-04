@@ -1,13 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Moment from 'react-moment';
 import classes from './Total.module.css';
 
-const Total = () => {
-  const currentCar = useSelector((state) => state.currentCar);
-  const extra = useSelector((state) => state.extra);
-  const date = useSelector((state) => state.date);
-
+const Total = ({ currentCar, extra, sinceDate, endDate }) => {
   const numberHandler = () => {
     const number = `${currentCar.number.substr(
       0,
@@ -35,13 +30,13 @@ const Total = () => {
           <div className={classes.item_information}>
             <label className={classes.item_label}>Доступна с&nbsp;</label>
             <Moment className={classes.item_value} format={'DD.MM.Y HH:mm'}>
-              {date.sinceDate}
+              {sinceDate}
             </Moment>
           </div>
           <div className={classes.item_information}>
             <label className={classes.item_label}>Доступна по&nbsp;</label>
             <Moment className={classes.item_value} format={'DD.MM.Y HH:mm'}>
-              {date.endDate}
+              {endDate}
             </Moment>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { Route, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
@@ -17,6 +18,9 @@ const OrderPage = ({ match, setIsOpened }) => {
   const history = useHistory();
   const [infMobileOpened, setIsMobileOpened] = useState(false);
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
+  const currentCar = useSelector((state) => state.currentCar);
+  const extra = useSelector((state) => state.extra);
+  const date = useSelector((state) => state.date);
 
   window.onload = () => {
     history.push('/order-page/location');
@@ -46,7 +50,12 @@ const OrderPage = ({ match, setIsOpened }) => {
               <ExtraOpt />
             </Route>
             <Route path='/order-page/result' exact>
-              <Total />
+              <Total
+                currentCar={currentCar}
+                extra={extra}
+                sinceDate={date.sinceDate}
+                endDate={date.endDate}
+              />
             </Route>
           </div>
           <OrderInf

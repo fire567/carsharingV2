@@ -25,6 +25,10 @@
   font-style: "Roboto";
 }
 
+.order_inf_btn_delete{
+  background: linear-gradient(90deg, #493013 0%, #7B0C3B 100%);
+}
+
 .order_inf_btn_active {
   background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
 }

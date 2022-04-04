@@ -20,7 +20,13 @@ const App = () => {
           render={(props) => <OrderPage {...props} setIsOpened={setIsOpened} />}
           exact
         />
-        <Route path='/order/:id' component={CurrentOrder} exact />
+        <Route
+          path='/order/:id'
+          render={(props) => (
+            <CurrentOrder {...props} setIsOpened={setIsOpened} />
+          )}
+          exact
+        />
         <Menu setIsOpened={setIsOpened} isOpened={isOpened} />
       </div>
     </HashRouter>

@@ -96,3 +96,14 @@ export const postOrder = (data) => {
     });
   };
 };
+
+export const getOrder = (id) => {
+  return async (dispatch) => {
+    const response = await API.get(`order/${id}`);
+
+    dispatch({
+      type: 'GET_ORDER',
+      payload: response.data,
+    });
+  };
+};
