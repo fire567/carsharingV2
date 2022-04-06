@@ -149,10 +149,13 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   const calculatePrice = () => {
     const miliseconds = Date.parse(date.endDate) - Date.parse(date.sinceDate);
     if (currentRate.price === 7) {
-      return Math.floor((miliseconds / (1000 * 60)) * currentRate.price);
+      return Math.floor(
+        (miliseconds / (1000 * 60)) * currentRate.price + currentCar.priceMin
+      );
     }
     return Math.floor(
-      (miliseconds / (1000 * 60 * 60 * 24 * 31)) * currentRate.price
+      (miliseconds / (1000 * 60 * 60 * 24 * 31)) * currentRate.price +
+        currentCar.priceMin
     );
   };
 
