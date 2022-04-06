@@ -92,8 +92,6 @@ const OrderInf = ({
     }
   }, [date, order]);
 
-  console.log(location);
-
   useEffect(() => {
     if (match.path.split('/')[1] !== 'order') {
       setInfArr(
