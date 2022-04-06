@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { links } from '../../consts';
 import OrderInfMobile from './OrderInfMobile/OrderInfMobile';
+import { infArrHandler } from '../../helpers';
 import CurrentInf from './CurrentInf/CurrentInf';
 import classes from './OrderInf.module.css';
 
@@ -63,61 +64,23 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   }, [date]);
 
   useEffect(() => {
-    setInfArr([
-      {
-        id: 0,
-        item: location,
-        header: 'Пункт выдачи',
-        value: location && `${location.town}, ${location.point}`,
-      },
-      {
-        id: 1,
-        item: currentCar,
-        header: 'Модель',
-        value: currentCar && `${currentCar.name}`,
-      },
-      {
-        id: 2,
-        item: color,
-        header: 'Цвет',
-        value: color,
-      },
-      {
-        id: 3,
-        item: date.sinceDate && date.endDate && date,
-        header: 'Длительность аренды',
-        value:
-          date.sinceDate &&
-          date.endDate &&
-          `${days !== 0 ? `${days}д.` : ''} ${
-            hours !== 0 ? `${Math.abs(hours)}ч.` : ''
-          } ${minutes !== 0 ? `${Math.abs(minutes)}мин.` : ''}`,
-      },
-      {
-        id: 3,
-        item: currentRate,
-        header: 'Длительность аренды',
-        value: currentRate && currentRate.rateTypeId.name,
-      },
-      {
-        id: 4,
-        item: extra && extra.isFullTank,
-        header: 'Полный бак',
-        value: extra && extra.isFullTank,
-      },
-      {
-        id: 5,
-        item: extra && extra.isChair,
-        header: 'Детское кресло',
-        value: extra && extra.isChair,
-      },
-      {
-        id: 6,
-        item: extra && extra.isRightWheel,
-        header: 'Правый руль',
-        value: extra && extra.isRightWheel,
-      },
-    ]);
+    setInfArr(
+      infArrHandler(
+        location && location.town,
+        location && location.point,
+        currentCar && currentCar.name,
+        color,
+        date.sinceDate,
+        date.endDate,
+        days,
+        hours,
+        minutes,
+        currentRate && currentRate.rateTypeId.name,
+        extra.isFullTank,
+        extra.isChair,
+        extra.isRightWheel
+      )
+    );
 
     if (match.params.name === 'location') {
       setCurrentPrice(null);

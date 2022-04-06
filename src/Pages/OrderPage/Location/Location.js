@@ -10,6 +10,7 @@ const Location = () => {
   const dispatch = useDispatch();
   const cities = useSelector((state) => state.cities);
   const points = useSelector((state) => state.point);
+  const location = useSelector((state) => state.location);
   const [filteredPoints, setFilteredPoints] = useState([]);
   const [filteredCities, setFilteredCities] = useState(null);
   const [town, setTown] = useState('Ульяновск');
@@ -48,8 +49,6 @@ const Location = () => {
           point,
         })
       );
-    } else {
-      dispatch(setLocation(null));
     }
   }, [town, point, dispatch]);
 
@@ -68,7 +67,7 @@ const Location = () => {
           label={'Пункт выдачи'}
           placeholder={'пункт'}
           setText={setPoint}
-          text={point}
+          text={location ? location.point : point}
           items={filteredPoints}
           disabled={!town}
         />
