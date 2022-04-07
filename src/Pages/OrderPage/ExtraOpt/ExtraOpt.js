@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
+import { extraOptions } from '../../../consts';
 import {
   getRateTypes,
   setColor,
@@ -27,12 +28,6 @@ const ExtraOpt = () => {
   const [isFullTank, setIsFullTank] = useState(false);
   const [isChair, setIsChair] = useState(false);
   const [isRightWheel, setIsRightWheel] = useState(false);
-
-  const extraOptions = [
-    { id: 0, value: 'Полный бак, 500р', name: 'Полный бак' },
-    { id: 1, value: 'Детское кресло, 200р', name: 'Детское кресло' },
-    { id: 2, value: 'Правый руль, 1600р', name: 'Правый руль' },
-  ];
 
   useEffect(() => {
     if (sinceDate) {
