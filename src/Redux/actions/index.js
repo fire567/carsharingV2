@@ -88,12 +88,19 @@ export const setCurrentPrice = (price) => ({
 
 export const postOrder = (data) => {
   return async (dispatch) => {
-    const response = await API.post('order/', data);
+    if (data === null) {
+      dispatch({
+        type: 'POST_ORDER',
+        payload: null,
+      });
+    } else {
+      const response = await API.post('order/', data);
 
-    dispatch({
-      type: 'POST_ORDER',
-      payload: response.data,
-    });
+      dispatch({
+        type: 'POST_ORDER',
+        payload: response.data,
+      });
+    }
   };
 };
 

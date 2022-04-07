@@ -16,20 +16,23 @@ export const dateFormat = (
   setDays(currentDays);
 };
 
-const calculatePrice = (date, currentRate) => {
+const calculatePrice = (date, currentRate, currentPrice) => {
   const miliseconds = Date.parse(date.endDate) - Date.parse(date.sinceDate);
   if (currentRate.price === 7) {
-    return Math.floor((miliseconds / (1000 * 60)) * currentRate.price);
+    return Math.floor(
+      (miliseconds / (1000 * 60)) * currentRate.price + currentPrice
+    );
   }
   return Math.floor(
-    (miliseconds / (1000 * 60 * 60 * 24 * 31)) * currentRate.price
+    (miliseconds / (1000 * 60 * 60 * 24 * 31)) * currentRate.price +
+      currentPrice
   );
 };
 
-export const changePrice = (date, extra, currentRate) => {
+export const changePrice = (date, extra, currentRate, currentPrice) => {
   let price = 0;
   if (date.sinceDate && date.endDate && currentRate) {
-    price = calculatePrice(date, currentRate);
+    price = calculatePrice(date, currentRate, currentPrice);
   }
   if (extra && extra.isFullTank === true) {
     price = Math.floor(price + 500);
@@ -111,3 +114,70 @@ export const infArrHandler = (
     value: isRightWheel && isRightWheel,
   },
 ];
+
+export const currentStyle = (
+  location,
+  currentLink,
+  link,
+  color,
+  sinceDate,
+  endDate,
+  currentCar,
+  currentRate,
+  classes
+) => {
+  if (link.id === currentLink[0].id) {
+    return classes.nav_link_active;
+  }
+  if (link.id === 0 && link.id !== currentLink[0].id) {
+    return classes.nav_link;
+  }
+  if (link.id === 1 && location && link.id !== currentLink[0].id) {
+    return classes.nav_link;
+  }
+  if (link.id === 2 && currentCar && link.id !== currentLink[0].id) {
+    return classes.nav_link;
+  }
+  if (
+    link.id === 3 &&
+    color &&
+    endDate &&
+    sinceDate &&
+    currentRate &&
+    link.id !== currentLink[0].id
+  ) {
+    return classes.nav_link;
+  }
+
+  return classes.nav_link_disabled;
+};
+
+export const mobileCurrentStyle = (
+  location,
+  currentLink,
+  link,
+  color,
+  sinceDate,
+  endDate,
+  currentCar,
+  currentRate,
+  classes
+) => {
+  if (link.id === currentLink[0].id) {
+    return classes.nav_link_mobile;
+  }
+  if (link.id === 0) {
+    return classes.nav_link_mobile;
+  }
+  if (link.id === 1 && location) {
+    return classes.nav_link_mobile;
+  }
+  if (link.id === 2 && currentCar) {
+    return classes.nav_link_mobile;
+  }
+  if (link.id === 3 && color && endDate && sinceDate && currentRate) {
+    return classes.nav_link_mobile;
+  }
+
+  return classes.nav_link_mobile_disabled;
+};

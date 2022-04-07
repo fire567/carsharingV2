@@ -12,9 +12,9 @@ const OrderPopUp = ({ setIsPopUpOpened, isPopUpOpened }) => {
   const currentCar = useSelector((state) => state.currentCar);
   const color = useSelector((state) => state.color);
   const date = useSelector((state) => state.date);
+  const postedOrder = useSelector((state) => state.postedOrder);
   const currentRate = useSelector((state) => state.currentRate);
   const currentPrice = useSelector((state) => state.currentPrice);
-  const postedOrder = useSelector((state) => state.postedOrder);
   const extra = useSelector((state) => state.extra);
   const closePopUpHandler = () => {
     setIsPopUpOpened(false);

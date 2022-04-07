@@ -165,7 +165,12 @@ const OrderInf = ({
   useEffect(() => {
     let price = 0;
     if (match.path.split('/')[1] !== 'order') {
-      price = changePrice(date, extra, currentRate);
+      price = changePrice(
+        date,
+        extra,
+        currentRate,
+        currentCar ? currentCar.priceMin : 0
+      );
     } else if (order) {
       price = order.data.price;
     }

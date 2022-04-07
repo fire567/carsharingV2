@@ -10,6 +10,7 @@ import {
   setExtra,
   setDate,
 } from '../../../Redux/actions';
+import { extraOptions } from '../../../consts';
 import 'react-datepicker/dist/react-datepicker.css';
 import classes from './ExtraOpt.module.css';
 import Loading from '../../../Components/Loading/Loading';
@@ -20,6 +21,7 @@ const ExtraOpt = () => {
   const color = useSelector((state) => state.color);
   const rates = useSelector((state) => state.rates);
   const extra = useSelector((state) => state.extra);
+  const date = useSelector((state) => state.date);
   const currentRate = useSelector((state) => state.currentRate);
   const [sinceDate, setSinceDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
@@ -27,12 +29,6 @@ const ExtraOpt = () => {
   const [isFullTank, setIsFullTank] = useState(false);
   const [isChair, setIsChair] = useState(false);
   const [isRightWheel, setIsRightWheel] = useState(false);
-
-  const extraOptions = [
-    { id: 0, value: 'Полный бак, 500р', name: 'Полный бак' },
-    { id: 1, value: 'Детское кресло, 200р', name: 'Детское кресло' },
-    { id: 2, value: 'Правый руль, 1600р', name: 'Правый руль' },
-  ];
 
   useEffect(() => {
     if (sinceDate) {
@@ -132,8 +128,8 @@ const ExtraOpt = () => {
             <span className={classes.close} onClick={deleteSinceDate} />
             <DatePicker
               className={classes.date}
-              selected={sinceDate}
-              minDate={new Date()}
+              selected={date ? date.sinceDate : sinceDate}
+              minDate={date ? date.sinceDate : new Date()}
               onChange={sinceDateHandler}
               minTime={
                 sinceDate.getDate() === new Date().getDate()
@@ -153,7 +149,7 @@ const ExtraOpt = () => {
             <span className={classes.close} onClick={deleteEndDate} />
             <DatePicker
               className={classes.date}
-              selected={endDate}
+              selected={date ? date.endDate : endDate}
               onChange={(item) => endDateHandler(item)}
               showTimeSelect
               minTime={sinceDate.getTime()}
