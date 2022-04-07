@@ -43,3 +43,9 @@ export const links = [
   { id: 2, name: 'Дополнительно', link: 'extra-opt' },
   { id: 3, name: 'Итого', link: 'result' },
 ];
+
+export const extraOptions = [
+  { id: 0, value: 'Полный бак, 500р', name: 'Полный бак' },
+  { id: 1, value: 'Детское кресло, 200р', name: 'Детское кресло' },
+  { id: 2, value: 'Правый руль, 1600р', name: 'Правый руль' },
+];

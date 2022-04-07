@@ -1,32 +1,23 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "airbnb/hooks",
-    "airbnb/base",
-    "plugin:react/jsx-runtime",
-    "eslint:recommended",
-    "prettier",
-    "plugin:react/recommended"
-  ],
-  "rules": {
-    "react/prop-types": 0,
-    "max-len": ["error", { "code": 200 }],
-    "linebreak-style": "off",
-    "default-param-last": "off",
-    "no-unused-expressions": "off",
-    "array-callback-return": "off",
-    "consistent-return": "off",
-    "react-hooks/exhaustive-deps": "off",
-    "import/no-unresolved": "off",
-    "react/self-closing-comp": ["error", {
-      "component": true,
-      "html": true
-    }],
-    "comma-dangle": "off",
-    "operator-linebreak":"off"
-  }
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": ["airbnb/hooks", "airbnb/base", "plugin:react/jsx-runtime", "eslint:recommended", "plugin:react/recommended", "prettier"],
+    "rules": {
+      "react/prop-types": 0,
+      "max-len": ["error", { "code": 200 }],
+      "linebreak-style": "off",
+      "default-param-last": "off",
+      "no-unused-expressions": "off",
+      "array-callback-return": "off",
+      "consistent-return": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "import/no-unresolved": "off",
+      "react/self-closing-comp": 0,
+      "comma-dangle": "off",
+      "operator-linebreak":"off",
+      "import/prefer-default-export": "off"
+    }
 }
