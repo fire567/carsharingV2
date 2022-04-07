@@ -71,7 +71,8 @@ const LocationInput = ({
                 <li
                   className={classes.current_item}
                   key={item.id}
-                  onClick={() => dropdownHandler(item.address ? item.address : item.name)
+                  onClick={() =>
+                    dropdownHandler(item.address ? item.address : item.name)
                   }
                 >
                   {item.address ? item.address : item.name}

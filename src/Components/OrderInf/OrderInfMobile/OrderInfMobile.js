@@ -9,6 +9,7 @@ const OrderInfMobile = ({
   infMobileOpened,
   currentCar,
   infArr,
+  currentPrice,
 }) => {
   const closeMenuHandler = () => {
     setIsMobileOpened(false);
@@ -30,7 +31,11 @@ const OrderInfMobile = ({
         />
         <div className={classes.order_inf_form}>
           <div className={classes.order_inf_header}>Ваш заказ:</div>
-          <CurrentInf infArr={infArr} currentCar={currentCar}/>
+          <CurrentInf
+            infArr={infArr}
+            currentCar={currentCar}
+            currentPrice={currentPrice}
+          />
         </div>
       </div>
     </div>

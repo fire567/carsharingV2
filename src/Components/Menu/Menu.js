@@ -27,16 +27,16 @@ const Menu = ({ setIsOpened, isOpened }) => {
           onClick={closeMenuHandler}
         />
         <div className={classes.menu_content_form}>
-          <div href="" className={classes.menu_content}>
+          <div href='' className={classes.menu_content}>
             Парковка
           </div>
-          <div href="" className={classes.menu_content}>
+          <div href='' className={classes.menu_content}>
             Страховка
           </div>
-          <div href="" className={classes.menu_content}>
+          <div href='' className={classes.menu_content}>
             Бензин
           </div>
-          <div href="" className={classes.menu_content}>
+          <div href='' className={classes.menu_content}>
             Обслуживание
           </div>
         </div>
