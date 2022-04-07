@@ -12,13 +12,10 @@ const OrderPopUp = ({ setIsPopUpOpened, isPopUpOpened }) => {
   const date = useSelector((state) => state.date);
   const currentRate = useSelector((state) => state.currentRate);
   const currentPrice = useSelector((state) => state.currentPrice);
-  const postedOrder = useSelector((state) => state.postedOrder);
   const extra = useSelector((state) => state.extra);
   const closePopUpHandler = () => {
     setIsPopUpOpened(false);
   };
-
-  console.log(postedOrder);
 
   useEffect(() => {
     setAllInf({
