@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { Route, useHistory } from 'react-router-dom';
 import Sidebar from '../../Components/Sidebar/Sidebar';
@@ -18,9 +18,9 @@ const OrderPage = ({ match, setIsOpened }) => {
   const [infMobileOpened, setIsMobileOpened] = useState(false);
   const [isPopUpOpened, setIsPopUpOpened] = useState(false);
 
-  window.onload = () => {
+  useEffect(() => {
     history.push('/order-page/location');
-  };
+  }, []);
 
   const openMenuHandler = () => {
     setIsMobileOpened(true);
