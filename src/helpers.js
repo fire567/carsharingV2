@@ -65,46 +65,35 @@ export const currentStyle = (
   location,
   currentLink,
   link,
+  color,
+  date,
   currentCar,
+  currentRate,
   classes
 ) => {
-  if (match.name === 'location') {
-    if (link.link === match.name) {
-      return classes.nav_link_active;
-    }
-    if (location !== null && link.id - 1 === currentLink[0].id) {
-      return classes.nav_link;
-    }
-
-    return classes.nav_link_disabled;
+  if (link.id === currentLink[0].id) {
+    return classes.nav_link_active;
+  }
+  if (link.id === 0 && link.id !== currentLink[0].id) {
+    return classes.nav_link;
+  }
+  if (link.id === 1 && location && link.id !== currentLink[0].id) {
+    return classes.nav_link;
+  }
+  if (link.id === 2 && currentCar && link.id !== currentLink[0].id) {
+    return classes.nav_link;
+  }
+  if (
+    link.id === 3 &&
+    color &&
+    date &&
+    currentRate &&
+    link.id !== currentLink[0].id
+  ) {
+    return classes.nav_link;
   }
 
-  if (match.name === 'model') {
-    if (link.link === match.name) {
-      return classes.nav_link_active;
-    }
-    if (link.id - 1 === currentLink[0].id && currentCar) {
-      return classes.nav_link;
-    }
-    if (link.id < currentLink[0].id) {
-      return classes.nav_link;
-    }
-    return classes.nav_link_disabled;
-  }
-
-  if (match.name === 'extra-opt') {
-    if (link.link === match.name) {
-      return classes.nav_link_active;
-    }
-    if (link.id - 1 === currentLink[0].id) {
-      return classes.nav_link;
-    }
-    if (link.id < currentLink[0].id) {
-      return classes.nav_link;
-    }
-
-    return classes.nav_link_disabled;
-  }
+  return classes.nav_link_disabled;
 };
 
 export const mobileCurrentStyle = (
@@ -142,6 +131,12 @@ export const mobileCurrentStyle = (
     ) {
       return classes.nav_link_mobile;
     }
+    if (link.id < currentLink[0].id) {
+      return classes.nav_link_mobile;
+    }
+  }
+
+  if (match.name === 'result') {
     if (link.id < currentLink[0].id) {
       return classes.nav_link_mobile;
     }

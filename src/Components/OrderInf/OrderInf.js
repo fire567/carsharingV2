@@ -2,24 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
+import { setCurrentPrice } from '../../Redux/actions';
 import { links } from '../../consts';
 import OrderInfMobile from './OrderInfMobile/OrderInfMobile';
 import { infArrHandler } from '../../helpers';
 import CurrentInf from './CurrentInf/CurrentInf';
 import classes from './OrderInf.module.css';
 
-const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
+const OrderInf = ({
+  setIsMobileOpened,
+  infMobileOpened,
+  match,
+  setIsPopUpOpened,
+}) => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const currentCar = useSelector((state) => state.currentCar);
   const color = useSelector((state) => state.color);
   const date = useSelector((state) => state.date);
   const extra = useSelector((state) => state.extra);
+  const currentPrice = useSelector((state) => state.currentPrice);
   const currentRate = useSelector((state) => state.currentRate);
   const history = useHistory();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [infArr, setInfArr] = useState(null);
-  const [currentPrice, setCurrentPrice] = useState(null);
   const [hours, setHours] = useState(null);
   const [days, setDays] = useState(null);
   const [minutes, setMinutes] = useState(null);
@@ -44,6 +50,10 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
       (item) => item.link === match.params.name
     );
 
+    if (match.params.name === 'result') {
+      setIsPopUpOpened(true);
+    }
+
     if (filteredLinks[0].id + 1 <= 3) {
       history.push(`${links[filteredLinks[0].id + 1].link}`);
     }
@@ -66,8 +76,8 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   useEffect(() => {
     setInfArr(
       infArrHandler(
-        location && location.town,
-        location && location.point,
+        location && location.town[0].name,
+        location && location.point[0].address,
         currentCar && currentCar.name,
         color,
         date.sinceDate,
@@ -83,11 +93,11 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
     );
 
     if (match.params.name === 'location') {
-      setCurrentPrice(null);
+      dispatch(setCurrentPrice(null));
       location ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
     if (match.params.name === 'model') {
-      setCurrentPrice(null);
+      dispatch(setCurrentPrice(null));
       currentCar ? setIsButtonDisabled(false) : setIsButtonDisabled(true);
     }
     if (match.params.name === 'extra-opt') {
@@ -123,24 +133,26 @@ const OrderInf = ({ setIsMobileOpened, infMobileOpened, match }) => {
   };
 
   useEffect(() => {
+    let test = 0;
     if (date.sinceDate && date.endDate && currentRate) {
-      setCurrentPrice(calculatePrice);
+      test = calculatePrice();
     }
     if (extra && extra.isFullTank === true) {
-      setCurrentPrice((prev) => Math.floor(prev + 500));
+      test = Math.floor(test + 500);
     } else {
-      setCurrentPrice((prev) => Math.floor(prev + 0));
+      test = Math.floor(test + 0);
     }
     if (extra && extra.isChair === true) {
-      setCurrentPrice((prev) => Math.floor(prev + 200));
+      test = Math.floor(test + 200);
     } else {
-      setCurrentPrice((prev) => Math.floor(prev + 0));
+      test = Math.floor(test + 0);
     }
     if (extra && extra.isRightWheel === true) {
-      setCurrentPrice((prev) => Math.floor(prev + 1500));
+      test = Math.floor(test + 1500);
     } else {
-      setCurrentPrice((prev) => Math.floor(prev + 0));
+      test = Math.floor(test + 0);
     }
+    dispatch(setCurrentPrice(test));
   }, [date, currentRate, extra]);
 
   return (

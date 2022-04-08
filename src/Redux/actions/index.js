@@ -80,3 +80,19 @@ export const setDate = (date) => ({
   type: 'SET_DATE',
   payload: date,
 });
+
+export const setCurrentPrice = (price) => ({
+  type: 'SET_PRICE',
+  payload: price,
+});
+
+export const postOrder = (data) => {
+  return async (dispatch) => {
+    const response = await API.post('order/', data);
+
+    dispatch({
+      type: 'POST_ORDER',
+      payload: response.data,
+    });
+  };
+};

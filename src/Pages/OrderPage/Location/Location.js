@@ -43,10 +43,17 @@ const Location = () => {
 
   useEffect(() => {
     if (town && point) {
+      const townObj = cities.data.filter((item) => item.name === town);
+      const pointObj = points.data.filter(
+        (item) =>
+          item.address &&
+          item.cityId &&
+          point.toLowerCase().includes(item.address.toLowerCase())
+      );
       dispatch(
         setLocation({
-          town,
-          point,
+          town: townObj,
+          point: pointObj,
         })
       );
     }
@@ -67,7 +74,7 @@ const Location = () => {
           label={'Пункт выдачи'}
           placeholder={'пункт'}
           setText={setPoint}
-          text={location ? location.point : point}
+          text={location ? location.point[0].address : point}
           items={filteredPoints}
           disabled={!town}
         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentCar } from '../../Redux/actions';
+import { setCurrentCar, setColor } from '../../Redux/actions';
 import classes from './CarsList.module.css';
 
 const CarsList = ({ car }) => {
@@ -10,6 +10,7 @@ const CarsList = ({ car }) => {
 
   const carPickHandler = () => {
     dispatch(setCurrentCar(car));
+    dispatch(setColor(null));
   };
 
   return (
