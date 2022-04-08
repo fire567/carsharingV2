@@ -23,8 +23,10 @@ const ExtraOpt = () => {
   const extra = useSelector((state) => state.extra);
   const date = useSelector((state) => state.date);
   const currentRate = useSelector((state) => state.currentRate);
-  const [sinceDate, setSinceDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
+  const [sinceDate, setSinceDate] = useState(
+    date.sinceDate ? date.sinceDate : new Date()
+  );
+  const [endDate, setEndDate] = useState(date.endDate ? date.endDate : null);
   const [isDisabled, setDisabled] = useState(true);
   const [isFullTank, setIsFullTank] = useState(false);
   const [isChair, setIsChair] = useState(false);
@@ -128,7 +130,7 @@ const ExtraOpt = () => {
             <span className={classes.close} onClick={deleteSinceDate} />
             <DatePicker
               className={classes.date}
-              selected={date ? date.sinceDate : sinceDate}
+              selected={sinceDate}
               minDate={date ? date.sinceDate : new Date()}
               onChange={sinceDateHandler}
               minTime={
@@ -149,7 +151,7 @@ const ExtraOpt = () => {
             <span className={classes.close} onClick={deleteEndDate} />
             <DatePicker
               className={classes.date}
-              selected={date ? date.endDate : endDate}
+              selected={endDate}
               onChange={(item) => endDateHandler(item)}
               showTimeSelect
               minTime={sinceDate.getTime()}
