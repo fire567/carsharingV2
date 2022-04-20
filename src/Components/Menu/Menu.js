@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import classNames from 'classnames';
 import exit from '../../assets/exit.svg';
@@ -7,6 +7,7 @@ import Language from '../Language/Language';
 import classes from './Menu.module.css';
 
 const Menu = ({ setIsOpened, isOpened }) => {
+  const [language, setLanguage] = useState(true);
   const closeMenuHandler = () => {
     setIsOpened(false);
   };
@@ -41,7 +42,7 @@ const Menu = ({ setIsOpened, isOpened }) => {
             Обслуживание
           </div>
           <div className={classes.language_form}>
-            <Language />
+            <Language language={language} setLanguage={setLanguage} />
           </div>
         </div>
         <div className={classes.media_icons}>
