@@ -3,6 +3,7 @@ import { ReactSVG } from 'react-svg';
 import classNames from 'classnames';
 import exit from '../../assets/exit.svg';
 import telegram from '../../assets/telegram.svg';
+import Language from '../Language/Language';
 import classes from './Menu.module.css';
 
 const Menu = ({ setIsOpened, isOpened }) => {
@@ -38,6 +39,9 @@ const Menu = ({ setIsOpened, isOpened }) => {
           </div>
           <div href='' className={classes.menu_content}>
             Обслуживание
+          </div>
+          <div className={classes.language_form}>
+            <Language />
           </div>
         </div>
         <div className={classes.media_icons}>
