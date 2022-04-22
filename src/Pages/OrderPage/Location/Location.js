@@ -22,6 +22,12 @@ const Location = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    if (!town) {
+      setPoint(null);
+    }
+  }, [point]);
+
+  useEffect(() => {
     if (town && cities.data && points.data) {
       setFilteredPoints(
         points.data.filter((item) => item.cityId && item.cityId.name === town)
@@ -43,12 +49,25 @@ const Location = () => {
 
   useEffect(() => {
     if (town && point) {
+      const townObj = cities.data.filter((item) => item.name === town);
+      const pointObj = points.data.filter(
+        (item) =>
+          item.address &&
+          item.cityId &&
+          item.address
+            .toLowerCase()
+            .endsWith(
+              point.split(' ')[point.split(' ').length - 1].toLowerCase()
+            )
+      );
       dispatch(
         setLocation({
-          town,
-          point,
+          town: townObj,
+          point: town ? pointObj : null,
         })
       );
+    } else if (!town && !point) {
+      dispatch(setLocation(null));
     }
   }, [town, point, dispatch]);
 
@@ -67,7 +86,7 @@ const Location = () => {
           label={'Пункт выдачи'}
           placeholder={'пункт'}
           setText={setPoint}
-          text={location ? location.point : point}
+          text={location && town ? location.point[0].address : point}
           items={filteredPoints}
           disabled={!town}
         />

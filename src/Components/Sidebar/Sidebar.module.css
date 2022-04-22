@@ -90,30 +90,3 @@
   background-color: #ffffff;
   border: 2px solid #ffffff;
 }
-
-.change_language_form {
-  font-family: "Roboto";
-  font-weight: 700;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-  color: #0ec261;
-  border: 1px solid #151b1f;
-  border-radius: 50px;
-  transition: color 0.3s, border 0.3s;
-}
-
-.change_language_form:hover {
-  border: 1px solid #eeeeee;
-  color: #eeeeee;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-.change_language_form:active {
-  color: #0ec261;
-}

@@ -126,7 +126,7 @@
   width: 130px;
   z-index: 100;
   background-color: white;
-  border: 1px solid#121212;
+  border: 1px solid #121212;
 }
 
 .nav_link_mobile {
@@ -202,4 +202,12 @@
   transform: rotate(300deg);
   -webkit-transform: rotate(-135deg);
   margin-top: 5px;
+}
+
+.id_form{
+  font-weight: 700;
+  font-family: "Roboto";
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
 }

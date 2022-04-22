@@ -32,6 +32,12 @@
   transform: translateX(-100vw);
 }
 
+@media (max-width: 1278px) {
+  .menu_content_side {
+    width: calc(59vw + 18px);
+  }
+}
+
 @media (max-width: 1024px) {
   .menu_content_side {
     width: 100vw;
@@ -137,4 +143,10 @@
 
 .media_icon:not(:first-child) {
   margin-left: 24px;
+}
+
+.language_form{
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
 }
