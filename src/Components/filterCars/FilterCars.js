@@ -14,15 +14,16 @@ const FilterCars = ({
   };
 
   return (
-    <div className={classes.filter_item_form} key={name}>
-      <div
-        className={classNames(classes.circle, {
-          [classes.circle_active]: currentFilter === name,
-          [classes.circle_unactive]: currentFilter !== name,
-        })}
-        onClick={filterBtnHabdler}
-      />
-      <div className={classes.filter_item_name}>{name}</div>
+    <div
+      key={name}
+      onClick={filterBtnHabdler}
+      className={classNames(classes.filter_item_form, {
+        [classes.filter_item_form_active]: currentFilter === name,
+        [classes.filter_item_form_unactive]: currentFilter !== name,
+      })}
+    >
+      <input type={'radio'} className={classes.circle} />
+      <label className={classes.filter_item_name}>{name}</label>
     </div>
   );
 };

@@ -4,13 +4,13 @@ import classes from './Total.module.css';
 
 const Total = ({ currentCar, extra, sinceDate, endDate }) => {
   const numberHandler = () => {
-    const number = `${currentCar.number.substr(
-      0,
-      1
-    )} ${currentCar.number.substr(1, 3)} ${currentCar.number.substr(
-      -4,
-      2
-    )} ${currentCar.number.substr(-2, 2)}`;
+    let number = 'Нет дынных';
+    if (currentCar.number) {
+      number = `${currentCar.number.substr(0, 1)} ${currentCar.number.substr(
+        1,
+        3
+      )} ${currentCar.number.substr(-4, 2)} ${currentCar.number.substr(-2, 2)}`;
+    }
 
     return number;
   };

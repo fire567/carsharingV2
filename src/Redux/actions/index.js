@@ -114,3 +114,7 @@ export const getOrder = (id) => {
     });
   };
 };
+
+export const resetStore = () => ({
+  type: 'RESET',
+});

@@ -14,7 +14,14 @@ import currentPrice from './currentPrice';
 import postedOrder from './postedOrder';
 import order from './order';
 
-export default combineReducers({
+export const getCurrentCar = (state) => state.currentCar;
+export const getRates = (state) => state.rates;
+export const getExtra = (state) => state.extra;
+export const getDate = (state) => state.date;
+export const getCurrentRate = (state) => state.currentRate;
+export const getColor = (state) => state.color;
+
+export const appReducer = combineReducers({
   color: color,
   cities: cities,
   point: point,
@@ -30,3 +37,12 @@ export default combineReducers({
   postedOrder: postedOrder,
   order: order,
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'RESET') {
+    state = undefined;
+  }
+  return appReducer(state, action);
+};
+
+export default rootReducer;

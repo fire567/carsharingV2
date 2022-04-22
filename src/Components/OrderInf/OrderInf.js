@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import { setCurrentPrice, getOrder } from '../../Redux/actions';
+import { setCurrentPrice, getOrder, resetStore } from '../../Redux/actions';
 import { links } from '../../consts';
 import OrderInfMobile from './OrderInfMobile/OrderInfMobile';
 import CurrentInf from './CurrentInf/CurrentInf';
@@ -67,6 +67,9 @@ const OrderInf = ({
       if (filteredLinks[0].id + 1 <= 3) {
         history.push(`${links[filteredLinks[0].id + 1].link}`);
       }
+    } else {
+      dispatch(resetStore());
+      history.push('/order-page/location');
     }
   };
 
